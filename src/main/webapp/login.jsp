@@ -88,8 +88,13 @@
         </div>
     </div>
 </section>
-
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:if test="${loginError}">
+    <script>
+   		
+    toastr.error(${loginError})
+    </script>
+</c:if>
     
 
    <footer id="footer" style="bottom: 0; position: fixed; width: 100%;" >
@@ -99,12 +104,6 @@
         &copy; Copyright <strong>TheEventer</strong>. All Rights Reserved
       </div>
       <div class="credits">
-        <!--
-        All the links in the footer should remain intact.
-        You can delete the links only if you purchased the pro version.
-        Licensing information: https://bootstrapmade.com/license/
-        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=TheEvent
-      -->
         Designed by <a href=""> MLB_OOP_G259</a>
       </div>
     </div>

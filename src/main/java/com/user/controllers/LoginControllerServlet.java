@@ -72,11 +72,16 @@ public class LoginControllerServlet extends HttpServlet {
 			}
 			else {
 				
-				pw.println("<script type = 'text/javascript'>");
-				pw.println("alert('Your username or password is Incorfdf');");
+				
+				request.setAttribute("loginError", "User or password incorrect!");
+				/*pw.println("<script type = 'text/javascript'>");
+				//pw.println("alert('Your username or password is Incorfdf');");
 				//pw.println("toastr.warning('Email or Password Incoreect');");
-				pw.println("location = 'login.jsp'");
-				pw.println("</script>");
+				pw.println("<meta http-equiv='refresh' content='3;URL=login.jsp'>");//redirects after 3 seconds
+				pw.println("<p style='color:red;'>User or password incorrect!</p>");
+				//pw.println("location = 'login.jsp'");
+				pw.println("</script>");*/
+				 
 			}
 		} catch(Exception ex){
 			
