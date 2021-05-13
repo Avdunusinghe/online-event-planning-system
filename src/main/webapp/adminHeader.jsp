@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -89,23 +90,18 @@
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="RequestList.jsp">
+                            <a class="nav-link" href="charts.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Add New Event
                             </a>
-                            <a class="nav-link" href="Employee.jsp">
+                            <a class="nav-link" href="Add Employee.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Employee
                             </a>
-                             <a class="nav-link" href="DisplayEmployee.jsp">
+                            <a class="nav-link" href="UserListServlet">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Employee Details
+                                Clients
                             </a>
-                            <a class="nav-link" href="tables.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Leave mmm
-                            </a>
-                           
                             
                         </div>
                     </div>
@@ -118,38 +114,9 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Dashboard</h1>
+                        <h1 class="mt-4"> Our Registered Clients</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard</li>
-                        </ol>
-                    
-                        
-                                
+                            <li class="breadcrumb-item active">Clients</li>
+                        </ol>                
                 </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; MLB_OOP_G259</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
-        
-        <script src="./Plugins/node_modules/jquery/dist/jquery.slim.min.js"></script>
-        <script src="./Plugins/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" ></script>
-        <script src="./Plugins/node_modules/jquery/dist/jquery.js" ></script>
-        <script src="./Plugins/node_modules/@popperjs/core/dist/umd/popper.js"></script>
-        <script src="./Plugins/node_modules/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="./Plugins/node_modules/toastr/build/toastr.min.js"></script>
-        <script src="./assets/js/Adminscripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
-        
-    </body>
-</html>
-    
+               
