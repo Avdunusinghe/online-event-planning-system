@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		 xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+		 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" 
+		 id="WebApp_ID" 
+		 version="3.1">
+  
+  
+  <!--  <servlet>
+  	<servlet-name>LoginControllerServlet</servlet-name>
+  	<servlet-class>com.user.controllers.LoginControllerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LoginControllerServlet</servlet-name>
+  	<url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>UserInsetServlet</servlet-name>
+  	<servlet-class>com.user.controllers.UserInsetServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UserInsetServlet</servlet-name>
+  	<url-pattern>/userInsert</url-pattern>
+  </servlet-mapping>
+
+
+ <servlet>
+  	<servlet-name>EmployeeIsnertServlet</servlet-name>
+  	<servlet-class>com.user.controllers.EmployeeIsnertServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>EmployeeIsnertServlet</servlet-name>
+  	<url-pattern>/InsertEmployee</url-pattern>
+  </servlet-mapping>
+  
+
+  <servlet>
+  	<servlet-name>ContactInsertServlet</servlet-name>
+  	<servlet-class>com.contact.controllers.ContactInsertServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ContactInsertServlet</servlet-name>
+  	<url-pattern>/contactInsert</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>UserListServlet</servlet-name>
+  	<servlet-class>com.user.controllers.UserListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UserListServlet</servlet-name>
+  	<url-pattern>/UserList</url-pattern>
+  </servlet-mapping>
+
+  
+  <servlet>
+  	<servlet-name>UserDeleteServlet</servlet-name>
+  	<servlet-class>com.user.controllers.UserDeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UserDeleteServlet</servlet-name>
+  	<url-pattern>/UserDelete</url-pattern>
+  </servlet-mapping>
+  
+ 
+
+   <servlet>
+  	<servlet-name>ContactDeleteServlet</servlet-name>
+  	<servlet-class>com.contact.controllers.ContactDeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ContactDeleteServlet</servlet-name>
+  	<url-pattern>/ContactDelete</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>ContactListServlet</servlet-name>
+  	<servlet-class>com.contact.controllers.ContactListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ContactListServlet</servlet-name>
+  	<url-pattern>/ContactList</url-pattern>
+  </servlet-mapping> -->
+
+  
+  
+  <display-name>The Eventer</display-name>
+  <welcome-file-list>
+    <welcome-file>UserAppHome.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

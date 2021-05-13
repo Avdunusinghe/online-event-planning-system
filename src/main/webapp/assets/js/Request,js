@@ -1,0 +1,111 @@
+function ValidateEmail(inputText)
+{
+var format = /^w+([.-]?w+)*@.w+([.-]?w+)*(.w{2,3})+$/;
+if(inputText.value.match(format))
+{
+  
+return true;
+}
+else
+{
+alert("You have entered an invalid email address!");    //The pop up alert for an invalid email address
+document.form1.email.focus();
+return false;
+}
+}   
+
+
+//form  submit validate   
+
+
+   function notNull() 
+   {
+     if (input.value.length == 0)
+      { 
+         toastr.warning('Please Fill Fields');  	
+         return false; 
+      } 
+      else
+    {
+     	
+      return true; 
+    } 
+   
+        
+    }
+    
+}
+
+//test
+ // jQuery to validate form
+$(document).ready(function() {
+$("form1").validate({
+rules: {
+"name1" : {
+required: true,
+
+},
+"name2" {
+required: true,
+
+},
+email: {
+required: true,
+email: true
+},
+number: {
+required: true
+number: true,
+},
+bdate: {
+required: true
+date: true,
+},
+time: {
+required: true
+
+},
+description: {
+required: true
+maxLength = 100
+},
+"venue": {
+required: true
+
+},
+street: {
+required: true
+maxLength = 50;
+},
+street1: {
+required: true
+maxLength = 50;
+},
+city: {
+required: true
+maxLength = 20;
+},
+region: {
+required: true
+maxLength = 20;
+},
+code: {
+required: true
+maxLength = 5;
+},
+capacity: {
+required: true
+number : true;
+},
+attendance: {
+required: true
+number : true;
+},
+budget: {
+required: true
+maxLength = 20;
+},
+}
+}
+});
+});    
