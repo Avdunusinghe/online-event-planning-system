@@ -1,23 +1,32 @@
+///////////////////////////////////////
+//				AUTHOR				 //
+//			RANASINGHE TKSA          //  
+//			  IT20042738			 //
+///////////////////////////////////////
+
 package com.user.util;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.DBConnection.DBConnectionUtil;
+import com.DBConnection.*;
 import com.user.model.User;
 
 public class EmployeeDbUtil {
 	private static Connection con = null;
 	private static Statement stmt = null;
 	private static ResultSet rs = null;
+	private static PreparedStatement PraparedStmt = null;
 	private static boolean isSuccess;
 	
 	
 	/*insert query*/ 
-	public static boolean insertEmployeeDetails(String name, String email, String contactNumber, String password, String type) {
+	public static boolean insertEmployeeDetails(String name, String email, String contactNumber, String password, String isActive,String type) {
 		
 		isSuccess = false;
 
@@ -26,7 +35,7 @@ public class EmployeeDbUtil {
 			int typeId = Integer.parseInt(type);
 			con = DBConnectionUtil.getConnection();
 			stmt = con.createStatement();												
-			String sql = "insert into user values (0, '"+name+"', '"+email+"','"+contactNumber+"','"+password+"', 1, '"+typeId+"')";
+			String sql = "insert into user values (0, '"+name+"', '"+email+"','"+contactNumber+"','"+password+"', '1', '1')";
 			int rs = stmt.executeUpdate(sql); 
 			
 			if(rs > 0) {
@@ -79,26 +88,24 @@ public class EmployeeDbUtil {
 	
 	
 	/* retrieve query */
-	public static List<User> getEmployeeDetails(int userId){
+	public static List<User> getEmployeeDetails(){
 		ArrayList<User> user = new ArrayList<>();
-		/* if you have a with UserID, change id type as a String*/
 		
 		try {
 			con = DBConnectionUtil.getConnection();
 			stmt = con.createStatement();
-			String sql = "select userId, name, email, phone from User where id = '"+ userId+"'";
+			String sql = "select userId, name, email, phone from User where id = 1";
 			rs = stmt.executeQuery(sql); 
 			
 			while(rs.next()) {
-				int id = rs.getInt(1);
-				String name = rs.getString(2);
-				String email = rs.getString(3);
-				String phone = rs.getString(4);
-				//String password = rs.getString(5);
-				//int type = rs.getString(5);
+				int userId = rs.getInt("UserId");
+				String name = rs.getString("name");
+				String email = rs.getString("email");
+				String phone = rs.getString("phone");
+				//String password = rs.getString(password); password column is not created in the database 
 				
-				User u = new User(userId, name, email,phone);
-				user.add(u);
+				User ep = new User(userId, name, email,phone);
+				user.add(ep);
 			}
 		}
 		catch(Exception e) {
@@ -106,6 +113,36 @@ public class EmployeeDbUtil {
 		}
 		
 		return user;
+	}
+	
+	
+	
+	
+	public static boolean deleteEmployee(String userID) throws SQLException{
+		
+		try {
+			
+			int employeeId = Integer.parseInt(userID);
+			con = DBConnectionUtil.getConnection();
+			
+			String sql = "DELETE FROM user WHERE userId = ? ";
+			
+			PraparedStmt = con.prepareStatement(sql);
+			PraparedStmt.setInt(1, employeeId);
+			
+			int resultSet = PraparedStmt.executeUpdate();
+			if(resultSet > 0) {
+				isSuccess = true;
+			}else {
+				isSuccess = false;
+			}
+			
+			
+			return isSuccess;
+			
+		}finally{
+			con.close();
+		}
 	}
 		
 }

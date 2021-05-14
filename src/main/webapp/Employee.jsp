@@ -131,7 +131,7 @@
                         
     					<center>
                         <div  id = "divid">
-                            <form action="InsertEmployee" id ="formid" method ="POST" style="align:center">
+                            <form action="EmployeeIsnertServlet" id ="formid" method ="POST" style="align:center">
 
 							
 

@@ -46,6 +46,7 @@ public class EmployeeIsnertServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String contactNumber = request.getParameter("contactno");
 		String password = request.getParameter("password");
+		String isActive = request.getParameter("isActive");
 		String type = (String)request.getParameter("person");
 		//String  type = request.getParameter("<%= i%>");
 		
@@ -53,7 +54,7 @@ public class EmployeeIsnertServlet extends HttpServlet {
 		response.getWriter();
 		
 		boolean isdone ;
-		isdone =  EmployeeDbUtil.insertEmployeeDetails(name, email, contactNumber, password, type);
+		isdone =  EmployeeDbUtil.insertEmployeeDetails(name, email, contactNumber, password, isActive,type);
 		
 		
 			
@@ -67,7 +68,7 @@ public class EmployeeIsnertServlet extends HttpServlet {
 			else {
 				
 				display.println("<script type = 'text/javascript'>");
-				display.println("alert('Gotabaya fail');");
+				display.println("alert('Error');");
 				display.println("location = Employee.jsp");
 				display.println("</script>");
 				

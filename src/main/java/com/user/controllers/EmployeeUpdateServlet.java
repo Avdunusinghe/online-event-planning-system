@@ -1,12 +1,14 @@
 package com.user.controllers;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import com.user.model.User;
 import com.user.util.EmployeeDbUtil;
 
 /**
@@ -37,15 +39,25 @@ public class EmployeeUpdateServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		//String  type = request.getParameter("<%= i%>");
 		
+		String dispatchPage;
 		boolean updateTrue;
-		updateTrue = EmployeeDbUtil.updateEmployee(name, email, contactNumber, password, type);
 		
-		if(updateTrue == true) {
-			List<User> updateEmployeeDetails = EmployeeDbUtil.getEmployeeDetails(0)
-		}
-		else {
+		try {
+			updateTrue = EmployeeDbUtil.updateEmployee(name, email, contactNumber, type, password);
 			
+			if (updateTrue == true) {
+				
+				dispatchPage = "EmployeeList.jsp";
+				RequestDispatcher dispatcher =  request.getRequestDispatcher(dispatchPage);
+				dispatcher.forward(request, response);
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
 		}
+		
+		
+		
 	}
 
 }

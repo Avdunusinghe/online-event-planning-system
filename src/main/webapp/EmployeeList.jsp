@@ -128,7 +128,48 @@
 
 
 
-					<!-- should be create employee lest table -->
+
+
+
+
+
+
+
+
+
+
+
+					<!-- Define jstl  core -->
+               		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+                 	
+                 	<!-- Import user java class and util -->
+    				<%@ page import="java.util.*, com.user.model.User" %>
+    			
+    				<!-- employee list table -->
+    				<table border = "2">
+						<tr>
+							<th scope = "col">User ID</th>
+							<th scope = "col">Name</th>
+							<th scope = "col">Email Address</th>
+							<th scope = "col">Contact Number </th>
+						</tr>
+						
+						<c:forEach var = "empList" items = "${employee_list}">
+						<tr>
+							<c:url var = "deleteEmployeeLink" value = "EmployeeDeleteServlet">
+								<c:param name =  "userId" value = "${empList.userId}">
+								</c:param>
+							</c:url>
+							<td> ${empList.userId}</td>
+							<td> ${empList.name}</td>
+							<td> ${empList.email}</td>
+							<td> ${empList.phone}</td> 
+							<td> <a href = "${deleteEmployeeLink}" class ="">Delete</a></td>
+						</tr>
+						</c:forEach>
+						
+					</table>
+					
 
 					 <button type="submit" id = "button" class = "button" form="formid" value="Submit"><b>UPDATE</b></button>
 					 <button type="submit" id = "button" class = "button" form="formid" value="Submit"><b>DELETE</b></button>
