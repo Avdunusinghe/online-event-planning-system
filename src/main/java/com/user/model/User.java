@@ -10,12 +10,16 @@ public class User {
 	private String name;
 	private String  email;
 	private String phone;
+	private String password;
 	private boolean isActive;
 	private int type;
 	
 /*  constructor user model class
  * 
  */
+	public User() {
+		
+		}
 	public User(int userId, String name, String email, String phone, boolean isActive, int type) {
 		this.userId = userId;
 		this.name = name;
@@ -34,10 +38,24 @@ public class User {
 		this.email = email;
 		this.phone = phone;
 	}
+   
+   public User(int userId, String name, String email, String phone, String password) {
+	   
+		this.userId = userId;
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+		this.password = password;
+	}
 
 
 
-	/* Getters and Setters
+
+	
+
+
+
+/* Getters and Setters
  * 
  */
    /**
@@ -108,6 +126,21 @@ public class User {
 	 */
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	
+	
+	
+
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 

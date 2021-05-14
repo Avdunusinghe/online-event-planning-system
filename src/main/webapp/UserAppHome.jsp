@@ -67,7 +67,7 @@
             <ul>
               <li><a href="./login.jsp">Login</a></li>
               <li><a href="./clientRegister.jsp">Sign Up</a></li>
-               <li><a href="./clientRegister.jsp">User profile</a></li>
+               <li><a href="UserProfileDetailsServlet">User profile</a></li>
               <li><a href="./login.jsp">Logout</a></li>
               
             </ul>

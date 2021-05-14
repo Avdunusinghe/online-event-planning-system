@@ -10,9 +10,10 @@ import java.util.List;
 
 import com.DBConnection.*;
 import com.user.model.User;
+import com.user.userservice.ICustomerService;
 
 
-public class UserDbUtil {
+public  class UserDbUtil implements ICustomerService {
 	
 	private static Connection myCon = null;
 	private static Statement myStmt = null;
@@ -22,7 +23,7 @@ public class UserDbUtil {
 	private static boolean isSuccess;
 	
 	
-	public static boolean validateLogin(String email, String password) {
+	public static User validateLogin(String email, String password) throws SQLException {
 		
 		try {
 			
@@ -40,21 +41,25 @@ public class UserDbUtil {
 			
 			myRs = myPreparedStmt.executeQuery();
 			
+			
+			User user = null;
 			if(myRs.next()) {
 				
-				isSuccess = true;
-			}
-			else {
-				
-				isSuccess = false;
+				user = new User();
+				user.setUserId(myRs.getInt("userId"));
+				user.setName(myRs.getString("email"));
+				user.setType(myRs.getInt("typeId"));
 			}
 			
+		 return user;
 		}
-		catch (Exception ex) {
-			
-			ex.printStackTrace();
+		finally {
+			myCon.close();
 		}
-		return isSuccess;
+		
+		
+		
+		
 	}
 	
 	public static boolean addUser(String name, String email, String phone, String password) {
@@ -204,5 +209,39 @@ public class UserDbUtil {
 		
 	}
 
+	public static List<User> getOneCustomerDetails(String customerId) {
+		
+		List<User> customers = new ArrayList<>();
+		
+		try {
+			
+			myCon = DBConnectionUtil.getConnection();
+			myStmt = myCon.createStatement();
+			String sql = "SELECT userId, name,email,phone,password FROM user WHERE userId = customerId ";
+			myRs = myStmt.executeQuery(sql);
+			
+			//process result set
+			while(myRs.next()) {
+				
+				int userId = myRs.getInt("UserId");
+				String userName = myRs.getString("name");
+				String userEmail = myRs.getString("email");
+				String userMobileNumber = myRs.getString("phone");
+				String userPassword = myRs.getString("password");
+				
+				User tempCustomer = new User(userId, userName,userEmail,userMobileNumber,userPassword);
+				
+				customers.add(tempCustomer);
+				//myCon.close();
+			}
+			
+		}catch(Exception ex) {
+			
+			ex.printStackTrace();
+			
+		}
+		return customers;
+		
+	}	
 	
 }

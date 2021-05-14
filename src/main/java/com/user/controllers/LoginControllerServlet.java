@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.user.model.User;
 import com.user.util.UserDbUtil;
 
 
@@ -33,25 +34,25 @@ public class LoginControllerServlet extends HttpServlet {
 		
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		boolean isTrue;
+		//User user = new User();
 		
 		try {
 			
-			isTrue = UserDbUtil.validateLogin(email, password);
+			User user = UserDbUtil.validateLogin(email,password);
 			String dispatchPage;
 			
-			if(isTrue == true) {
+			if(user != null) {
+				
+				HttpSession session = request.getSession();
+				session.setAttribute("user", user);
 				
 				
-				
-				if(email.equals("admin@eventer.com") 
-				  || email.equals("maneger@eventer.com") 
-				  || email.equals("planner@eventer.com")) {
+				if(user.getType() == 2 || user.getType() == 3 ) {
 					
 					dispatchPage = "AdminLayout.jsp";
 					
-					HttpSession session = request.getSession();
-					session.setAttribute("email", email);
+					HttpSession session1 = request.getSession();
+					session1.setAttribute("user_tracking", user);
 					
 					RequestDispatcher dispatcher = request.getRequestDispatcher(dispatchPage);
 					dispatcher.forward(request, response);
@@ -61,8 +62,8 @@ public class LoginControllerServlet extends HttpServlet {
 					
 					dispatchPage ="UserAppHome.jsp";
 					
-					HttpSession session = request.getSession();
-					session.setAttribute("email", email);
+					HttpSession session2 = request.getSession();
+					session2.setAttribute("user_tracking", user);
 					
 					RequestDispatcher dispatcher = request.getRequestDispatcher(dispatchPage);
 					dispatcher.forward(request, response);
