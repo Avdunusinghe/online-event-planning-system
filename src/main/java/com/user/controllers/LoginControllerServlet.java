@@ -43,8 +43,8 @@ public class LoginControllerServlet extends HttpServlet {
 			
 			if(user != null) {
 				
-				HttpSession session = request.getSession();
-				session.setAttribute("user", user);
+				/*HttpSession session = request.getSession();
+				session.setAttribute("user_tracking", user);*/
 				
 				
 				if(user.getType() == 2 || user.getType() == 3 || 
@@ -52,8 +52,8 @@ public class LoginControllerServlet extends HttpServlet {
 					
 					dispatchPage = "adminHome.jsp";
 					
-					HttpSession session1 = request.getSession();
-					session1.setAttribute("user_tracking", user);
+					HttpSession session = request.getSession();
+					session.setAttribute("user_tracking", user);
 					
 					RequestDispatcher dispatcher = request.getRequestDispatcher(dispatchPage);
 					dispatcher.forward(request, response);
@@ -63,8 +63,8 @@ public class LoginControllerServlet extends HttpServlet {
 					
 					dispatchPage ="UserAppHome.jsp";
 					
-					HttpSession session2 = request.getSession();
-					session2.setAttribute("user_tracking", user);
+					HttpSession session = request.getSession();
+					session.setAttribute("user_tracking", user);
 					
 					RequestDispatcher dispatcher = request.getRequestDispatcher(dispatchPage);
 					dispatcher.forward(request, response);
@@ -74,9 +74,10 @@ public class LoginControllerServlet extends HttpServlet {
 			}
 			else {
 				
-				
-				request.setAttribute("loginError", "User or password incorrect!");
-				/*pw.println("<script type = 'text/javascript'>");
+				/*String message = "Email or Password inccorrect";
+				request.setAttribute("message",message)
+				//request.setAttribute("loginError", "User or password incorrect!");
+				pw.println("<script type = 'text/javascript'>");
 				//pw.println("alert('Your username or password is Incorfdf');");
 				//pw.println("toastr.warning('Email or Password Incoreect');");
 				pw.println("<meta http-equiv='refresh' content='3;URL=login.jsp'>");//redirects after 3 seconds

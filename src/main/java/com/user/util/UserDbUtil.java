@@ -37,8 +37,7 @@ public  class UserDbUtil implements ICustomerService {
 			String sql = "SELECT * FROM user WHERE email = ? AND password = ? ";
 			myPreparedStmt = myCon.prepareStatement(sql);
 			myPreparedStmt.setString(1, email);
-			myPreparedStmt.setNString(2,password);
-			
+			myPreparedStmt.setString(2,password);
 			myRs = myPreparedStmt.executeQuery();
 			
 			
@@ -47,7 +46,7 @@ public  class UserDbUtil implements ICustomerService {
 				
 				user = new User();
 				user.setUserId(myRs.getInt("userId"));
-				user.setName(myRs.getString("email"));
+				user.setName(myRs.getString("name"));
 				user.setType(myRs.getInt("typeId"));
 			}
 			
