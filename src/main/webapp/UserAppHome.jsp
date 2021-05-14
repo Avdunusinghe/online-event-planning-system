@@ -48,9 +48,9 @@
       <div id="logo" class="pull-left">
         <!-- Uncomment below if you prefer to use a text logo -->
         <!-- <h1><a href="#intro">The<span>Event</span></a></h1>-->
-        <a href="index.html" class="scrollto"><img src="assets/img/2.png" alt="" title=""></a>
+        <a href="index.html" class="scrollto"><img src= "assets/img/NewLogo.png"></a>
       </div>
-
+	
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li class="menu-active"><a href="##">Home</a></li>
