@@ -43,16 +43,16 @@ public class LoginControllerServlet extends HttpServlet {
 			
 			if(user != null) {
 				
+				HttpSession session = request.getSession();
+				session.setAttribute("user", user);
 				
 				
-				if(email.equals("admin@eventer.com") 
-				  || email.equals("maneger@eventer.com") 
-				  || email.equals("planner@eventer.com")) {
+				if(user.getType() == 2 || user.getType() == 3 ) {
 					
 					dispatchPage = "AdminLayout.jsp";
 					
-					HttpSession session = request.getSession();
-					session.setAttribute("email", email);
+					HttpSession session1 = request.getSession();
+					session1.setAttribute("user_tracking", user);
 					
 					RequestDispatcher dispatcher = request.getRequestDispatcher(dispatchPage);
 					dispatcher.forward(request, response);
@@ -62,8 +62,8 @@ public class LoginControllerServlet extends HttpServlet {
 					
 					dispatchPage ="UserAppHome.jsp";
 					
-					HttpSession session = request.getSession();
-					session.setAttribute("email", email);
+					HttpSession session2 = request.getSession();
+					session2.setAttribute("user_tracking", user);
 					
 					RequestDispatcher dispatcher = request.getRequestDispatcher(dispatchPage);
 					dispatcher.forward(request, response);

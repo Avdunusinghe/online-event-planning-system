@@ -48,6 +48,7 @@ public  class UserDbUtil implements ICustomerService {
 				user = new User();
 				user.setUserId(myRs.getInt("userId"));
 				user.setName(myRs.getString("email"));
+				user.setType(myRs.getInt("typeId"));
 			}
 			
 		 return user;
