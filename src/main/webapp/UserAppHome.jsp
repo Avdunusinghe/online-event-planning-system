@@ -866,7 +866,7 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-info">
-            <img src="assets/img/logo.png" alt="TheEvenet">
+            <img src="assets/img/Newlogo.png" alt="TheEvenet">
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">

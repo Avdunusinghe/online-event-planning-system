@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+   
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Insert title here</title>
+	<title>Request List</title>
 	<meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -15,6 +16,7 @@
         <link href="./assets/css/Adminstyles.css" rel="stylesheet" />
         <link href="./Plugins/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
         <link href="./Plugins/node_modules/toastr/build/toastr.css" rel="stylesheet" />
+        <link href="assets/css/style.css" rel="stylesheet">
         
 	
 	<style type="text/css">
@@ -22,9 +24,10 @@
 			font-family: Hind SemiBold;
 		}
 	
-		table, th, td {
+		table, tr,th, td {
   			border: 1px solid black;
 		}
+		
 	</style>
 </head>
 <body class="sb-nav-fixed">
@@ -102,7 +105,7 @@
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="RequestList.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 New Event Request
                             </a>
@@ -133,8 +136,31 @@
                     
                       <h1>New Requests</h1>
 
-	<table>
-	<c:forEach var="ress" items="${Request}">
+	<table class = "table table-hover"  style="width:10%" >
+	
+		<tr>
+	      				<th scope="col">Request Id</th>
+	      				<th scope="col">Customer Name</th>
+	      				<th scope="col">Email</th>
+	      				<th scope="col">Phone</th>
+	      				<th scope="col">Event</th>
+	      				<th scope="col">Event date</th>
+	      				<th scope="col">Event Time</th>
+	      				<th scope="col">Description</th>
+	      				<th scope="col">Venue</th>
+	      				<th scope="col">Venue address</th>
+	      				<th scope="col">No of Halls</th>
+	      				<th scope="col">No of attendees</th>
+	      				<th scope="col">Facilities needed</th>
+	      				<th scope="col">Payment Method</th>
+	      				<th scope="col">Budget Limit</th>
+	      				<th scope="col">Tickets need?</th>
+	      				<th scope="col">Option</th>
+    				</tr>
+    				
+	<c:forEach var="ress" items="${request}">
+	
+	
 	
 	<c:set var="requestId" value="${ress.requestId}"/>
 	<c:set var="name" value="${ress.name}"/>
@@ -152,86 +178,34 @@
 	<c:set var="facilities" value="${ress.facilities}"/>
 	<c:set var="pay" value="${ress.pay}"/>
 	<c:set var="budget" value="${ress.budget}"/>
-	<c:set var="ticket" value="${ress.ticket}"/>
+	<c:set var="tickets" value="${ress.tickets}"/>
 	
 	<tr>
-		<td>Request ID</td>
+		<c:url var="deleteRequest" value = "RequestDeleteServlet"></c:url>
+		
+			    		
 		<td>${ress.requestId}</td>
-	</tr>
-	<tr>
-		<td>Customer Name</td>
 		<td>${ress.name}</td>
-	</tr>
-	<tr>
-		<td>Customer Email</td>
-		<td>${ress.email}</td>
-	</tr>
-	<tr>
-		<td>Customer Phone</td>
+			<td>${ress.email}</td>
 		<td>${ress.phone}</td>
-	</tr>
-	<tr>
-		<td>Event Name</td>
 		<td>${ress.event}</td>
-	</tr>
-	<tr>
-		<td>Event date</td>
 		<td>${ress.date}</td>
-	</tr>
-	<tr>
-		<td>Event time</td>
 		<td>${ress.time}</td>
-	</tr>
-	<tr>
-		<td>Event description</td>
 		<td>${ress.description}</td>
-	</tr>
-	<tr>
-		<td>Event Venue</td>
 		<td>${ress.venue}</td>
-	</tr>
-	<tr>
-		<td>Venue address</td>
 		<td>${ress.address}</td>
-	</tr>
-	<tr>
-		<td>Venue capacity</td>
 		<td>${ress.capacity}</td>
-	</tr>
-	<tr>
-		<td>Number of attendees</td>
 		<td>${ress.attendance}</td>
-	</tr>
-	<tr>
-		<td>Required facilities</td>
 		<td>${ress.facilities}</td>
-	</tr>
-	<tr>
-		<td>payment method</td>
 		<td>${ress.pay}</td>
-	</tr>
-	<tr>
-		<td>Estimated budget</td>
 		<td>${ress.budget}</td>
-	</tr>
-	<tr>
-		<td>Will the tickets issued?</td>
 		<td>${ress.tickets}</td>
+		<td> <button ><a href="${deleteRequestLink}" class="btn btn-danger">Delete</a></button></td>
 	</tr>
 	</c:forEach>
 	</table>
 	
 
-	
-	<a href="UpdateRequest.jsp">
-	<input type="button" name="update" value="Update My Request">
-	</a>
-	
-	<br>
-	
-	<a href="DeleteRequest.jsp">
-	<input type="button" name="delete" value="Delete My Request">
-	</a>
 	
 	 </main>
                 <footer class="py-4 bg-light mt-auto">

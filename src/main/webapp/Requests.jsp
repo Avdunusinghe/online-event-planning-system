@@ -30,27 +30,27 @@
    
   <section class="form my-4 mx-5">
 <div class="testbox">
-      <form  name = "form1" action="/" method = "post"  onsubmit="notNull()">
+      <form  name = "form1" action="RequestInsertServlet" method = "post"  onsubmit="notNull()">
         <div class="banner">
-		<img  src="Images/event1.png"   width="100%" height = "200px">
+		<img  src="img/event1.png"   width="100%" height = "200px">
           <h1>Event Request Form</h1>
         </div>
 		 <div class="item">
           <p>Customer Name</p>
           <div class="name-item">
-            <input type="text" name="name1" placeholder="Name" />
+            <input type="text" name="name" placeholder="Name" required/>
          
           </div>
         </div>
 		<div class="item">
           <p>Contact Email</p>
           <input type="text" name="email" size="30" placeholder="Someone@example.com"  
-          title="Pleasep-mail address" required>
+           required>
           
         </div>
 		  <div class="item">
           <p>Contact Number</p>
-          <input type="text" name="number" required>
+          <input type="text" name="phone" required>
         </div>
 		 <div class="item">
           <p>Select the Event</p>
@@ -96,7 +96,7 @@
         <div class="item">
           <p>Venue Address</p>
          
-          <textarea rows="3"  name="street"  placeholder="Street address" required></textarea>
+          <textarea rows="3"  name="address"  placeholder="Street address" required></textarea>
         
         </div>
         <div class="item">
@@ -111,31 +111,31 @@
           <p>Facilities you expect</p>
           <div class="question-answer">
             <div>
-              <input type="checkbox" value="none" id="checkbox_1" name="contact"/>
+              <input type="checkbox" value="none" id="checkbox_1" name="facilities"/>
               <label for="checkbox_1" class="checkbox"><span>Transporting</span></label>
             </div>
             <div>
-              <input type="checkbox" value="none" id="checkbox_2" name="contact"/>
+              <input type="checkbox" value="none" id="checkbox_2" name="facilities"/>
               <label for="checkbox_2" class="checkbox"><span>Catering</span></label>
             </div>
             <div>
-              <input type="checkbox" value="none" id="checkbox_3" name="contact"/>
+              <input type="checkbox" value="none" id="checkbox_3" name="facilities"/>
               <label for="checkbox_3" class="checkbox"><span>Decoration</span></label>
             </div>
 			<div>
-              <input type="checkbox" value="none" id="checkbox_4" name="contact"/>
+              <input type="checkbox" value="none" id="checkbox_4" name="facilities"/>
               <label for="checkbox_4" class="checkbox"><span>Staff requirement</span></label>
             </div>
             <div>
-              <input type="checkbox" value="none" id="checkbox_5" name="contact"/>
+              <input type="checkbox" value="none" id="checkbox_5" name="facilities"/>
               <label for="checkbox_5" class="checkbox"><span>Music Bands/ DJs</span></label>
             </div>
             <div>
-              <input type="checkbox" value="none" id="checkbox_6" name="contact"/>
+              <input type="checkbox" value="none" id="checkbox_6" name="facilities"/>
               <label for="checkbox_6" class="checkbox"><span>Promotional banners </span></label>
             </div>
             <div>
-              <input type="checkbox" value="none" id="checkbox_7" name="contact"/>
+              <input type="checkbox" value="none" id="checkbox_7" name="facilities"/>
               <label for="checkbox_7" class="checkbox"><span>Photography</span></label>
             </div>
             </div>
@@ -160,11 +160,11 @@
           <p>Will tickets issued?</p>
           <div class="question-answer">
             <div>
-              <input type="radio" value="none" id="radio_1" name="recorded" />
+              <input type="radio" value="none" id="radio_1" name="tickets" />
               <label for="radio_1" class="radio"><span>Yes</span></label>
             </div>
             <div>
-              <input type="radio" value="none" id="radio_2" name="recorded" />
+              <input type="radio" value="none" id="radio_2" name="tickets" />
               <label for="radio_2" class="radio"><span>No</span></label>
             </div>
           </div>
