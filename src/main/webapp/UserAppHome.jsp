@@ -85,11 +85,12 @@
 
   <!-- ======= Intro Section ======= -->
   <section id="intro">
+  
     <div class="intro-container" data-aos="zoom-in" data-aos-delay="100">
       <h1 class="mb-4 pb-0">The Eventer<br><span>Planinng</span> Events</h1>
       <p class="mb-4 pb-0">We have Best Planners</p>
       <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
-      <a href="#about" class="about-btn scrollto">About us</a>
+      <a href="#about" class="about-btn scrollto">About us</a> 
     </div>
   </section><!-- End Intro Section -->
 
@@ -101,7 +102,7 @@
         <div class="row">
         
           <center>
-          <div class="col-lg-6">  
+          <div class="col-lg-6" align = "center">  
               <h2>About The Event</h2>
               <h3>Our philosophy</h3>
               <p> The Event Planner Ltd is an event logistics and marketing company that was formed back in 2013. 

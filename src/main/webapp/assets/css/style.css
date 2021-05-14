@@ -175,7 +175,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 1199px) {
   #header .container {
-    max-width: 100%;
+    max-width: 200%;
   }
 }
 
@@ -208,8 +208,9 @@ h1, h2, h3, h4, h5, h6 {
 #header #logo img {
   padding: 0;
   margin: 0;
-  max-height: 150px;
+  max-height: 175px;
   size: 100px;
+ 
  
 }
 
