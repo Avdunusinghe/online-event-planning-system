@@ -60,17 +60,32 @@
           <li><a href="#venue">Venue</a></li>
           <li><a href="#hotels">Hotels</a></li>
           <li><a href="#gallery">Gallery</a></li>
-          <li><a href="">Request</a></li>
+          <!-- check session not null and visible request link -->
+          <c:choose>
+          	<c:when test="${user.userId != null }">
+          		<li><a href="">Request</a></li>
+          	</c:when>
+          </c:choose>
           <li><a href="#contact">Contact</a></li>
          <!--<li class="buy-tickets"><a href="#buy-tickets">Buy Tickets</a></li>--> 
           <li class="">     <i style='font-size:20px' id="userIcon" class='fas'style="font-size: 20%;" >&#xf406;</i>
             <ul>
-             
-              <li><a href="./login.jsp">Login</a></li>
-              <li><a href="./clientRegister.jsp">Sign Up</a></li>
-               <li><a href="UserProfileDetailsServlet">User profile</a></li>
-              <li><a href="./login.jsp">Logout</a></li>
+             <!-- check session not null and visible request links -->
+              <c:choose>
+              	<c:when test="${user.userId != null }">
+              	
+              		<li><a href="UserProfileDetailsServlet">User profile</a></li>
+             		 <li><a href="UserLogOutServlet">Logout</a></li>
+              	</c:when>
+              	<c:otherwise>
+              		<li><a href="./login.jsp">Login</a></li>
+              		<li><a href="./clientRegister.jsp">Sign Up</a></li>
+              	</c:otherwise>
+              </c:choose>
               
+              
+              
+              <li>${user.userId} ${(user.name)}</li>
             </ul>
           </li>
         

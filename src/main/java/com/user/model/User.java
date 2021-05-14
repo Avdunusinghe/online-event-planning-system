@@ -19,7 +19,28 @@ public class User {
  */
 	public User() {
 		
-		}
+		this.userId = 0;
+		this.name = null;
+		this.email = null;
+		this.phone = null;
+		this.password = null;
+		this.isActive = true;
+		this.type = 0;
+	}
+	
+	
+	public User(int userId, String name, String email, String phone, String password, boolean isActive, int type) {
+	super();
+	this.userId = userId;
+	this.name = name;
+	this.email = email;
+	this.phone = phone;
+	this.password = password;
+	this.isActive = isActive;
+	this.type = type;
+}
+
+
 	public User(int userId, String name, String email, String phone, boolean isActive, int type) {
 		this.userId = userId;
 		this.name = name;
@@ -47,13 +68,6 @@ public class User {
 		this.phone = phone;
 		this.password = password;
 	}
-
-
-
-
-	
-
-
 
 /* Getters and Setters
  * 
