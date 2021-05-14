@@ -69,7 +69,7 @@
                 <img src="./assets/img/gallery/5.jpg" class="img-fluid">
             </div>
             <div class="col-lg-7 px-5 pt-5">
-                <form id="registerForm" action="userInsertServlet"  method="POST" >
+                <form id="registerForm" action="UserInsetServlet" method="POST" >
                     <div class="form-group">
                             <label>Name</label>
                             <input type="text" 

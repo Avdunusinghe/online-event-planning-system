@@ -10,6 +10,7 @@ public class User {
 	private String name;
 	private String  email;
 	private String phone;
+	private String password;
 	private boolean isActive;
 	private int type;
 	
@@ -34,6 +35,16 @@ public class User {
 		this.email = email;
 		this.phone = phone;
 	}
+   
+   public User(int userId, String name, String email, String phone, String password) {
+	   
+		this.userId = userId;
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+		this.password = password;
+	}
+
 
 
 
@@ -108,6 +119,21 @@ public class User {
 	 */
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	
+	
+	
+
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 
