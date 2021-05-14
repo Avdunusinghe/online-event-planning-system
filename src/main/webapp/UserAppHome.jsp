@@ -65,6 +65,7 @@
          <!--<li class="buy-tickets"><a href="#buy-tickets">Buy Tickets</a></li>--> 
           <li class="">     <i style='font-size:20px' id="userIcon" class='fas'style="font-size: 20%;" >&#xf406;</i>
             <ul>
+             
               <li><a href="./login.jsp">Login</a></li>
               <li><a href="./clientRegister.jsp">Sign Up</a></li>
                <li><a href="UserProfileDetailsServlet">User profile</a></li>

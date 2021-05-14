@@ -47,9 +47,10 @@ public class LoginControllerServlet extends HttpServlet {
 				session.setAttribute("user", user);
 				
 				
-				if(user.getType() == 2 || user.getType() == 3 ) {
+				if(user.getType() == 2 || user.getType() == 3 || 
+				   user.getType() == 4 )  {
 					
-					dispatchPage = "AdminLayout.jsp";
+					dispatchPage = "adminHome.jsp";
 					
 					HttpSession session1 = request.getSession();
 					session1.setAttribute("user_tracking", user);
