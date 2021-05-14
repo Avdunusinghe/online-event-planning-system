@@ -53,24 +53,39 @@
 	
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="##">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#speakers">Planners</a></li>
-          <li><a href="#schedule">Schedule</a></li>
-          <li><a href="#venue">Venue</a></li>
-          <li><a href="#hotels">Hotels</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="">Request</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li class="menu-active"><a href="##">HOME</a></li>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#speakers">PLANNERS</a></li>
+          <li><a href="#schedule">SCHEDULE</a></li>
+          <li><a href="#venue">VENUE</a></li>
+          <li><a href="#hotels">HOTELS</a></li>
+          <li><a href="#gallery">GALLERY</a></li>
+          <!-- check session not null and visible request link -->
+          <c:choose>
+          	<c:when test="${user.userId != null }">
+          		<li><a href="">Request</a></li>
+          	</c:when>
+          </c:choose>
+          <li><a href="#contact">CONTACT</a></li>
          <!--<li class="buy-tickets"><a href="#buy-tickets">Buy Tickets</a></li>--> 
           <li class="">     <i style='font-size:20px' id="userIcon" class='fas'style="font-size: 20%;" >&#xf406;</i>
             <ul>
-             
-              <li><a href="./login.jsp">Login</a></li>
-              <li><a href="./clientRegister.jsp">Sign Up</a></li>
-               <li><a href="UserProfileDetailsServlet">User profile</a></li>
-              <li><a href="./login.jsp">Logout</a></li>
+             <!-- check session not null and visible request links -->
+              <c:choose>
+              	<c:when test="${user.userId != null }">
+              	
+              		<li><a href="UserProfileDetailsServlet">User profile</a></li>
+             		 <li><a href="UserLogOutServlet">Logout</a></li>
+              	</c:when>
+              	<c:otherwise>
+              		<li><a href="./login.jsp">Login</a></li>
+              		<li><a href="./clientRegister.jsp">Sign Up</a></li>
+              	</c:otherwise>
+              </c:choose>
               
+              
+              
+              <li>${user.userId} ${(user.name)}</li>
             </ul>
           </li>
         
@@ -85,11 +100,12 @@
 
   <!-- ======= Intro Section ======= -->
   <section id="intro">
+  
     <div class="intro-container" data-aos="zoom-in" data-aos-delay="100">
       <h1 class="mb-4 pb-0">The Eventer<br><span>Planinng</span> Events</h1>
       <p class="mb-4 pb-0">We have Best Planners</p>
       <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
-      <a href="#about" class="about-btn scrollto">About us</a>
+      <a href="#about" class="about-btn scrollto">About us</a> 
     </div>
   </section><!-- End Intro Section -->
 
@@ -101,7 +117,7 @@
         <div class="row">
         
           <center>
-          <div class="col-lg-6">  
+          <div class="col-lg-6" align = "center">  
               <h2>About The Event</h2>
               <h3>Our philosophy</h3>
               <p> The Event Planner Ltd is an event logistics and marketing company that was formed back in 2013. 
@@ -864,11 +880,11 @@
     <div class="footer-top">
       <div class="container">
         <div class="row">
-
+<div id="logo" class="pull-left">
           <div class="col-lg-3 col-md-6 footer-info">
-            <img src="assets/img/Newlogo.png" alt="TheEvenet">
+            <img src="assets/img/NewLogo.png" alt="TheEvenet">
           </div>
-
+</div>
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
