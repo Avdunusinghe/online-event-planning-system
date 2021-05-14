@@ -13,7 +13,7 @@ import com.user.model.User;
 import com.user.userservice.ICustomerService;
 
 
-public class UserDbUtil implements ICustomerService {
+public  class UserDbUtil implements ICustomerService {
 	
 	private static Connection myCon = null;
 	private static Statement myStmt = null;
@@ -23,7 +23,7 @@ public class UserDbUtil implements ICustomerService {
 	private static boolean isSuccess;
 	
 	
-	public static boolean validateLogin(String email, String password) {
+	public static User validateLogin(String email, String password) throws SQLException {
 		
 		try {
 			
@@ -41,21 +41,24 @@ public class UserDbUtil implements ICustomerService {
 			
 			myRs = myPreparedStmt.executeQuery();
 			
+			
+			User user = null;
 			if(myRs.next()) {
 				
-				isSuccess = true;
-			}
-			else {
-				
-				isSuccess = false;
+				user = new User();
+				user.setUserId(myRs.getInt("userId"));
+				user.setName(myRs.getString("email"));
 			}
 			
+		 return user;
 		}
-		catch (Exception ex) {
-			
-			ex.printStackTrace();
+		finally {
+			myCon.close();
 		}
-		return isSuccess;
+		
+		
+		
+		
 	}
 	
 	public static boolean addUser(String name, String email, String phone, String password) {
@@ -238,9 +241,6 @@ public class UserDbUtil implements ICustomerService {
 		}
 		return customers;
 		
-	}
-
-	
-
+	}	
 	
 }

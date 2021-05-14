@@ -3,7 +3,7 @@ package com.DBConnection;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class DBConnectionUtil {
+public class DBConnectionUtil  {
 	
 	private static String url = "jdbc:mysql://localhost:3306/eventdb?autoReconnect=true&useSSL=false";
 	private static String userName = "root";

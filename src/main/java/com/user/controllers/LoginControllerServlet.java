@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.user.model.User;
 import com.user.util.UserDbUtil;
 
 
@@ -33,14 +34,14 @@ public class LoginControllerServlet extends HttpServlet {
 		
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		boolean isTrue;
+		//User user = new User();
 		
 		try {
 			
-			isTrue = UserDbUtil.validateLogin(email, password);
+			User user = UserDbUtil.validateLogin(email,password);
 			String dispatchPage;
 			
-			if(isTrue == true) {
+			if(user != null) {
 				
 				
 				

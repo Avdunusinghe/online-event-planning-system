@@ -6,9 +6,9 @@ import com.user.model.User;
 
 public interface ICustomerService {
 	
-	static boolean validateLogin(String email, String password) {
+	static User validateLogin(String email, String password) {
 		
-		return false;
+		return null;
 	}
 	
 	static boolean addUser(String name, String email, String phone, String password) {

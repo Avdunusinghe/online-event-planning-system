@@ -17,6 +17,9 @@ public class User {
 /*  constructor user model class
  * 
  */
+	public User() {
+		
+		}
 	public User(int userId, String name, String email, String phone, boolean isActive, int type) {
 		this.userId = userId;
 		this.name = name;
@@ -48,7 +51,11 @@ public class User {
 
 
 
-	/* Getters and Setters
+	
+
+
+
+/* Getters and Setters
  * 
  */
    /**
