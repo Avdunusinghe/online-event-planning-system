@@ -26,7 +26,7 @@ public  class UserDbUtil implements ICustomerService {
 	public static User validateLogin(String email, String password) throws SQLException {
 		
 		try {
-			
+			//con
 			/*myCon = DBConnectionUtil.getConnection();
 			myStmt = myCon.createStatement();
 			String sql = "SELECT * FROM user WHERE email = '"+email+"' AND password = '"+password+"'";
