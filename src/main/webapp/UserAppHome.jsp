@@ -64,7 +64,7 @@
           <!-- check session not null and visible request link -->
           <c:choose>
           	<c:when test="${user.userId != null }">
-          		<li><a href="">Request</a></li>
+          		<li><a href="">REQUEST</a></li>
           	</c:when>
           </c:choose>
           <li><a href="#contact">CONTACT</a></li>
