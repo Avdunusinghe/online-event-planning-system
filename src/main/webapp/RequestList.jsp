@@ -200,7 +200,7 @@
 		<td>${ress.pay}</td>
 		<td>${ress.budget}</td>
 		<td>${ress.tickets}</td>
-		<td> <button ><a href="${deleteRequestLink}" class="btn btn-danger">Delete</a></button></td>
+		<td> <button ><a href="${deleteRequestLink}" class="btn-blockr">Delete</a></button></td>
 	</tr>
 	</c:forEach>
 	</table>

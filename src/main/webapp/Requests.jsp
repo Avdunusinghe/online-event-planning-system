@@ -32,7 +32,7 @@
 <div class="testbox">
       <form  name = "form1" action="RequestInsertServlet" method = "post"  onsubmit="notNull()">
         <div class="banner">
-		<img  src="img/event1.png"   width="100%" height = "200px">
+		<img  src="iassets/img/wallevent.jpg"   width="100%" height = "200px">
           <h1>Event Request Form</h1>
         </div>
 		 <div class="item">

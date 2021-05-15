@@ -174,7 +174,7 @@
       input[type=radio]:checked + label:after , input[type=checkbox]:checked + label:after{
       opacity: 1;
       }
-      label.checkbox:before{ border-radius: 5px}
+      label.checkbox:before{ border-radius: 7px}
       input[type=radio]:checked + label:before, label.radio:hover:before,
       input[type=checkbox]:checked + label:before, label.chekbox:hover:before {
       border: 2px solid #3263cd;
