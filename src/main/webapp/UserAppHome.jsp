@@ -54,20 +54,20 @@
 	
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="##">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#speakers">Planners</a></li>
-          <li><a href="#schedule">Schedule</a></li>
-          <li><a href="#venue">Venue</a></li>
-          <li><a href="#hotels">Hotels</a></li>
-          <li><a href="#gallery">Gallery</a></li>
+          <li class="menu-active"><a href="##">HOME</a></li>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#speakers">PLANNERS</a></li>
+          <li><a href="#schedule">SCHEDULE</a></li>
+          <li><a href="#venue">VENUE</a></li>
+          <li><a href="#hotels">HOTELS</a></li>
+          <li><a href="#gallery">GALLERY</a></li>
           <!-- check session not null and visible request link -->
           <c:choose>
           	<c:when test="${user.userId != null }">
           		<li><a href="">Request</a></li>
           	</c:when>
           </c:choose>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact">CONTACT</a></li>
          <!--<li class="buy-tickets"><a href="#buy-tickets">Buy Tickets</a></li>--> 
           <li class="">     <i style='font-size:20px' id="userIcon" class='fas'style="font-size: 20%;" >&#xf406;</i>
             <ul>
