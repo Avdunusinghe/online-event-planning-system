@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
      <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+     <%@ page import="java.util.*, com.user.model.User" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -73,7 +74,7 @@
              <!-- check session not null and visible request links -->
               <c:choose>
               	<c:when test="${user.userId != null }">
-              	
+              
               		<li><a href="UserProfileDetailsServlet">User profile</a></li>
              		 <li><a href="UserLogOutServlet">Logout</a></li>
               	</c:when>
@@ -83,9 +84,15 @@
               	</c:otherwise>
               </c:choose>
               
+             
+               <c:out value="${user.name}"/>
+              <li>${user.userId} ${user.name}</li>
+              <c:out value="${pageContext.session.id}"/>
               
+			     	
+
+			    
               
-              <li>${user.userId} ${(user.name)}</li>
             </ul>
           </li>
         
