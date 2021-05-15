@@ -28,26 +28,50 @@
   <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     <!-- Import user java class and util -->
   <%@ page import="java.util.*, com.user.model.User" %>
-  <table class = "table table-hover" style="width:60%;" > 
-      <tr>
-            <th scope="col">User Id</th>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Phone</th>
-            <th scope="col">Option</th>
-      </tr>
-  <c:forEach var="tempCustomer" items="${customer_detail}">
-      <tr>
-       <td> ${tempCustomer.userId}</td>
-       <td> ${tempCustomer.name} </td>
-       <td> ${tempCustomer.email} </td>
-       <td> ${tempCustomer.phone} </td>
-       <td> ${tempCustomer.password} </td>
-   </tr>
-  </c:forEach>
-  
-  
+
+
+<table>
+	<c:forEach var="tempCustomer" items="${customer_detail}">
+	  <c:set var = "userId" value = "${tempCustomer.userId}"/>
+	  <c:set var = "name" value = "${tempCustomer.name}"/>
+	  <c:set var = "email" value = "${tempCustomer.email}"/>
+	  <c:set var = "phone" value = "${tempCustomer.phone}"/>
+	  <c:set var = "password" value = "${tempCustomer.password}"/>
+	  
+	  <tr>
+	  	<td> Customer Id </td>
+	  	<td> Eventer${tempCustomer.userId} </td>
+	  </tr>
+	  
+	  <tr>
+	  	<td> Name </td>
+	  	<td> ${tempCustomer.name} </td>
+	  </tr>
+	  
+	  <tr>
+	  	<td> Email </td>
+	  	<td> ${tempCustomer.email} </td>
+	  </tr>
+	  
+	  <tr>
+	  	<td> Phone </td>
+	  	<td> ${tempCustomer.phone} </td>
+	  </tr>
+  </c:forEach>	
 </table>
+
+<c:url value = "updateUser.jsp" var="customerUpdateLink">
+	<c:param name = "userId" value = "${userId}"/>
+	<c:param name = "name" value = "${name}"/>
+	<c:param name = "email" value = "${email}"/>
+	<c:param name = "phone" value = "${phone}"/>
+	<c:param name = "password" value = "${password}"/>
+</c:url>
+
+<a href = "${customerUpdateLink}">
+	<input type="submit" value="Update Profile" class="btn btn-success"  />
+</a>
+
   
 
 
