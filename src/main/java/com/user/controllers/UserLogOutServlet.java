@@ -30,20 +30,12 @@ public class UserLogOutServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//doGet(request, response);
 		try {
-			HttpSession session = request.getSession(false);
+			HttpSession session = request.getSession();
 		    if(session != null) {
 		    	
-		    	session.removeAttribute("user_tracking");
+		    	session.removeAttribute("user");
 		    	
 		    	RequestDispatcher dispatcher = request.getRequestDispatcher("UserAppHome.jsp");
 				dispatcher.forward(request, response);
@@ -52,6 +44,14 @@ public class UserLogOutServlet extends HttpServlet {
 			
 			ex.printStackTrace();
 		}
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
 	}
 
 }
