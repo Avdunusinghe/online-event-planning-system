@@ -47,6 +47,8 @@ public class UserDeleteServlet extends HttpServlet {
 			if(isDeleted = true) {
 				
 				//dispatchPage = "UserListServlet";
+				String message = "Customer Deleted";
+				request.setAttribute("message", message);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("UserListServlet");
 				dispatcher.forward(request, response);
 			}

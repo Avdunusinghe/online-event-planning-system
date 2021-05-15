@@ -16,6 +16,26 @@
         <link href="./Plugins/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
         <link href="./Plugins/node_modules/toastr/build/toastr.css" rel="stylesheet" />
         
+        <style>
+        	 
+	  	    #message {
+	    
+	    	float: right;
+	    	top: 0;
+	    	left: 0;
+	    	width: 25%;
+	    	}
+        </style>
+        
+        <script>
+
+	window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+    });
+}, 5000);
+</script>
+        
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
