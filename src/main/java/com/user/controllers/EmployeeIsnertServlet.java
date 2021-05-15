@@ -47,7 +47,7 @@ public class EmployeeIsnertServlet extends HttpServlet {
 		String contactNumber = request.getParameter("contactno");
 		String password = request.getParameter("password");
 		String isActive = request.getParameter("isActive");
-		String type = (String)request.getParameter("person");
+		String type = request.getParameter("person");
 		//String  type = request.getParameter("<%= i%>");
 		
 		PrintWriter display = response.getWriter();

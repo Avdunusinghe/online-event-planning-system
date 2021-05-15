@@ -157,9 +157,8 @@
                                     <tr>
                                         <th>
                                             <label> <b>WHO ARE YOU</b></label><br>
-                                  
-                                           <input type = "radio" id = "person" name = "person" value = "2"checked required> Event Planner 
-                                            <input type = "radio" id = "person" name = "person" value = "3"> Admin 
+                                  			<input type = "radio" id = "person" name = "person" value = "2" checked required> Admin 
+                                           <input type = "radio" id = "person" name = "person" value = "3"> Event Planner 
                                             <input type = "radio" id = "person" name = "person" value = "4"> Manager <br><br>
                                             
                                             

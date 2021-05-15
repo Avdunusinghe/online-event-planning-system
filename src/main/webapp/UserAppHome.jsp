@@ -74,8 +74,11 @@
              <!-- check session not null and visible request links -->
               <c:choose>
               	<c:when test="${user.userId != null }">
-              
-              		<li><a href="UserProfileDetailsServlet">User profile</a></li>
+              	
+              		<c:url var="userProfileLink" value = "UserProfileDetailsServlet">
+			    		<c:param name="userId" value="${user.userId}"></c:param>
+			    	</c:url>
+              		<li><a href="${userProfileLink}">User profile</a></li>
              		 <li><a href="UserLogOutServlet">Logout</a></li>
               	</c:when>
               	<c:otherwise>
@@ -85,9 +88,9 @@
               </c:choose>
               
              
-               <c:out value="${user.name}"/>
+              
               <li>${user.userId} ${user.name}</li>
-              <c:out value="${pageContext.session.id}"/>
+              
               
 			     	
 

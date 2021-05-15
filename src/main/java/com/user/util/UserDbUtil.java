@@ -214,11 +214,15 @@ public  class UserDbUtil implements ICustomerService {
 		
 		try {
 			
+			int cusId = Integer.parseInt(customerId);
 			myCon = DBConnectionUtil.getConnection();
-			myStmt = myCon.createStatement();
-			String sql = "SELECT userId, name,email,phone,password FROM user WHERE userId = customerId ";
-			myRs = myStmt.executeQuery(sql);
+			//myStmt = myCon.createStatement();
+			String sql = "SELECT userId, name,email,phone,password FROM user WHERE userId = ? ";
+			myPreparedStmt = myCon.prepareStatement(sql);
 			
+			//myRs = myStmt.executeQuery(sql);
+			myPreparedStmt.setInt(1,cusId );
+			myRs = myPreparedStmt.executeQuery();
 			//process result set
 			while(myRs.next()) {
 				
