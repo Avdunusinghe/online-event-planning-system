@@ -1077,6 +1077,7 @@
   </header><!-- End Header -->
   <!-- Modal -->
   
+  
 
   <!-- ======= Intro Section ======= -->
   <section id="intro">
@@ -1925,7 +1926,7 @@
       </div>
     </div>
   </footer><!-- End  Footer -->
-
+	
   <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
 
   <!-- Vendor JS Files -->

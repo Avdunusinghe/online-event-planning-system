@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <!-- Import user java class and util -->
+  <%@ page import="java.util.*, com.user.model.User" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -19,22 +21,7 @@
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <a class="navbar-brand" href="index.html">Eventer Admin</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
-            <!-- Navbar Search-->
-           
-                
-            
-            <!-- Navbar-->
-            <ul class="navbar-nav ml-auto ml-md-0" >
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw" ></i></a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">Settings</a>
-                        <a class="dropdown-item" href="#">Activity Log</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="login.html">Logout</a>
-                    </div>
-                </li>
-            </ul>
+            <a class="navbar-brand" href="UserLogOutServlet"><i class="fa fa-power-off" style="font-size:24px"></i></i></a>
         </nav>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
@@ -107,16 +94,9 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Eventer Admin
+                       <p> ${user.name}</p>
                     </div>
                 </nav>
             </div>
-            <div id="layoutSidenav_content">
-                <main>
-                    <div class="container-fluid">
-                        <h1 class="mt-4"> Our Registered Clients</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Clients</li>
-                        </ol>                
-                </main>
+        
                

@@ -75,13 +75,11 @@ public class LoginControllerServlet extends HttpServlet {
 			else {
 				
 			
+				String message = "Invalid email/password";
+                request.setAttribute("message", message);
 				
-				pw.println("<script type = 'text/javascript'>");
-				pw.println("alert('Your username or password is Incorfdf');");
-				//pw.println("toastr.warning('Email or Password Incoreect');");
-				pw.println("<p style='color:red;'>User or password incorrect!</p>");
-				pw.println("location = 'login.jsp'");
-				pw.println("</script>");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+				dispatcher.forward(request, response);
 				 
 			}
 		} catch(Exception ex){

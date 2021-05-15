@@ -21,16 +21,30 @@
       /*  background-color:rgb(20, 20, 49);*/
 
     }
+    
+    #center {
+  		margin-left: auto; 
+  		margin-right: auto;
+	}
+	
+	#btn{
+		margin: 0;
+		padding: 10px 128px;
+  		
+  		
+	}
 </style>
 </head>
 <body>
 
+
+
   <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     <!-- Import user java class and util -->
   <%@ page import="java.util.*, com.user.model.User" %>
-
-
-<table>
+	<br><br>
+  <h2 style =" text-align: center;"> Hi, ${user.name} </h2>
+<table  id="center" class="table table-striped" style="width:40%;">
 	<c:forEach var="tempCustomer" items="${customer_detail}">
 	  <c:set var = "userId" value = "${tempCustomer.userId}"/>
 	  <c:set var = "name" value = "${tempCustomer.name}"/>
@@ -40,7 +54,7 @@
 	  
 	  <tr>
 	  	<td> Customer Id </td>
-	  	<td> Eventer${tempCustomer.userId} </td>
+	  	<td> CID${tempCustomer.userId} </td>
 	  </tr>
 	  
 	  <tr>
@@ -59,7 +73,7 @@
 	  </tr>
   </c:forEach>	
 </table>
-
+  <br><br>
 <c:url value = "updateUser.jsp" var="customerUpdateLink">
 	<c:param name = "userId" value = "${userId}"/>
 	<c:param name = "name" value = "${name}"/>
@@ -67,10 +81,11 @@
 	<c:param name = "phone" value = "${phone}"/>
 	<c:param name = "password" value = "${password}"/>
 </c:url>
-
-<a href = "${customerUpdateLink}">
-	<input type="submit" value="Update Profile" class="btn btn-success"  />
+ 
+<a href = "${customerUpdateLink}"  class="d-flex justify-content-center">
+	<input type="submit" value="Update Profile" class="btn btn-warning" id="btn" />
 </a>
+
 
   
 
