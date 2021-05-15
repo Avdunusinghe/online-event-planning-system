@@ -37,7 +37,7 @@ public class UserLogOutServlet extends HttpServlet {
 		    	
 		    	session.removeAttribute("user");
 		    	
-		    	RequestDispatcher dispatcher = request.getRequestDispatcher("UserAppHome.jsp");
+		    	RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
 				dispatcher.forward(request, response);
 		    }	
 		}catch(Exception ex) {

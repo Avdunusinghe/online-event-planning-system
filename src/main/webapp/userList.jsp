@@ -1,7 +1,14 @@
 <jsp:include page="adminHeader.jsp"/>
                
                
-                	<!-- Define jstl  core -->
+                <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid">
+                        <h1 class="mt-4">Registered Clients</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">Clients</li>
+                        </ol>                
+                </main>	<!-- Define jstl  core -->
                 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
                   <!-- Import user java class and util -->
     			<%@ page import="java.util.*, com.user.model.User" %>
