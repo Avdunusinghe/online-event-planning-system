@@ -71,6 +71,7 @@
             <option value="13">Talent or Variety show</option>
             <option value="4">Networking Sessions</option>
             <option value="5">Seminar or half-day event</option>
+           
           </select>
         </div>
         <div class="item">

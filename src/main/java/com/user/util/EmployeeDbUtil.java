@@ -35,7 +35,7 @@ public class EmployeeDbUtil {
 			int typeId = Integer.parseInt(type);
 			con = DBConnectionUtil.getConnection();
 			stmt = con.createStatement();												
-			String sql = "insert into user values (0, '"+name+"', '"+email+"','"+contactNumber+"','"+password+"', '1', '1')";
+			String sql = "insert into user values (0, '"+name+"', '"+email+"','"+contactNumber+"','"+password+"', '1', '"+typeId+"')";
 			int rs = stmt.executeUpdate(sql); 
 			
 			if(rs > 0) {

@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.user.util.UserDbUtil;
 
 /**
@@ -35,7 +34,6 @@ public class UserInsetServlet extends HttpServlet {
 		String phone = request.getParameter("phone");
 		String password = request.getParameter("password");
 		boolean isInsertTrue;
-		
 		isInsertTrue = UserDbUtil.addUser(name, email, phone, password);
 		
 		/*

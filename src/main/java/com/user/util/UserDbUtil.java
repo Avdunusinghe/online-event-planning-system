@@ -27,27 +27,23 @@ public  class UserDbUtil implements ICustomerService {
 		
 		try {
 			
-			/*myCon = DBConnectionUtil.getConnection();
-			myStmt = myCon.createStatement();
-			String sql = "SELECT * FROM user WHERE email = '"+email+"' AND password = '"+password+"'";
-			
-			myRs = myStmt.executeQuery(sql);*/
-			
 			myCon = DBConnectionUtil.getConnection();
 			String sql = "SELECT * FROM user WHERE email = ? AND password = ? ";
 			myPreparedStmt = myCon.prepareStatement(sql);
+			
 			myPreparedStmt.setString(1, email);
-			myPreparedStmt.setNString(2,password);
+			myPreparedStmt.setString(2,password);
 			
 			myRs = myPreparedStmt.executeQuery();
 			
 			
 			User user = null;
+			
 			if(myRs.next()) {
 				
 				user = new User();
 				user.setUserId(myRs.getInt("userId"));
-				user.setName(myRs.getString("email"));
+				user.setName(myRs.getString("name"));
 				user.setType(myRs.getInt("typeId"));
 			}
 			
@@ -72,9 +68,11 @@ public  class UserDbUtil implements ICustomerService {
 			myStmt = myCon.createStatement();
 			String sql = "INSERT INTO user VALUES(0, '"+name+"', '"+email+"','"+phone+"', '"+password+"','1','1')";
 			int resultSet = myStmt.executeUpdate(sql);*/
+			
 			myCon = DBConnectionUtil.getConnection();
 			String sql = "INSERT INTO user VALUES(0, ?, ?, ?, ?,'1','1')";
 			myPreparedStmt = myCon.prepareStatement(sql);
+			
 			myPreparedStmt.setString(1, name);
 			myPreparedStmt.setString(2, email);
 			myPreparedStmt.setString(3, phone);
@@ -104,14 +102,23 @@ public  class UserDbUtil implements ICustomerService {
 		return isSuccess;
 	}
 
-	public static boolean updateUserDetails(String userName, String userEmail,String mobileNumber, String password) {
+	public static boolean updateUserDetails(String userId,String userName, String userEmail,String mobileNumber, String password) {
 		
 		try {
+			int customerId = Integer.parseInt(userId);
 			
 			myCon = DBConnectionUtil.getConnection();
-			myStmt = myCon.createStatement();
-			String sql = "UPDATE user SET name = '"+userName+"', '"+userEmail+"','"+password+"'";
-			int resultSet = myStmt.executeUpdate(sql);
+			String sql = "UPDATE user SET name = ?, email = ?, phone = ?, password = ? where userId = ?";
+			myPreparedStmt = myCon.prepareStatement(sql);
+			
+			
+			myPreparedStmt.setString(1, userName);
+			myPreparedStmt.setString(2, userEmail);
+			myPreparedStmt.setString(3, mobileNumber);
+			myPreparedStmt.setString(4, password);
+			myPreparedStmt.setInt(5, customerId);
+			
+			int resultSet = myPreparedStmt.executeUpdate();
 			
 			if(resultSet > 0) {
 				
@@ -128,15 +135,10 @@ public  class UserDbUtil implements ICustomerService {
 			
 			ex.printStackTrace();
 		}
-		return false;
+		return isSuccess;
 	}
 
-	/*public static List<User> getUserDetails() {
-		myCon = DBConnectionUtil.getConnection(int userId);
-		String sql = "SELECT * from user WHERE userId = ?";
-		
-		return null;
-	}*/
+	
 
 	public static List<User> getCotomersDetails() {
 		
@@ -215,11 +217,15 @@ public  class UserDbUtil implements ICustomerService {
 		
 		try {
 			
+			int cusId = Integer.parseInt(customerId);
 			myCon = DBConnectionUtil.getConnection();
-			myStmt = myCon.createStatement();
-			String sql = "SELECT userId, name,email,phone,password FROM user WHERE userId = customerId ";
-			myRs = myStmt.executeQuery(sql);
+			//myStmt = myCon.createStatement();
+			String sql = "SELECT userId, name,email,phone,password FROM user WHERE userId = ? ";
+			myPreparedStmt = myCon.prepareStatement(sql);
 			
+			//myRs = myStmt.executeQuery(sql);
+			myPreparedStmt.setInt(1,cusId );
+			myRs = myPreparedStmt.executeQuery();
 			//process result set
 			while(myRs.next()) {
 				

@@ -146,8 +146,8 @@ h1, h2, h3, h4, h5, h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
-  height: 90px;
-  padding: 25px 0;
+  height: 120px;
+  padding: 35px 0;
   position: fixed;
   left: 0;
   top: 0;
@@ -159,8 +159,8 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 991px) {
   #header {
     background: rgba(6, 12, 34, 0.98);
-    height: 70px;
-    padding: 15px 0;
+    height: 120px;
+    padding: 35px 0;
     transition: all 0.5s;
   }
 }
@@ -181,8 +181,8 @@ h1, h2, h3, h4, h5, h6 {
 
 #header.header-scrolled, #header.header-fixed {
   background: rgba(6, 12, 34, 0.98);
-  height: 70px;
-  padding: 15px 0;
+  height: 120px;
+  padding: 35px 0px;
   transition: all 0.5s;
 }
 
@@ -206,10 +206,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header #logo img {
+<<<<<<< HEAD
   padding: 0;
   margin: 0;
   max-height: 150px;
   size: 1500px;
+=======
+  padding: 0px;
+  margin: 0px;
+  max-height: 75px;
+  size: 100px;
+ 
+ 
+ 
+>>>>>>> branch 'master' of https://github.com/Avdunusinghe/online-event-planning-system.git
 }
 
 /*--------------------------------------------------------------
@@ -285,13 +295,13 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Nav Meu Styling */
 .nav-menu a {
-  padding: 8px;
+  padding: 13px;
   text-decoration: none;
   display: inline-block;
   color: rgba(202, 206, 221, 0.8);
   font-family: "Raleway", sans-serif;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 16px;
   outline: none;
 }
 
@@ -1543,7 +1553,11 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #footer .footer-top .footer-info img {
+<<<<<<< HEAD
   height: 120px;
+=======
+  height: 100px;
+>>>>>>> branch 'master' of https://github.com/Avdunusinghe/online-event-planning-system.git
   margin-bottom: 10px;
 }
 

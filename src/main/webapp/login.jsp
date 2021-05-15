@@ -78,9 +78,6 @@
                         <button type="submit"class="btn btn-danger">Login</button>
                     </div><br>
                     <div class="form-row">
-                        <a href="">Forget Password</a>
-                    </div>
-                    <div class="form-row">
                         <p>Don't have an account? <a href="./clientRegister.jsp">Register here</a></p>
                     </div>    
                 </form>
@@ -88,13 +85,8 @@
         </div>
     </div>
 </section>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:if test="${loginError}">
-    <script>
-   		
-    toastr.error(${loginError})
-    </script>
-</c:if>
+
+
     
 
    <footer id="footer" style="bottom: 0; position: fixed; width: 100%;" >

@@ -82,7 +82,13 @@
 </head>
 <body>
 
-
+ <%
+ 		String userId = request.getParameter("userId");
+ 		String name = request.getParameter("name");
+ 		String email = request.getParameter("email");
+ 		String phone = request.getParameter("phone");
+ 		String password = request.getParameter("password");
+ %>
    
   <section class="form my-4 mx-5">
     <div class="container">
@@ -91,38 +97,50 @@
                 <img src="./assets/img/gallery/5.jpg" class="img-fluid">
             </div>
             <div class="col-lg-7 px-5 pt-5">
-              <h1>User Profile</h1>
-                <form id="registerForm" action=""  method="POST" >
+                <form id="registerForm" action="UserUpdateServlet"  method="POST" >
                     <div class="form-group">
                             <label >User Id</label>
                             <input type="text"  
                                    class="form-control" 
                                    aria-label="name" 
                                    aria-describedby="basic-addon1" 
-                                   id="name" 
+                                   id="userId" 
                                    readonly
-                                   name="name"> 
+                                   name="userId"
+                                   value = "<%= userId %>"> 
 
                     </div>
                     <div class="form-group">
                             <label>Name</label>
                             <input type="text"  
                             	    class="form-control"  
-                            	    aria-label="email" 
+                            	    aria-label="name" 
                             	    aria-describedby="basic-addon1" 
-                            	    id="email" 
-                            	    name="email">                        
+                            	    id="name" 
+                            	    name="name"
+                            	    value = "<%= name %>">                        
                     </div>
+                    <div class="form-group">
+                      <label>Email</label>
+                      <input type="text"  
+                            class="form-control"  
+                            aria-label="email" 
+                            aria-describedby="basic-addon1" 
+                            id="email" 
+                            name="email"
+                            value = "<%= email %>">                        
+              </div>
                     <div class="form-group">
                       <label>Phone</label>
                       <input type="text"  
                             class="form-control"  
                             aria-label="phone" 
                             aria-describedby="basic-addon1" 
-                            id="email" 
-                            name="phone">                        
+                            id="phone" 
+                            name="phone"
+                            value = "<%= phone %>">                        
               </div>
-              <P>change Password</P>
+              <P>Change Password</P>
                     <div class="form-group">
                             <label>Password</label>
                             <input type="password"
@@ -130,7 +148,8 @@
                                    aria-label="password" 
                                    aria-describedby="basic-addon1"  
                                    id="password" 
-                                   name="password">  
+                                   name="password"
+                                   value = "<%= password %>">  
                     </div>
                                
                     <div class="form-row" >
