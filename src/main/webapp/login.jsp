@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+     <%@ page import="java.util.*, com.user.model.User" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,10 +44,37 @@
         border:none;
 
     }
+    #message {
+    
+    	float: right;
+    	top: 0;
+    	left: 0;
+    	width: 25%;
+    	
+}
 </style>
+<script>
+
+window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+    });
+}, 3000);
+</script>
 </head>
 <body>
+<br>
+<c:if test="${message != null}">
+	 <div id="message">
+	 	<div class="alert alert-danger alert-dismissible" role="alert">
+    	<a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
+    	<strong>Danger!</strong>${message}
+ 		</div>
+	 </div>
+	  
 
+</c:if>
+<br><br>
 <section class="form my-4 mx-5">
     <div class="container">
         <div class="row no-gutters">
@@ -73,7 +102,8 @@
                                    name="password" 
                                    required> 
                             <div class="invalid-feedback">Please enter your password to continue.</div>
-                    </div><br>                 
+                    </div><br>     
+                                
                     <div class="form-row">
                         <button type="submit"class="btn btn-danger">Login</button>
                     </div><br>
@@ -100,8 +130,7 @@
       </div>
     </div>
   </footer><!-- End  Footer -->
-
-
+	
 <script>
 //login form validation
 (function() {

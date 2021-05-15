@@ -21,33 +21,72 @@
       /*  background-color:rgb(20, 20, 49);*/
 
     }
+    
+    #center {
+  		margin-left: auto; 
+  		margin-right: auto;
+	}
+	
+	#btn{
+		margin: 0;
+		padding: 10px 128px;
+  		
+  		
+	}
 </style>
 </head>
 <body>
 
+
+
   <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     <!-- Import user java class and util -->
   <%@ page import="java.util.*, com.user.model.User" %>
-  <table class = "table table-hover" style="width:60%;" > 
-      <tr>
-            <th scope="col">User Id</th>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Phone</th>
-            <th scope="col">Option</th>
-      </tr>
-  <c:forEach var="tempCustomer" items="${customer_detail}">
-      <tr>
-       <td> ${tempCustomer.userId}</td>
-       <td> ${tempCustomer.name} </td>
-       <td> ${tempCustomer.email} </td>
-       <td> ${tempCustomer.phone} </td>
-       <td> ${tempCustomer.password} </td>
-   </tr>
-  </c:forEach>
-  
-  
+	<br><br>
+  <h2 style =" text-align: center;"> Hi, ${user.name} </h2>
+<table  id="center" class="table table-striped" style="width:40%;">
+	<c:forEach var="tempCustomer" items="${customer_detail}">
+	  <c:set var = "userId" value = "${tempCustomer.userId}"/>
+	  <c:set var = "name" value = "${tempCustomer.name}"/>
+	  <c:set var = "email" value = "${tempCustomer.email}"/>
+	  <c:set var = "phone" value = "${tempCustomer.phone}"/>
+	  <c:set var = "password" value = "${tempCustomer.password}"/>
+	  
+	  <tr>
+	  	<td> Customer Id </td>
+	  	<td> CID${tempCustomer.userId} </td>
+	  </tr>
+	  
+	  <tr>
+	  	<td> Name </td>
+	  	<td> ${tempCustomer.name} </td>
+	  </tr>
+	  
+	  <tr>
+	  	<td> Email </td>
+	  	<td> ${tempCustomer.email} </td>
+	  </tr>
+	  
+	  <tr>
+	  	<td> Phone </td>
+	  	<td> ${tempCustomer.phone} </td>
+	  </tr>
+  </c:forEach>	
 </table>
+  <br><br>
+<c:url value = "updateUser.jsp" var="customerUpdateLink">
+	<c:param name = "userId" value = "${userId}"/>
+	<c:param name = "name" value = "${name}"/>
+	<c:param name = "email" value = "${email}"/>
+	<c:param name = "phone" value = "${phone}"/>
+	<c:param name = "password" value = "${password}"/>
+</c:url>
+ 
+<a href = "${customerUpdateLink}"  class="d-flex justify-content-center">
+	<input type="submit" value="Update Profile" class="btn btn-warning" id="btn" />
+</a>
+
+
   
 
 

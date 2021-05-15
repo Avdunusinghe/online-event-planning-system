@@ -37,6 +37,7 @@ public class UserUpdateServlet extends HttpServlet {
 		 PrintWriter pw = response.getWriter();
 		 response.setContentType("text/html"); 
 		 
+		 String userId = request.getParameter("userId");
 		 String userName = request.getParameter("name");
 		 String userEmail = request.getParameter("email");
 		 String mobileNumber = request.getParameter("phone");
@@ -46,11 +47,11 @@ public class UserUpdateServlet extends HttpServlet {
 		 boolean updateTrue;
 		try {
 			
-			updateTrue = UserDbUtil.updateUserDetails(userName, userEmail, mobileNumber, password);
+			updateTrue = UserDbUtil.updateUserDetails(userId, userName, userEmail, mobileNumber, password);
 			 
 			 if(updateTrue == true) {
 				 
-				 dispatchPage = "updateUser.jsp";
+				 dispatchPage = "UserProfileDetailsServlet";
 				 RequestDispatcher dispatcher = request.getRequestDispatcher(dispatchPage);
 				 dispatcher.forward(request, response);
 			 }
