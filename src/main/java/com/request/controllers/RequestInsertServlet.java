@@ -1,6 +1,7 @@
 package com.request.controllers;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -40,9 +41,11 @@ public class RequestInsertServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
+		PrintWriter display = response.getWriter();
 		
 		// TODO Auto-generated method stub
+		response.getWriter();
+		
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 		String phone = request.getParameter("phone");
@@ -79,12 +82,9 @@ public class RequestInsertServlet extends HttpServlet {
 					
 					// if not success dispatch to Request page
 					 
-					RequestDispatcher dis2 = request.getRequestDispatcher("Request.jsp");
-					dis2.forward(request, response);
-				}
-			}
-		
-
-	}
-
-
+					RequestDispatcher res = request.getRequestDispatcher("Requests.jsp");
+					display.println("<script type = 'text/javascript'>");
+					display.println("alert('Error');");
+					display.println("</script>");
+					res.forward(request, response);
+				}}}

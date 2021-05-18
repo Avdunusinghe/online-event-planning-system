@@ -42,17 +42,13 @@ public class GetRequestListServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String id = request.getParameter("requestId");
-		
-		
-  
 		doGet(request, response);
 		
 		boolean isTrue = false;
 		
 		if (isTrue == true)
 		{
-		List<Request> requests = RequestDbUtil.getRequestList(id);
+		List<Request> requests = RequestDbUtil.getRequestList();
 		request.setAttribute("Request", requests);
 		
 			RequestDispatcher dis = request.getRequestDispatcher("RequestList.jsp");
