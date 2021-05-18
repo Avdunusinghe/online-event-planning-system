@@ -40,13 +40,7 @@ public class EmployeeListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		PrintWriter EPW = response.getWriter();
 		response.setContentType("text/html");
@@ -73,5 +67,8 @@ public class EmployeeListServlet extends HttpServlet {
 			Ex.printStackTrace();
 		}
 	}
-
 }
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	//protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {}

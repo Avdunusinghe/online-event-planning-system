@@ -169,10 +169,6 @@
 						</c:forEach>
 						
 					</table>
-					
-
-					 <button type="submit" id = "button" class = "button" form="formid" value="Submit"><b>UPDATE</b></button>
-					 <button type="submit" id = "button" class = "button" form="formid" value="Submit"><b>DELETE</b></button>
 
                     </div>
                 <br>
