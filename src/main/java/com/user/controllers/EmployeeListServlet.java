@@ -51,15 +51,14 @@ public class EmployeeListServlet extends HttpServlet {
 		PrintWriter EPW = response.getWriter();
 		response.setContentType("text/html");
 		
-		String dispatcherPage;
 		try {
 			List<User> employee = EmployeeDbUtil.getEmployeeDetails();
 			request.setAttribute("employee_list", employee);
 			
 			if(employee != null) {
-				dispatcherPage = "EmployeeList.jsp";
 				
-				RequestDispatcher dispatcher = request.getRequestDispatcher(dispatcherPage);
+				
+				RequestDispatcher dispatcher = request.getRequestDispatcher("EmployeeList.jsp");
 				dispatcher.forward(request, response);
 			}else {
 				
