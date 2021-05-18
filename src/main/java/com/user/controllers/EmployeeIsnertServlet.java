@@ -48,7 +48,7 @@ public class EmployeeIsnertServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		String isActive = request.getParameter("isActive");
 		String type = request.getParameter("person");
-		//String  type = request.getParameter("<%= i%>");
+		
 		
 		PrintWriter display = response.getWriter();
 		response.getWriter();
@@ -61,7 +61,7 @@ public class EmployeeIsnertServlet extends HttpServlet {
 			if(isdone == true) {
 				
 				
-				RequestDispatcher dispatcher = request.getRequestDispatcher("EmployeeList.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("EmployeeListServlet");
 				dispatcher.forward(request, response);	
 			}
 		
