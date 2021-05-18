@@ -38,11 +38,15 @@
 			    	<c:url var="deleteCustomerLink" value = "UserDeleteServlet">
 			    		<c:param name="userId" value="${tempCustomer.userId}"></c:param>
 			    	</c:url>
+			    	<c:url var="deactiveCustomerLink" value = "UserDeleteServlet">
+			    		<c:param name="userId" value="${tempCustomer.userId}"></c:param>
+			    	</c:url>
 			     	<td> ${tempCustomer.userId}</td>
 			     	<td> ${tempCustomer.name} </td>
 			     	<td> ${tempCustomer.email} </td>
 			     	<td> ${tempCustomer.phone} </td>
-			     	<td> <a href="${deleteCustomerLink}" class="btn btn-danger">Delete</a></td>
+			     	<td> <a href="${deleteCustomerLink}" class="btn btn-danger">Delete</a>
+			     	 <a href="${deactiveCustomerLink}" class="btn btn-warning">Deactive</a></td>
 
 			     </tr>
 			    </c:forEach>

@@ -17,7 +17,6 @@ public interface ICustomerService {
       public boolean updateUserDetails(String userId,String userName, String userEmail,String mobileNumber, String password);
 		
 	
-	
       public List<User> getCotomersDetails();
 
 	
@@ -25,6 +24,8 @@ public interface ICustomerService {
 		
 	
       public List<User> getOneCustomerDetails(String customerId);
+      
+      public boolean deactiveCustomer(String customerId);
 		
 	
 
