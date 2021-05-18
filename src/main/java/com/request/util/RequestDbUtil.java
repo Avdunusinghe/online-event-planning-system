@@ -126,20 +126,20 @@ public static boolean Requestdelete(String RequestId) {
 
 
 //retrieve request  data
-	public static ArrayList<Request> getRequestList(String requestId){
+	public static ArrayList<Request> getRequestList(){
 		
-		int conId = Integer.parseInt(requestId);
+		
 		
 		ArrayList<Request> requests = new ArrayList<>();
 		
 		try {
 			conn = DBConnectionUtil.getConnection();
 			statement = conn.createStatement();
-			String sql = "SELECT * FROM request WHERE RequestId = '"+conId+"'";
+			String sql = "SELECT * FROM request WHERE requestId =";
 			ResultSet result = statement.executeQuery(sql);
 			
 			while(result.next()) {
-				int requestId1 = result.getInt(1);
+				int requestId = result.getInt(1);
 				String name = result.getString(2);
 				String email = result.getString(3);
 				String phone = result.getString(4);
@@ -156,7 +156,7 @@ public static boolean Requestdelete(String RequestId) {
 				String budget =  result.getString(15);
 				String tickets =  result.getString(16);
 				
-				Request req = new Request (conId, name,  email, phone, event, date, time, description, venue, address, capacity, attendance, facilities,pay , budget ,tickets, false);
+				Request req = new Request (requestId, name,  email, phone, event, date, time, description, venue, address, capacity, attendance, facilities,pay , budget ,tickets, false);
 				requests.add(req);
 			}
 			
@@ -165,6 +165,40 @@ public static boolean Requestdelete(String RequestId) {
 			ex.printStackTrace();
 		}
 		return requests;
+	}
+
+//update accepted
+
+
+public static boolean updateAcceptedRequest(status) {
+	 
+	 boolean isSuccess = false;
+     // Open a connection
+     try{
+   	  conn = DBConnectionUtil.getConnection();
+			statement = conn.createStatement();
+		      
+        String sql = "UPDATE request SET status =  1  WHERE ;"
+        
+       int result = statement.executeUpdate(sql);
+       
+		
+			if(result > 0) {
+				
+				isSuccess = true;
+			}
+			else {
+				
+				isSuccess = false;
+			}
+			
+			conn.close();
+		}
+		catch(Exception ex) {
+			
+			ex.printStackTrace();
+		}
+		return isSuccess;
 	}
 }
 

@@ -1,29 +1,26 @@
- package com.request.controllers;
+package com.user.controllers;
 
 import java.io.IOException;
-import java.util.List;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.request.model.Request;
-import com.request.util.RequestDbUtil;
+import com.user.userservice.ICustomerService;
+import com.user.util.UserDbUtil;
 
 /**
- * Servlet implementation class GetRequestListServlet
+ * Servlet implementation class CustomerDeactiveServlet
  */
-@WebServlet("/GetRequestListServlet")
-public class GetRequestListServlet extends HttpServlet {
+@WebServlet("/CustomerDeactiveServlet")
+public class CustomerDeactiveServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetRequestListServlet() {
+    public CustomerDeactiveServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,25 +38,18 @@ public class GetRequestListServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		doGet(request, response);
-		
-		boolean isTrue = false;
-		
-		if (isTrue == true)
-		{
-		List<Request> requests = RequestDbUtil.getRequestList();
-		request.setAttribute("Request", requests);
-		
-			RequestDispatcher dis = request.getRequestDispatcher("RequestList.jsp");
-			 dis.forward(request, response);
-		 }
-		 else {
-			 
-			 RequestDispatcher dis = request.getRequestDispatcher("UpdateRequest.jsp");  
-			 dis.forward(request, response);
-		 }
-	
+		String customerid = request.getParameter("userId");
+		try {
+			
+			boolean isDeactive;
+			ICustomerService adminDeactiveCustomer = new UserDbUtil();
+			isDeactive = adminDeactiveCustomer.deactiveCustomer(customerid);
+			
+			
+		}catch(Exception ex) {
+			
+			
+		}
 	}
 
 }

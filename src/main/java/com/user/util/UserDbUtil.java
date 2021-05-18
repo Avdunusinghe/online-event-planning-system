@@ -252,6 +252,41 @@ public  class UserDbUtil implements ICustomerService {
 		}
 		return customers;
 	}
+
+	@Override
+	public boolean deactiveCustomer(String customerId) {
+		
+		try {
+			int deactiveClientId = Integer.parseInt(customerId);
+			
+			myCon = DBConnectionUtil.getConnection();
+			String sql = "UPDATE user SET isActive = 0 where userId = ?";
+			myPreparedStmt = myCon.prepareStatement(sql);
+			
+			
+			myPreparedStmt.setInt(1, deactiveClientId);
+			
+			
+			int resultSet = myPreparedStmt.executeUpdate();
+			
+			if(resultSet > 0) {
+				
+				isSuccess = true;
+			}
+			else {
+				
+				isSuccess = false;
+			}
+			
+			myCon.close();
+		}
+		catch(Exception ex) {
+			
+			ex.printStackTrace();
+		}
+		return isSuccess;
+		
+	}
 	
 	
 	
