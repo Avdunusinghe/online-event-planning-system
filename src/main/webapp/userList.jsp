@@ -38,7 +38,7 @@
 			    	<c:url var="deleteCustomerLink" value = "UserDeleteServlet">
 			    		<c:param name="userId" value="${tempCustomer.userId}"></c:param>
 			    	</c:url>
-			    	<c:url var="deactiveCustomerLink" value = "UserDeleteServlet">
+			    	<c:url var="deactiveCustomerLink" value = "CustomerDeactiveServlet">
 			    		<c:param name="userId" value="${tempCustomer.userId}"></c:param>
 			    	</c:url>
 			     	<td> ${tempCustomer.userId}</td>

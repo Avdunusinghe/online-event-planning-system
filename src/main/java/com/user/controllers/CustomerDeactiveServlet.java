@@ -1,6 +1,9 @@
 package com.user.controllers;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,13 +40,29 @@ public class CustomerDeactiveServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
+		PrintWriter pw = response.getWriter();
+		response.setContentType("text/html");
 		String customerid = request.getParameter("userId");
 		try {
 			
 			boolean isDeactive;
 			ICustomerService adminDeactiveCustomer = new UserDbUtil();
 			isDeactive = adminDeactiveCustomer.deactiveCustomer(customerid);
+			
+			if(isDeactive == true) {
+				
+				RequestDispatcher dispatcher = request.getRequestDispatcher("UserListServlet");
+				dispatcher.forward(request, response);
+			}
+			else {
+				
+				pw.println("<script type = 'text/javascript'>");
+				pw.println("alert('operation Failed');");
+				pw.println("location = 'UserListServlet'");
+				pw.println("</script>");
+				
+			}
 			
 			
 		}catch(Exception ex) {

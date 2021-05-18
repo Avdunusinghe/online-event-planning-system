@@ -260,7 +260,7 @@ public  class UserDbUtil implements ICustomerService {
 			int deactiveClientId = Integer.parseInt(customerId);
 			
 			myCon = DBConnectionUtil.getConnection();
-			String sql = "UPDATE user SET isActive = 0 where userId = ?";
+			String sql = "UPDATE user SET isActive = 0 WHERE userId = ?";
 			myPreparedStmt = myCon.prepareStatement(sql);
 			
 			
