@@ -20,7 +20,6 @@
 
 <% 
         String name = request.getParameter("name");
-		String lastname = request.getParameter("lastname");
 		String email = request.getParameter("email");
 		String phone = request.getParameter("phone");
 		String event = request.getParameter("event");
@@ -39,7 +38,7 @@
     
   <section class="form my-4 mx-5">
 <div class="testbox">
-      <form  name = "form1" action="updateRequest" method = "post"  >
+      <form  name = "form1" action="RequestUpdateServlet" method = "post"  >
         <div class="banner">
 		<  width="100%" height = "100px">
           <h1>Event Request Update Form</h1>
