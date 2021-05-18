@@ -152,6 +152,7 @@
 							<th scope = "col">Name</th>
 							<th scope = "col">Email Address</th>
 							<th scope = "col">Contact Number </th>
+							<th scope = "col"> Password </th>
 						</tr>
 						
 						<c:forEach var = "empList" items = "${employee_list}">
@@ -164,6 +165,7 @@
 							<td> ${empList.name}</td>
 							<td> ${empList.email}</td>
 							<td> ${empList.phone}</td> 
+							<td> ${empList.password}</td>
 							<td> <a href = "${deleteEmployeeLink}" class ="">Delete</a></td>
 						</tr>
 						</c:forEach>

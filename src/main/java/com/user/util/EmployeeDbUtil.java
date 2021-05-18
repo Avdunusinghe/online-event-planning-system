@@ -96,7 +96,7 @@ public class EmployeeDbUtil {
 		try {
 			con = DBConnectionUtil.getConnection();
 			stmt = con.createStatement();
-			String sql = "select userId,name, email,phone from user where isActive = 1 and typeId != 1 ";
+			String sql = "select userId,name, email,phone, password from user where isActive = 1 and typeId != 1 ";
 			rs = stmt.executeQuery(sql); 
 			
 			while(rs.next()) {
@@ -104,9 +104,9 @@ public class EmployeeDbUtil {
 				String name = rs.getString("name");
 				String email = rs.getString("email");
 				String phone = rs.getString("phone");
-		
+				String password = rs.getString("password");
 				
-				User ep = new User(userID, name, email,phone);
+				User ep = new User(userID, name, email,phone,password);
 				user.add(ep);
 			}
 		}
