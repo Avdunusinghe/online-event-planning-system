@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.user.model.User;
+import com.user.userservice.ICustomerService;
 import com.user.util.UserDbUtil;
 
 /**
@@ -44,7 +45,8 @@ public class UserListServlet extends HttpServlet {
 		String dispatchPage;
 		try {
 			
-			List<User> customers = UserDbUtil.getCotomersDetails();
+			ICustomerService adminCustomerRetrieveService = new UserDbUtil();
+			List<User> customers = adminCustomerRetrieveService.getCotomersDetails();
 			
 			request.setAttribute("customers_list", customers);
 			
