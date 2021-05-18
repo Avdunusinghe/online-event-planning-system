@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.user.model.User;
+import com.user.userservice.ICustomerService;
 import com.user.util.UserDbUtil;
 
 /**
@@ -37,7 +38,8 @@ public class UserProfileDetailsServlet extends HttpServlet {
 		
 		try {
 			
-			List<User> uniqueCustomerDetails = UserDbUtil.getOneCustomerDetails(userId);
+			ICustomerService customerDetailsRetrieveService = new UserDbUtil();
+			List<User> uniqueCustomerDetails = customerDetailsRetrieveService.getOneCustomerDetails(userId);
 			
 			request.setAttribute("customer_detail", uniqueCustomerDetails);
 			

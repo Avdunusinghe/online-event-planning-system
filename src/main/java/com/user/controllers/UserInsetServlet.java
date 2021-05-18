@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.user.userservice.ICustomerService;
 import com.user.util.UserDbUtil;
 
 /**
@@ -33,29 +35,40 @@ public class UserInsetServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String phone = request.getParameter("phone");
 		String password = request.getParameter("password");
+		
+		
+		
 		boolean isInsertTrue;
-		isInsertTrue = UserDbUtil.addUser(name, email, phone, password);
-		
-		/*
-		 *  check query execute Success
-		 */
-		
-		if(isInsertTrue == true) {
+		try {
+			
+			ICustomerService customerService = new UserDbUtil();
+			isInsertTrue = customerService.addUser(name, email, phone, password);
 			
 			/*
-			 * if query execute success dispatch to home page
-			 */
-			RequestDispatcher dispatcher = request.getRequestDispatcher("UserAppHome.jsp");
-			dispatcher.forward(request, response);
-		}
-		else {
-			/*
-			 * if query execute not success dispatch to registerpage
+			 *  check query execute Success
 			 */
 			
-			RequestDispatcher dispatcher2 = request.getRequestDispatcher("clientRegister.jsp");
-			dispatcher2.forward(request, response);
+			if(isInsertTrue == true) {
+				
+				/*
+				 * if query execute success dispatch to home page
+				 */
+				RequestDispatcher dispatcher = request.getRequestDispatcher("UserAppHome.jsp");
+				dispatcher.forward(request, response);
+			}
+			else {
+				/*
+				 * if query execute not success dispatch to registerpage
+				 */
+				
+				RequestDispatcher dispatcher2 = request.getRequestDispatcher("clientRegister.jsp");
+				dispatcher2.forward(request, response);
+			}
+		}catch(Exception ex) {
+			
+			ex.printStackTrace();
 		}
+		
 	}
 
 }

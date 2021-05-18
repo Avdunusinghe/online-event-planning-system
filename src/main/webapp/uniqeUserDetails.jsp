@@ -38,6 +38,17 @@
 <body>
 
 
+  <footer id="footer" position: fixed; width: 100%;" >
+    
+    <div class="container">
+      <div class="copyright">
+        
+      </div>
+      <div class="credits">
+        <a href="./UserAppHome.jsp"><img src="assets/img/NewLogo.png" width="100" height="50"></a>
+      </div>
+    </div>
+  </footer>
 
   <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     <!-- Import user java class and util -->
@@ -90,7 +101,7 @@
   
 
 
-   <footer id="footer" style="bottom: 0; position: fixed; width: 100%;" >
+  <footer id="footer" style="bottom: 0; position: fixed; width: 100%;" >
    
     <div class="container">
       <div class="copyright">

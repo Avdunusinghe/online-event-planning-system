@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.user.userservice.ICustomerService;
 import com.user.util.UserDbUtil;
 
 /**
@@ -47,7 +48,8 @@ public class UserUpdateServlet extends HttpServlet {
 		 boolean updateTrue;
 		try {
 			
-			updateTrue = UserDbUtil.updateUserDetails(userId, userName, userEmail, mobileNumber, password);
+			ICustomerService customerDetailsUpdateService = new UserDbUtil();
+			updateTrue = customerDetailsUpdateService.updateUserDetails(userId, userName, userEmail, mobileNumber, password);
 			 
 			 if(updateTrue == true) {
 				 

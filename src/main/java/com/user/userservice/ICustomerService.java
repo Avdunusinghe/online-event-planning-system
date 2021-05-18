@@ -1,39 +1,32 @@
 package com.user.userservice;
 
+
+
 import java.util.List;
 
 import com.user.model.User;
 
 public interface ICustomerService {
 	
-	static User validateLogin(String email, String password) {
-		
-		return null;
-	}
+      public User validateLogin(String email, String password);
 	
-	static boolean addUser(String name, String email, String phone, String password) {
-		
-		return false;
-	}
 	
-	static boolean updateUserDetails(String userName, String userEmail,String mobileNumber, String password) {
+      public boolean addUser(String name, String email, String phone, String password);
 		
-		return false;
-	}
 	
-	static List<User> getCotomersDetails() {
+      public boolean updateUserDetails(String userId,String userName, String userEmail,String mobileNumber, String password);
 		
-		return null;
-	}
 	
-	static boolean deleteCustomer(String userId) {
-		
-		return false;
-	}
+      public List<User> getCotomersDetails();
+
 	
-	static List<User> getOneCustomerDetails(String customerId){
+      public boolean deleteCustomer(String userId);
 		
-		return null;
-	}
+	
+      public List<User> getOneCustomerDetails(String customerId);
+      
+      public boolean deactiveCustomer(String customerId);
+		
+	
 
 }

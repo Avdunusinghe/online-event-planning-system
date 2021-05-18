@@ -66,7 +66,7 @@
     <div class="container">
         <div class="row no-gutters">
             <div class="col-lg-5">
-                <img src="./assets/img/gallery/5.jpg" class="img-fluid">
+                <img src="./assets/img/c.jpg" class="img-fluid">
             </div>
             <div class="col-lg-7 px-5 pt-5">
                 <form id="registerForm" action="UserInsetServlet" method="POST" >

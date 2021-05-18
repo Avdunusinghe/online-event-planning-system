@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.user.model.User;
+import com.user.userservice.ICustomerService;
 import com.user.util.UserDbUtil;
 
 
@@ -38,7 +39,8 @@ public class LoginControllerServlet extends HttpServlet {
 		
 		try {
 			
-			User user = UserDbUtil.validateLogin(email,password);
+			ICustomerService customerService = new UserDbUtil();
+			User user = customerService.validateLogin(email, password);
 			String dispatchPage;
 			
 			if(user != null) {

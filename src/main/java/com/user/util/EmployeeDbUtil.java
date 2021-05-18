@@ -89,22 +89,24 @@ public class EmployeeDbUtil {
 	
 	/* retrieve query */
 	public static List<User> getEmployeeDetails(){
+		
+		
 		ArrayList<User> user = new ArrayList<>();
 		
 		try {
 			con = DBConnectionUtil.getConnection();
 			stmt = con.createStatement();
-			String sql = "select userId, name, email, phone from User where id = 1";
+			String sql = "select name, email,phone from user where isActive = 1 and typeId != 1 ";
 			rs = stmt.executeQuery(sql); 
 			
 			while(rs.next()) {
-				int userId = rs.getInt("UserId");
-				String name = rs.getString("name");
-				String email = rs.getString("email");
-				String phone = rs.getString("phone");
+				int userID = rs.getInt(1);
+				String name = rs.getString(2);
+				String email = rs.getString(3);
+				String phone = rs.getString(4);
 				//String password = rs.getString(password); password column is not created in the database 
 				
-				User ep = new User(userId, name, email,phone);
+				User ep = new User(userID, name, email,phone);
 				user.add(ep);
 			}
 		}

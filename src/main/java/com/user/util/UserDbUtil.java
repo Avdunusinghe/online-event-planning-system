@@ -21,10 +21,11 @@ public  class UserDbUtil implements ICustomerService {
 	private static PreparedStatement myPreparedStmt = null;
 	
 	private static boolean isSuccess;
-	
-	
-	public static User validateLogin(String email, String password) throws SQLException {
+
+	@Override
+	public User validateLogin(String email, String password) {
 		
+		User user = null;
 		try {
 			
 			myCon = DBConnectionUtil.getConnection();
@@ -37,7 +38,7 @@ public  class UserDbUtil implements ICustomerService {
 			myRs = myPreparedStmt.executeQuery();
 			
 			
-			User user = null;
+			
 			
 			if(myRs.next()) {
 				
@@ -47,63 +48,65 @@ public  class UserDbUtil implements ICustomerService {
 				user.setType(myRs.getInt("typeId"));
 			}
 			
-		 return user;
-		}
-		finally {
 			myCon.close();
-		}
-		
-		
-		
-		
-	}
-	
-	public static boolean addUser(String name, String email, String phone, String password) {
-		
-		 isSuccess = false;
-		
-		try {
-			
-			/*myCon = DBConnectionUtil.getConnection();
-			myStmt = myCon.createStatement();
-			String sql = "INSERT INTO user VALUES(0, '"+name+"', '"+email+"','"+phone+"', '"+password+"','1','1')";
-			int resultSet = myStmt.executeUpdate(sql);*/
-			
-			myCon = DBConnectionUtil.getConnection();
-			String sql = "INSERT INTO user VALUES(0, ?, ?, ?, ?,'1','1')";
-			myPreparedStmt = myCon.prepareStatement(sql);
-			
-			myPreparedStmt.setString(1, name);
-			myPreparedStmt.setString(2, email);
-			myPreparedStmt.setString(3, phone);
-			myPreparedStmt.setString(4, password);
-			
-			int resultSet = myPreparedStmt.executeUpdate();
-			
-			// check execute result set value
-			if(resultSet > 0) {
+		}catch(Exception ex) {
 				
-				isSuccess = true;
+				ex.printStackTrace();
 			}
-			else
-			{
-				isSuccess = false;
-			}
-			/*
-			 * close database connection
-			 */
-			myCon.close();
-						
-		}
-		catch(Exception ex) {
 			
-			ex.printStackTrace();
-		}
-		return isSuccess;
+		 return user;
+		 
+		 
+	
+		
 	}
 
-	public static boolean updateUserDetails(String userId,String userName, String userEmail,String mobileNumber, String password) {
-		
+	@Override
+	public boolean addUser(String name, String email, String phone, String password) {
+		 isSuccess = false;
+			
+			try {
+				
+				/*myCon = DBConnectionUtil.getConnection();
+				myStmt = myCon.createStatement();
+				String sql = "INSERT INTO user VALUES(0, '"+name+"', '"+email+"','"+phone+"', '"+password+"','1','1')";
+				int resultSet = myStmt.executeUpdate(sql);*/
+				
+				myCon = DBConnectionUtil.getConnection();
+				String sql = "INSERT INTO user VALUES(0, ?, ?, ?, ?,'1','1')";
+				myPreparedStmt = myCon.prepareStatement(sql);
+				
+				myPreparedStmt.setString(1, name);
+				myPreparedStmt.setString(2, email);
+				myPreparedStmt.setString(3, phone);
+				myPreparedStmt.setString(4, password);
+				
+				int resultSet = myPreparedStmt.executeUpdate();
+				
+				// check execute result set value
+				if(resultSet > 0) {
+					
+					isSuccess = true;
+				}
+				else
+				{
+					isSuccess = false;
+				}
+				/*
+				 * close database connection
+				 */
+				myCon.close();
+							
+			}
+			catch(Exception ex) {
+				
+				ex.printStackTrace();
+			}
+			return isSuccess;
+	}
+
+	@Override
+	public boolean updateUserDetails(String userId,String userName, String userEmail, String mobileNumber, String password) {
 		try {
 			int customerId = Integer.parseInt(userId);
 			
@@ -138,9 +141,8 @@ public  class UserDbUtil implements ICustomerService {
 		return isSuccess;
 	}
 
-	
-
-	public static List<User> getCotomersDetails() {
+	@Override
+	public List<User> getCotomersDetails() {
 		
 		List<User> customers = new ArrayList<>();
 		
@@ -171,25 +173,21 @@ public  class UserDbUtil implements ICustomerService {
 			
 		}
 		return customers;
-		
-		
-		
 	}
 
-	public static boolean deleteCustomer(String userId) throws SQLException {
+	@Override
+	public boolean deleteCustomer(String userId) {
 		
 		try {
 			
 			int customerId = Integer.parseInt(userId);
 			
 			myCon = DBConnectionUtil.getConnection();
-			
 			String sql = "DELETE FROM user WHERE userId = ?";
 			
 			myPreparedStmt = myCon.prepareStatement(sql);
-			
 			myPreparedStmt.setInt(1, customerId);
-			
+	
 			int resultSet = myPreparedStmt.executeUpdate();
 			
 			if(resultSet > 0) {
@@ -201,17 +199,23 @@ public  class UserDbUtil implements ICustomerService {
 				isSuccess = false;
 			}
 			
-			return isSuccess;
+			myCon.close();
+			
+			
+			
+		}catch(Exception ex) {
+			
+			ex.printStackTrace();
 		}
 		
-		finally {
+		
+		return isSuccess;	
 			
-			myCon.close();
-		}
 		
 	}
 
-	public static List<User> getOneCustomerDetails(String customerId) {
+	@Override
+	public List<User> getOneCustomerDetails(String customerId) {
 		
 		List<User> customers = new ArrayList<>();
 		
@@ -247,7 +251,43 @@ public  class UserDbUtil implements ICustomerService {
 			
 		}
 		return customers;
+	}
+
+	@Override
+	public boolean deactiveCustomer(String customerId) {
 		
-	}	
+		try {
+			int deactiveClientId = Integer.parseInt(customerId);
+			
+			myCon = DBConnectionUtil.getConnection();
+			String sql = "UPDATE user SET isActive = 0 where userId = ?";
+			myPreparedStmt = myCon.prepareStatement(sql);
+			
+			
+			myPreparedStmt.setInt(1, deactiveClientId);
+			
+			
+			int resultSet = myPreparedStmt.executeUpdate();
+			
+			if(resultSet > 0) {
+				
+				isSuccess = true;
+			}
+			else {
+				
+				isSuccess = false;
+			}
+			
+			myCon.close();
+		}
+		catch(Exception ex) {
+			
+			ex.printStackTrace();
+		}
+		return isSuccess;
+		
+	}
+	
+	
 	
 }
