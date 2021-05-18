@@ -87,4 +87,7 @@ public class RequestInsertServlet extends HttpServlet {
 					display.println("alert('Error');");
 					display.println("</script>");
 					res.forward(request, response);
-				}}}
+					
+				}
+				}
+	}

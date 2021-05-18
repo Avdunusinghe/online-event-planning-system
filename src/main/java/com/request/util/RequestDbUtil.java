@@ -29,7 +29,7 @@ public class RequestDbUtil {
 				conn = DBConnectionUtil.getConnection();
 				statement = conn.createStatement();
 				
-				String sql = "INSERT INTO request VALUES(1, '"+name+"',  '"+email+"', '"+phone+"', '"+event+"','"+date+"', '"+time+"', '"+description+"', '"+venue+"', '"+address+"', '"+capacity+"','"+attendance+"', '"+facilities+"', '"+pay+"', '"+budget+"', '"+tickets+"')";
+				String sql = "INSERT INTO request VALUES(0, '"+name+"',  '"+email+"', '"+phone+"', '"+event+"','"+date+"', '"+time+"', '"+description+"', '"+venue+"', '"+address+"', '"+capacity+"','"+attendance+"', '"+facilities+"', '"+pay+"', '"+budget+"', '"+tickets+"')";
 				
 				int result = statement.executeUpdate(sql);
 				
@@ -166,10 +166,10 @@ public static boolean Requestdelete(String RequestId) {
 		}
 		return requests;
 	}
-
+}
 //update accepted
 
-
+/*
 public static boolean updateAcceptedRequest(status) {
 	 
 	 boolean isSuccess = false;
@@ -201,4 +201,4 @@ public static boolean updateAcceptedRequest(status) {
 		return isSuccess;
 	}
 }
-
+*/

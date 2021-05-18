@@ -48,7 +48,8 @@ public class UpdateAcceptedListServlet extends HttpServlet {
 		doGet(request, response);
 		
 		boolean isTrue;
-		isTrue = RequestDbUtil.updateAcceptedRequest(String status);
+		isTrue = RequestDbUtil.updateAcceptedRequest(String request
+				id);
 		
 		if (isTrue == true)
 		{
