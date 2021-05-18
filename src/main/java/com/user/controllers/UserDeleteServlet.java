@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.user.userservice.ICustomerService;
 import com.user.util.UserDbUtil;
 
 /**
@@ -41,8 +42,8 @@ public class UserDeleteServlet extends HttpServlet {
 			PrintWriter pw = response.getWriter();
 			response.setContentType("text/html");
 			//String dispatchPage;
-			
-			boolean	isDeleted = UserDbUtil.deleteCustomer(userId);
+			ICustomerService adminCustomerDeleteService = new UserDbUtil();
+			boolean	isDeleted = adminCustomerDeleteService.deleteCustomer(userId);
 			
 			if(isDeleted = true) {
 				
@@ -59,7 +60,7 @@ public class UserDeleteServlet extends HttpServlet {
 				pw.println("location = 'userList.jsp'");
 				pw.println("</script>");
 			}
-		} catch (SQLException ex) {
+		} catch (Exception ex) {
 			
 			ex.printStackTrace();
 		}
