@@ -96,17 +96,17 @@ public class EmployeeDbUtil {
 		try {
 			con = DBConnectionUtil.getConnection();
 			stmt = con.createStatement();
-			String sql = "select name, email,phone from user where isActive = 1 and typeId != 1 ";
+			String sql = "select userId,name, email,phone, password from user where isActive = 1 and typeId != 1 ";
 			rs = stmt.executeQuery(sql); 
 			
 			while(rs.next()) {
-				int userID = rs.getInt(1);
-				String name = rs.getString(2);
-				String email = rs.getString(3);
-				String phone = rs.getString(4);
-				//String password = rs.getString(password); password column is not created in the database 
+				int userID = rs.getInt("userId");
+				String name = rs.getString("name");
+				String email = rs.getString("email");
+				String phone = rs.getString("phone");
+				String password = rs.getString("password");
 				
-				User ep = new User(userID, name, email,phone);
+				User ep = new User(userID, name, email,phone,password);
 				user.add(ep);
 			}
 		}
