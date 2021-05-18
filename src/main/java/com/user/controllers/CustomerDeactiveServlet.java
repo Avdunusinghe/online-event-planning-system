@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.user.userservice.ICustomerService;
+import com.user.util.UserDbUtil;
+
 /**
  * Servlet implementation class CustomerDeactiveServlet
  */
@@ -37,6 +40,10 @@ public class CustomerDeactiveServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String customerid = request.getParameter("userId");
 		try {
+			
+			boolean isDeactive;
+			ICustomerService adminDeactiveCustomer = new UserDbUtil();
+			isDeactive = adminDeactiveCustomer.deactiveCustomer(customerid);
 			
 			
 		}catch(Exception ex) {
