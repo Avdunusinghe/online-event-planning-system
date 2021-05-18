@@ -69,7 +69,7 @@
           </c:choose>
           <li><a href="#contact">CONTACT</a></li>
          <!--<li class="buy-tickets"><a href="#buy-tickets">Buy Tickets</a></li>--> 
-          <li class="">     <i style='font-size:20px' id="userIcon" class='fas'style="font-size: 20%;" >&#xf406;</i>
+          <li class=""><i style='font-size:20px' id="userIcon" class='fas'style="font-size: 40%;" >&#xf406;</i>
             <ul>
              <!-- check session not null and visible request links -->
               <c:choose>
