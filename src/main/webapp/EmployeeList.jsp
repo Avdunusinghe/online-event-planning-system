@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -101,6 +102,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Employee List
                             </a>
+                             <a class="nav-link" href="EmployeeList.jsp">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Employee Update
+                            </a>
                             <a class="nav-link" href="tables.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Leave mmm
@@ -146,7 +151,7 @@
     				<%@ page import="java.util.*, com.user.model.User" %>
     			
     				<!-- employee list table -->
-    				<table border = "2">
+    				<table border = "2" class="table table-dark">
 						<tr>
 							<th scope = "col">User ID</th>
 							<th scope = "col">Name</th>
@@ -156,17 +161,37 @@
 						</tr>
 						
 						<c:forEach var = "empList" items = "${employee_list}">
+						<!-- update details-->
+							<c:set var = "ID" value = "${empList.userId }" ></c:set>
+							<c:set var = "Name" value = "${empList.name }" ></c:set>
+							<c:set var = "Email" value = "${empList.email }" ></c:set>
+							<c:set var = "Phone" value = "${empList.phone }" ></c:set>
+							<c:set var = "Password" value = "${empList.password }" ></c:set>
+						
+						
 						<tr>
+							<c:url var="updateEmployeeLink" value = "EmployeeUpdate.jsp">
+			    				<c:param name = "userId" value = "${userId}"/>
+			    				<c:param name = "name" value = "${name}"/>
+								<c:param name = "email" value = "${email}"/>
+								<c:param name = "phone" value = "${phone}"/>
+								<c:param name = "password" value = "${password}"/>
+			    			</c:url>						
+						
 							<c:url var = "deleteEmployeeLink" value = "EmployeeDeleteServlet">
 								<c:param name =  "userId" value = "${empList.userId}">
 								</c:param>
 							</c:url>
+							
+							 
+			    			
 							<td> ${empList.userId}</td>
 							<td> ${empList.name}</td>
 							<td> ${empList.email}</td>
 							<td> ${empList.phone}</td> 
 							<td> ${empList.password}</td>
-							<td> <a href = "${deleteEmployeeLink}" class ="">Delete</a></td>
+							<td> <a href = "${updateEmployeeLink}" class ="btn btn-success">Update</a></td>
+							<td> <a href = "${deleteEmployeeLink}" class ="btn btn-danger">Delete</a></td>
 						</tr>
 						</c:forEach>
 						

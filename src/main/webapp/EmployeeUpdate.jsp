@@ -97,15 +97,14 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Employee
                             </a>
-                            <a class="nav-link" href="EmployeeListServlet">
+                              <a class="nav-link" href="EmployeeList.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Employee List
                             </a>
                             <a class="nav-link" href="tables.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Leave mm
+                                Leave mmm
                             </a>
-                           
                         </div>
 
                         
@@ -122,92 +121,96 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">EMPLOYEE</h1>
+                        <h1 class="mt-4">EMPLOYEE LIST</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Employee</li>
                         </ol>
-                        
-                        
-                        
-    					<center>
-                        <div  id = "divid">
-                            <form action="EmployeeIsnertServlet" id ="formid" method ="POST" style="align:center">
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+					<!-- Define jstl  core -->
+               		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+                  <!-- Import user java class and util -->
+    				<%@ page import="java.util.*, com.user.model.User" %>  
+    			
+    				<!-- employee list table -->
+    				<!-- 
+    				<table border = "2" class="table table-dark">
+						<tr>
+							<th scope = "col">User ID</th>
+							<th scope = "col">Name</th>
+							<th scope = "col">Email Address</th>
+							<th scope = "col">Contact Number </th>
+							<th scope = "col"> Password </th>
+						</tr>
+						
+						<c:forEach var = "empList" items = "${employee_list}">
+						<tr>
+							<c:url var="updateEmployeeLink" value = "EmployeeUpdateServlet">
+			    				<c:param name = "userId" value = "${userId}"/>
+			    				<c:param name = "name" value = "${name}"/>
+								<c:param name = "email" value = "${email}"/>
+								<c:param name = "phone" value = "${phone}"/>
+								<c:param name = "password" value = "${password}"/>
+			    			</c:url>						
+						
+							<c:url var = "deleteEmployeeLink" value = "EmployeeDeleteServlet">
+								<c:param name =  "userId" value = "${empList.userId}">
+								</c:param>
+							</c:url>
 							
-
-                                <table class="style">
-                                    <tr>
-                                        <th align = "left">
-                                            <label> <b>NAME</b></label><br>
-                                            <input type = "text" id = "" name = "name" class = "inputclass" placeholder = "Enter the Name" required> <br><br>
-                                        </th>
-                                    </tr>
-                                    <tr align = "left">
-                                        <th>
-                                            <label> <b>EMAIL</b> </label><br>
-                                            <input type = "text" id = "email" name = "email" class = "inputclass" pattern = "[a-z0-9._]+@[a-z0-9]+\.[a-z]{2,3}"placeholder = "you@domain.com" required> <br><br>
-                                        </th>
-                                    </tr>
-                                    <tr align = "left">
-                                        <th>
-                                            <label><b>CONTACT NUMBER</b></label><br>
-                                            <input id = "" type = "text" name = "contactno" class = "inputclass" pattern = "[0-9]{5,10}" placeholder = "Eg:(0094) XXX XXXX "> <br><br>
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label> <b>WHO ARE YOU</b></label><br>
-                                  			<input type = "radio" id = "person" name = "person" value = "2" checked required> Admin 
-                                           <input type = "radio" id = "person" name = "person" value = "3"> Event Planner 
-                                            <input type = "radio" id = "person" name = "person" value = "4"> Manager <br><br>
-                                            
-                                            
-                                            
-                                            
-                                            
-                                                <!--    <%
-    												for(int i=0; i<1; i++){
-      					  					%>
-            								<input type="radio" name="<%= i%>" value="<%=i %>"> Event Planner 
-            								<input type="radio" name="<%= i%>" value="<%=i %>"> Admin
-            								<input type="radio" name="<%= i%>" value="<%=i %>">  Manager <br><br>
-        									<%
-    										}
-											%>-->
-                                        </th>
-                                        
-                                        
-                                        
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label> <b>PASSWORD</b></label><br>
-                                            <input type="password" placeholder="******" class="inputclass" id="password" name="password" required> <br><br>
-                                        </th>
-                                    </tr>
-                                    <tr align="right">
-                                        <th >
-                                            <button type="submit" id = "button" class = "button" form="formid" value="Submit"><b>SUBMIT</b></button>
-                                        </th>
-                                    </tr>
-                                   
-                                   
-                                      
-                                    </table>
-                               </form>
-                        </div>
-                   </center>
+							
+			    			
+							<td> ${empList.userId}</td>
+							<td> ${empList.name}</td>
+							<td> ${empList.email}</td>
+							<td> ${empList.phone}</td> 
+							<td> ${empList.password}</td>
+							<td> <a href = "${updateEmployeeLink}" class ="btn btn-success">Update</a></td>
+							<td> <a href = "${deleteEmployeeLink}" class ="btn btn-danger">Delete</a></td>
+						</tr>
+						</c:forEach>
+						
+					</table> -->
+				
 
 
 
 
+					<%
+						String userId = request.getParameter("userId");
+						String name = request.getParameter("name");
+						String email = request.getParameter("email");
+						String phone = request.getParameter("phone");
+						String password = request.getParameter("password");
+					
+					%>
 
-
-
-
-
+					<form action = "" method = "POST" >
+						User ID <input type = "text" name = "userId" value = "<%= userId %>" readonly> <br>
+						Name <input type = "text" name = "name" value = "<%= name %>"> <br>
+						Email <input type = "text" name = "email" value = "<%= email %>">  <br>
+						Phone Number <input type = "text" name = "phone" value = "<%= phone %>"> <br>
+						Password <input type = "text" name = "password" value = "<%= password %>"> <br>
+						
+						<input type = "submit" name = "submit" value = "DONE"> <br>
+					</form>
+					
+					
                     </div>
-                    <br>
+                <br>
+                
                                 
                 </main>
                 <footer class="py-4 bg-light mt-auto">

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.user.model.User;
 import com.user.util.EmployeeDbUtil;
+import java.util.List;
 
 /**
  * Servlet implementation class EmployeeUpdateServlet
@@ -37,18 +38,18 @@ public class EmployeeUpdateServlet extends HttpServlet {
 		String contactNumber = request.getParameter("contactno");
 		String type = (String)request.getParameter("person");
 		String password = request.getParameter("password");
-		//String  type = request.getParameter("<%= i%>");
 		
-		String dispatchPage;
 		boolean updateTrue;
+		updateTrue = EmployeeDbUtil.updateEmployee(name, email, contactNumber, password, type);
 		
 		try {
-			updateTrue = EmployeeDbUtil.updateEmployee(name, email, contactNumber, type, password);
+			List<User> empDetail = EmployeeDbUtil.getEmployeeDetails();
+			request.setAttribute(password, empDetail);
+			//updateTrue = EmployeeDbUtil.updateEmployee(name, email, contactNumber, type, password);
 			
 			if (updateTrue == true) {
 				
-				dispatchPage = "EmployeeList.jsp";
-				RequestDispatcher dispatcher =  request.getRequestDispatcher(dispatchPage);
+				RequestDispatcher dispatcher =  request.getRequestDispatcher("EmployeeUpdate.jsp");
 				dispatcher.forward(request, response);
 			}
 			
