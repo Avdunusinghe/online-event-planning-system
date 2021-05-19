@@ -3,7 +3,6 @@ package com.user.util;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +11,9 @@ import com.DBConnection.*;
 import com.user.model.User;
 import com.user.userservice.ICustomerService;
 
-
+/*
+ * Author Ashen Dunusinghe IT20025526
+ */
 public  class UserDbUtil implements ICustomerService {
 	
 	private static Connection myCon = null;
@@ -260,7 +261,7 @@ public  class UserDbUtil implements ICustomerService {
 			int deactiveClientId = Integer.parseInt(customerId);
 			
 			myCon = DBConnectionUtil.getConnection();
-			String sql = "UPDATE user SET isActive = 0 where userId = ?";
+			String sql = "UPDATE user SET isActive = 0 WHERE userId = ? ";
 			myPreparedStmt = myCon.prepareStatement(sql);
 			
 			
@@ -286,6 +287,77 @@ public  class UserDbUtil implements ICustomerService {
 		}
 		return isSuccess;
 		
+	}
+
+	/*
+	 * get deactive customers implementation 
+	 */
+	@Override
+	public List<User> getDeactiveCustomers() {
+		
+		List<User> deactiveCustomers = new ArrayList<>();
+		
+		try {
+			
+			myCon = DBConnectionUtil.getConnection();
+			myStmt = myCon.createStatement();
+			String sql = "SELECT userId, name,email,phone FROM user WHERE isActive = 0 AND typeId = 1";
+			myRs = myStmt.executeQuery(sql);
+			
+			//process result set
+			while(myRs.next()) {
+				
+				int userId = myRs.getInt("UserId");
+				String userName = myRs.getString("name");
+				String userEmail = myRs.getString("email");
+				String userMobileNumber = myRs.getString("phone");
+				
+				User tempCustomer = new User(userId, userName,userEmail,userMobileNumber);
+				
+				deactiveCustomers.add(tempCustomer);
+				
+			}
+			
+		}catch(Exception ex) {
+			
+			ex.printStackTrace();
+			
+		}
+		return deactiveCustomers;
+	}
+
+	@Override
+	public boolean reActiveCustomer(String userId) {
+		
+		try {
+			int reActiveClientId = Integer.parseInt(userId);
+			
+			myCon = DBConnectionUtil.getConnection();
+			String sql = "UPDATE user SET isActive = 1 WHERE userId = ? ";
+			myPreparedStmt = myCon.prepareStatement(sql);
+			
+			
+			myPreparedStmt.setInt(1, reActiveClientId);
+			
+			
+			int resultSet = myPreparedStmt.executeUpdate();
+			
+			if(resultSet > 0) {
+				
+				isSuccess = true;
+			}
+			else {
+				
+				isSuccess = false;
+			}
+			
+			myCon.close();
+		}
+		catch(Exception ex) {
+			
+			ex.printStackTrace();
+		}
+		return isSuccess;
 	}
 	
 	

@@ -2,6 +2,7 @@ package com.user.controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,52 +11,51 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.user.model.User;
 import com.user.userservice.ICustomerService;
 import com.user.util.UserDbUtil;
 
 /**
- * Servlet implementation class CustomerDeactiveServlet
+ * Servlet implementation class GetDeactiveUserDetailsServlet
  */
-@WebServlet("/CustomerDeactiveServlet")
-public class CustomerDeactiveServlet extends HttpServlet {
+@WebServlet("/GetDeactiveUserDetailsServlet")
+public class GetDeactiveUserDetailsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CustomerDeactiveServlet() {
+   
+    public GetDeactiveUserDetailsServlet() {
         super();
-        // TODO Auto-generated constructor stub
+        
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		PrintWriter pw = response.getWriter();
 		response.setContentType("text/html");
-		String customerid = request.getParameter("userId");
+		String dispatchPage;
+		
 		try {
 			
-			boolean isDeactive;
-			ICustomerService adminDeactiveCustomer = new UserDbUtil();
-			isDeactive = adminDeactiveCustomer.deactiveCustomer(customerid);
+			ICustomerService deactiveCustomerDetails = new UserDbUtil();
+			List<User> deactiveCustomers = deactiveCustomerDetails.getDeactiveCustomers();
 			
-			if(isDeactive == true) {
+			request.setAttribute("deactive_list", deactiveCustomers);
+			
+			if(deactiveCustomers != null) {
 				
-				RequestDispatcher dispatcher = request.getRequestDispatcher("UserListServlet");
+				dispatchPage = "deactiveUserList.jsp";
+				
+				RequestDispatcher dispatcher = request.getRequestDispatcher(dispatchPage);
 				dispatcher.forward(request, response);
 			}
 			else {
 				
 				pw.println("<script type = 'text/javascript'>");
-				pw.println("alert('operation Failed');");
+				pw.println("alert('Not Found Customer Details');");
 				pw.println("location = 'UserListServlet'");
 				pw.println("</script>");
-				
 			}
-			
 			
 		}catch(Exception ex) {
 			
@@ -63,12 +63,10 @@ public class CustomerDeactiveServlet extends HttpServlet {
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
+		doGet(request, response);
 	}
 
 }

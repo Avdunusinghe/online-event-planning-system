@@ -61,7 +61,7 @@ public class UserListServlet extends HttpServlet {
 				
 				pw.println("<script type = 'text/javascript'>");
 				pw.println("alert('Not Found Customer Details');");
-				pw.println("location = 'AdminLayout.jsp'");
+				pw.println("location = 'UserListServlet'");
 				pw.println("</script>");
 			}
 			

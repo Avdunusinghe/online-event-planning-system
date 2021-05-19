@@ -7,7 +7,7 @@
                 <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Registered Clients</h1>
+                        <h1 class="mt-4">Deactive Clients</h1>
                         
                         
                         <ol class="breadcrumb mb-4">
@@ -32,21 +32,18 @@
 	      				<th scope="col">Phone</th>
 	      				<th scope="col">Option</th>
     				</tr>
-			    <c:forEach var="tempCustomer" items="${customers_list}">
+			    <c:forEach var="tempCustomer" items="${deactive_list}">
 			    	<tr>
 			    	
-			    	<c:url var="deleteCustomerLink" value = "UserDeleteServlet">
+			    	<c:url var="reactiveCustomerLink" value = "">
 			    		<c:param name="userId" value="${tempCustomer.userId}"></c:param>
 			    	</c:url>
-			    	<c:url var="deactiveCustomerLink" value = "CustomerDeactiveServlet">
-			    		<c:param name="userId" value="${tempCustomer.userId}"></c:param>
-			    	</c:url>
+			    	
 			     	<td> ${tempCustomer.userId}</td>
 			     	<td> ${tempCustomer.name} </td>
 			     	<td> ${tempCustomer.email} </td>
 			     	<td> ${tempCustomer.phone} </td>
-			     	<td> <a href="${deleteCustomerLink}" class="btn btn-danger">Delete</a>
-			     	 <a href="${deactiveCustomerLink}" class="btn btn-warning">Deactive</a></td>
+			     	<td> <a href="${reactiveCustomerLink}" class="btn btn-success">ReActive</a></td>
 
 			     </tr>
 			    </c:forEach>
