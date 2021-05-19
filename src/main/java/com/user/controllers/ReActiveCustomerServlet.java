@@ -14,23 +14,18 @@ import com.user.userservice.ICustomerService;
 import com.user.util.UserDbUtil;
 
 /**
- * Servlet implementation class CustomerDeactiveServlet
+ * Servlet implementation class ReActiveCustomerServlet
  */
-@WebServlet("/CustomerDeactiveServlet")
-public class CustomerDeactiveServlet extends HttpServlet {
+@WebServlet("/ReActiveCustomerServlet")
+public class ReActiveCustomerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CustomerDeactiveServlet() {
+    
+    public ReActiveCustomerServlet() {
         super();
-        // TODO Auto-generated constructor stub
+       
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		PrintWriter pw = response.getWriter();
@@ -38,9 +33,9 @@ public class CustomerDeactiveServlet extends HttpServlet {
 		String customerid = request.getParameter("userId");
 		try {
 			
-			boolean isDeactive;
-			ICustomerService adminDeactiveCustomer = new UserDbUtil();
-			isDeactive = adminDeactiveCustomer.deactiveCustomer(customerid);
+			boolean isAcctive;
+			ICustomerService activeAccount = new UserDbUtil();
+			isAcctive = activeAccount.reActiveCustomer(customerid);
 			
 			if(isDeactive == true) {
 				
@@ -63,12 +58,9 @@ public class CustomerDeactiveServlet extends HttpServlet {
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
+		doGet(request, response);
 	}
 
 }

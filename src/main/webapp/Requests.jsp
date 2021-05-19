@@ -30,9 +30,9 @@
    
   <section class="form my-4 mx-5">
 <div class="testbox">
-      <form  name = "form1" action="RequestInsertServlet" method = "post"  onsubmit="notNull()">
+      <form  name = "form1" action="RequestInsertServlet" method = "GET"  onsubmit="notNull()">
         <div class="banner">
-		<img  src="iassets/img/wallevent.jpg"   width="100%" height = "200px">
+		<img  src="assets/img/wallevent.jpg"   width="100%" height = "200px">
           <h1>Event Request Form</h1>
         </div>
 		 <div class="item">
@@ -108,39 +108,7 @@
           <p>Expected Attendance</p>
           <input type="text" name="attendance" placeholder="Enter number of attendees" required>
         </div>
-		  <div class="question">
-          <p>Facilities you expect</p>
-          <div class="question-answer">
-            <div>
-              <input type="checkbox" value="none" id="checkbox_1" name="facilities"/>
-              <label for="checkbox_1" class="checkbox"><span>Transporting</span></label>
-            </div>
-            <div>
-              <input type="checkbox" value="none" id="checkbox_2" name="facilities"/>
-              <label for="checkbox_2" class="checkbox"><span>Catering</span></label>
-            </div>
-            <div>
-              <input type="checkbox" value="none" id="checkbox_3" name="facilities"/>
-              <label for="checkbox_3" class="checkbox"><span>Decoration</span></label>
-            </div>
-			<div>
-              <input type="checkbox" value="none" id="checkbox_4" name="facilities"/>
-              <label for="checkbox_4" class="checkbox"><span>Staff requirement</span></label>
-            </div>
-            <div>
-              <input type="checkbox" value="none" id="checkbox_5" name="facilities"/>
-              <label for="checkbox_5" class="checkbox"><span>Music Bands/ DJs</span></label>
-            </div>
-            <div>
-              <input type="checkbox" value="none" id="checkbox_6" name="facilities"/>
-              <label for="checkbox_6" class="checkbox"><span>Promotional banners </span></label>
-            </div>
-            <div>
-              <input type="checkbox" value="none" id="checkbox_7" name="facilities"/>
-              <label for="checkbox_7" class="checkbox"><span>Photography</span></label>
-            </div>
-            </div>
-        </div>
+		  
         <div class="item">
           <p>Select Payment method</p>
           <select name = "pay">
