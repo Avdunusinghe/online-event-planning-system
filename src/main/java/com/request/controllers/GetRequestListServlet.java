@@ -1,6 +1,7 @@
  package com.request.controllers;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -12,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.request.model.Request;
 import com.request.util.RequestDbUtil;
+import com.user.model.User;
+import com.user.util.EmployeeDbUtil;
 
 /**
  * Servlet implementation class GetRequestListServlet
@@ -33,33 +36,48 @@ public class GetRequestListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		
+		String requestId = request.getParameter("requestId");
+		PrintWriter EW = response.getWriter();
+		response.setContentType("text/html");
+		
+		try {
+			List<Request> requests = RequestDbUtil.getRequestList(requestId);
+			request.setAttribute("Request", requests);
+			
+			if(request != null) {
+				
+				
+				RequestDispatcher dis = request.getRequestDispatcher("RequestList.jsp");
+				 dis.forward(request, response);
+			}
+			else 
+			{
+				
+				EW.println("<script type = 'text/javascript'>");
+				EW.println("alert('No Request details');");
+				EW.println("location = 'UpdateRequest.jsp'");
+				EW.println("</script>");
+			}
+			
+			
+		}
+		catch(Exception Ex) {
+			Ex.printStackTrace();
+		}
 	}
+
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	//protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		doGet(request, response);
+		//doGet(request, response);
 		
-		boolean isTrue = false;
 		
-		if (isTrue == true)
-		{
-		List<Request> requests = RequestDbUtil.getRequestList();
-		request.setAttribute("Request", requests);
-		
-			RequestDispatcher dis = request.getRequestDispatcher("RequestList.jsp");
-			 dis.forward(request, response);
-		 }
-		 else {
-			 
-			 RequestDispatcher dis = request.getRequestDispatcher("UpdateRequest.jsp");  
-			 dis.forward(request, response);
-		 }
-	
-	}
-
 }

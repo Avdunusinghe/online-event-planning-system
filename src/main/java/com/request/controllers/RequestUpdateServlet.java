@@ -41,6 +41,7 @@ public class RequestUpdateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		 PrintWriter pw = response.getWriter();
+		 response.setContentType("text/html");
 		// TODO Auto-generated method stub
 		String requestId = request.getParameter("requestId");
 		String name = request.getParameter("name");
@@ -54,7 +55,6 @@ public class RequestUpdateServlet extends HttpServlet {
 		String address = request.getParameter("address");
 		String capacity = request.getParameter("capacity");
 		String attendance = request.getParameter("attendance");
-		String facilities = request.getParameter("facilities");
 		String pay = request.getParameter("pay");
 		String budget = request.getParameter("budget");
 		String tickets = request.getParameter("tickets");
@@ -62,20 +62,29 @@ public class RequestUpdateServlet extends HttpServlet {
 		doGet(request, response);
 		
 		boolean isTrue;
-		isTrue = RequestDbUtil.updateRequest(requestId, name,  email, phone, event, date, time, description, venue, address, capacity, attendance, facilities, pay, budget, tickets);
+		try {
+		isTrue = RequestDbUtil.updateRequest(requestId, name,  email, phone, event, date, time, description, venue, address, capacity, attendance, pay, budget, tickets);
 		
 		if (isTrue == true)
 		{
 			RequestDispatcher dis = request.getRequestDispatcher("RequestList.jsp");
+		   pw.println("<script type = 'text/javascript'>");
 			pw.println("alert('Successfully Updated');");
+			pw.println("</script>");
 			 dis.forward(request, response);
 		 }
 		 else {
 			 
-			 RequestDispatcher dis = request.getRequestDispatcher("UpdateRequest.jsp"); 
-			 pw.println("alert('The update is unsucessfull');");
-			 dis.forward(request, response);
+			 
+			 pw.println("<script type = 'text/javascript'>");
+				pw.println("alert('No Request details');");
+				pw.println("location = 'UpdateRequest.jsp'");
+				pw.println("</script>");
 		 }
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
 		
 	}
 

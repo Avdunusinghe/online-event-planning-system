@@ -13,14 +13,13 @@ public class Request {
 				private String address;
 				private String capacity;
 				private String attendance;
-				private String facilities;
 				private String payment;
 				private String budget;
 				private String tickets;
 				private boolean status;
 				public Request(int requestId, String name,  String email, String phone, String event,
 						String date, String time, String description, String venue, String address, String capacity,
-						String attendance, String facilities, String payment, String budget, String tickets,
+						String attendance,  String payment, String budget, String tickets,
 						boolean status) {
 					super();
 					requestId = requestId;
@@ -35,7 +34,6 @@ public class Request {
 					this.address = address;
 					this.capacity = capacity;
 					this.attendance = attendance;
-					this.facilities = facilities;
 					this.payment = payment;
 					this.budget = budget;
 					this.tickets = tickets;
@@ -113,12 +111,7 @@ public class Request {
 				public void setAttendance(String attendance) {
 					this.attendance = attendance;
 				}
-				public String getFacilities() {
-					return facilities;
-				}
-				public void setFacilities(String facilities) {
-					this.facilities = facilities;
-				}
+				
 				public String getPayment() {
 					return payment;
 				}

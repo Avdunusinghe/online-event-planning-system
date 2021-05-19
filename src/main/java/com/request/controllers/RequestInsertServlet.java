@@ -33,15 +33,8 @@ public class RequestInsertServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		PrintWriter display = response.getWriter();
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+         PrintWriter display = response.getWriter();
 		
 		// TODO Auto-generated method stub
 		response.getWriter();
@@ -57,18 +50,16 @@ public class RequestInsertServlet extends HttpServlet {
 		String address = request.getParameter("address");
 		String capacity = request.getParameter("capacity");
 		String attendance = request.getParameter("attendance");
-		String facilities = request.getParameter("facilities");
 		String pay = request.getParameter("pay");
 		String budget = request.getParameter("budget");
 		String tickets = request.getParameter("tickets");
-		doGet(request, response);
 		
 		
 		//check whether inserted
 				boolean isInsert;
 				
 				
-				isInsert = RequestDbUtil.addRequest(name, email, phone, event, date, time, description, venue, address, capacity, attendance, facilities,pay , budget, tickets );
+				isInsert = RequestDbUtil.addRequest(name, email, phone, event, date, time, description, venue, address, capacity, attendance, pay , budget, tickets );
 				
 				
 				if (isInsert == true) {
@@ -90,4 +81,12 @@ public class RequestInsertServlet extends HttpServlet {
 					
 				}
 				}
-	}
+	
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+	}}
