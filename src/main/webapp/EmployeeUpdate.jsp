@@ -97,7 +97,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Employee
                             </a>
-                              <a class="nav-link" href="EmployeeList.jsp">
+                              <a class="nav-link" href="EmployeeListServlet">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Employee List
                             </a>
@@ -121,9 +121,9 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">EMPLOYEE LIST</h1>
+                        <h1 class="mt-4">EMPLOYEE UPDATE FORM</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Employee</li>
+                            <li class="breadcrumb-item active">Employee Update Form</li>
                         </ol>
 
 
@@ -144,45 +144,7 @@
                   <!-- Import user java class and util -->
     				<%@ page import="java.util.*, com.user.model.User" %>  
     			
-    				<!-- employee list table -->
-    				<!-- 
-    				<table border = "2" class="table table-dark">
-						<tr>
-							<th scope = "col">User ID</th>
-							<th scope = "col">Name</th>
-							<th scope = "col">Email Address</th>
-							<th scope = "col">Contact Number </th>
-							<th scope = "col"> Password </th>
-						</tr>
-						
-						<c:forEach var = "empList" items = "${employee_list}">
-						<tr>
-							<c:url var="updateEmployeeLink" value = "EmployeeUpdateServlet">
-			    				<c:param name = "userId" value = "${userId}"/>
-			    				<c:param name = "name" value = "${name}"/>
-								<c:param name = "email" value = "${email}"/>
-								<c:param name = "phone" value = "${phone}"/>
-								<c:param name = "password" value = "${password}"/>
-			    			</c:url>						
-						
-							<c:url var = "deleteEmployeeLink" value = "EmployeeDeleteServlet">
-								<c:param name =  "userId" value = "${empList.userId}">
-								</c:param>
-							</c:url>
-							
-							
-			    			
-							<td> ${empList.userId}</td>
-							<td> ${empList.name}</td>
-							<td> ${empList.email}</td>
-							<td> ${empList.phone}</td> 
-							<td> ${empList.password}</td>
-							<td> <a href = "${updateEmployeeLink}" class ="btn btn-success">Update</a></td>
-							<td> <a href = "${deleteEmployeeLink}" class ="btn btn-danger">Delete</a></td>
-						</tr>
-						</c:forEach>
-						
-					</table> -->
+    				
 				
 
 
@@ -196,17 +158,53 @@
 						String password = request.getParameter("password");
 					
 					%>
-
-					<form action = "" method = "POST" >
-						User ID <input type = "text" name = "userId" value = "<%= userId %>" readonly> <br>
-						Name <input type = "text" name = "name" value = "<%= name %>"> <br>
-						Email <input type = "text" name = "email" value = "<%= email %>">  <br>
-						Phone Number <input type = "text" name = "phone" value = "<%= phone %>"> <br>
-						Password <input type = "text" name = "password" value = "<%= password %>"> <br>
-						
-						<input type = "submit" name = "submit" value = "DONE"> <br>
-					</form>
 					
+					<center>
+					<div>
+					<form action = "EmployeeUpdateServlet" method = "GET"  style="width:50%" >
+					<table  class="table table-success table-striped" id = "boarder">
+						<tr>
+							<th>
+								<td ><b>USER ID</b></td> 
+								<td><input type = "text" name = "userId" value = "<%= userId %>" style = "width:100%" readonly > <br></td>
+							</th>
+						</tr>
+						<tr>
+							<th>
+								<td><b>NAME</b></td>
+								<td><input type = "text" name = "name" value = "<%= name %>" style = "width:100%"> <br></td>
+							</th>
+						</tr>
+						<tr>
+							<th>
+								<td><b>EMAIL</b> </td>
+								<td><input type = "text" name = "email" value = "<%= email %>" style = "width:100%">  <br></td>
+							</th>
+						</tr>
+						<tr>
+							<th>
+								<td><b>PHONE NUMBER</b></td>
+								<td><input type = "text" name = "phone" value = "<%= phone %>" style = "width:100%"> <br></td>
+							</th>
+						</tr>
+						<tr>
+							<th>
+								<td><b>PASSWORD</b> </td>
+								<td><input type = "text" name = "password" value = "<%= password %>" style = "width:100%" paasword> <br> </td>
+							</th>
+						</tr>
+						<tr>
+							<th>
+								<td></td>
+								<td><input type = "submit" name = "submit" value = "UPDATE DONE" class="btn btn-info"  > <br> </td>
+							</th>
+						</tr>
+						
+						
+					</table>
+					</form>
+					</div>
+					</center>
 					
                     </div>
                 <br>

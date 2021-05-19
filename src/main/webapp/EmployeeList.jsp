@@ -98,14 +98,14 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Employee
                             </a>
-                              <a class="nav-link" href="EmployeeList.jsp">
+                              <a class="nav-link" href="EmployeeListServlet">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Employee List
                             </a>
-                             <a class="nav-link" href="EmployeeList.jsp">
+                            <!-- <a class="nav-link" href="EmployeeList.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Employee Update
-                            </a>
+                                Employee Update Form
+                            </a> -->
                             <a class="nav-link" href="tables.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Leave mmm
@@ -128,7 +128,7 @@
                     <div class="container-fluid">
                         <h1 class="mt-4">EMPLOYEE LIST</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Employee</li>
+                            <li class="breadcrumb-item active">Employee List</li>
                         </ol>
 
 
@@ -170,13 +170,7 @@
 						
 						
 						<tr>
-							<c:url var="updateEmployeeLink" value = "EmployeeUpdate.jsp">
-			    				<c:param name = "userId" value = "${userId}"/>
-			    				<c:param name = "name" value = "${name}"/>
-								<c:param name = "email" value = "${email}"/>
-								<c:param name = "phone" value = "${phone}"/>
-								<c:param name = "password" value = "${password}"/>
-			    			</c:url>						
+													
 						
 							<c:url var = "deleteEmployeeLink" value = "EmployeeDeleteServlet">
 								<c:param name =  "userId" value = "${empList.userId}">
@@ -190,6 +184,20 @@
 							<td> ${empList.email}</td>
 							<td> ${empList.phone}</td> 
 							<td> ${empList.password}</td>
+							
+							
+							<c:url value = "EmployeeUpdate.jsp" var="updateEmployeeLink" >
+			    				<c:param name = "userId" value = "${empList.userId}"/>
+			    				<c:param name = "name" value = "${empList.name}"/>
+								<c:param name = "email" value = "${empList.email}"/>
+								<c:param name = "phone" value = "${empList.phone}"/>
+								<c:param name = "password" value = "${empList.password}"/>
+			    			</c:url>
+							
+							
+							
+							
+							
 							<td> <a href = "${updateEmployeeLink}" class ="btn btn-success">Update</a></td>
 							<td> <a href = "${deleteEmployeeLink}" class ="btn btn-danger">Delete</a></td>
 						</tr>

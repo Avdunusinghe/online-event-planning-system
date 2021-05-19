@@ -101,6 +101,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Employee List
                             </a>
+                            <!--  class="nav-link" href="EmployeeUpdate.jsp">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Employee Update Form
+                            </a> -->
                             <a class="nav-link" href="tables.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Leave mm
@@ -187,7 +191,7 @@
                                     </tr>
                                     <tr align="right">
                                         <th >
-                                            <button type="submit" id = "button" class = "button" form="formid" value="Submit"><b>SUBMIT</b></button>
+                                            <button type="submit" id = "button" class = "btn btn-warning" form="formid" value="Submit"><b>SUBMIT</b></button>
                                         </th>
                                     </tr>
                                    

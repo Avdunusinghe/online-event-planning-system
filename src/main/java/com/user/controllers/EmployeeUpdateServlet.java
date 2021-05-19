@@ -25,31 +25,30 @@ public class EmployeeUpdateServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
+		
+		
+		
+		String userId = request.getParameter("userId");
 		String name  = request.getParameter("name");
 		String email = request.getParameter("email");
-		String contactNumber = request.getParameter("contactno");
-		String type = (String)request.getParameter("person");
+		String phone = request.getParameter("phone");
+		//String type = (String)request.getParameter("person");
 		String password = request.getParameter("password");
 		
 		boolean updateTrue;
-		updateTrue = EmployeeDbUtil.updateEmployee(name, email, contactNumber, password, type);
+		
 		
 		try {
-			List<User> empDetail = EmployeeDbUtil.getEmployeeDetails();
-			request.setAttribute(password, empDetail);
-			//updateTrue = EmployeeDbUtil.updateEmployee(name, email, contactNumber, type, password);
+			//List<User> empDetail = EmployeeDbUtil.getEmployeeDetails();
+			//request.setAttribute(userId, empDetail);
+			//updateTrue = EmployeeDbUtil.updateEmployee(name, email, phone, password);
+			updateTrue = EmployeeDbUtil.updateEmployee(userId,name, email, phone, password);
 			
 			if (updateTrue == true) {
 				
-				RequestDispatcher dispatcher =  request.getRequestDispatcher("EmployeeUpdate.jsp");
+				RequestDispatcher dispatcher =  request.getRequestDispatcher("EmployeeListServlet");
 				dispatcher.forward(request, response);
 			}
 			
@@ -62,3 +61,8 @@ public class EmployeeUpdateServlet extends HttpServlet {
 	}
 
 }
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	//protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {}
