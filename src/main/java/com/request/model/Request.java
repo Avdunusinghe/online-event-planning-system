@@ -22,7 +22,7 @@ public class Request {
 						String attendance,  String payment, String budget, String tickets,
 						boolean status) {
 					super();
-					requestId = requestId;
+					this.requestId = requestId;
 					this.name = name;
 					this.email = email;
 					this.phone = phone;
@@ -39,11 +39,35 @@ public class Request {
 					this.tickets = tickets;
 					this.status = status;
 				}
+				
+				
+				public Request(int requestId, String name, String email, String phone, String event, String date,
+						String time, String description, String venue, String address, String capacity,
+						String attendance, String payment, String budget, String tickets) {
+					super();
+					this.requestId = requestId;
+					this.name = name;
+					this.email = email;
+					this.phone = phone;
+					this.event = event;
+					this.date = date;
+					this.time = time;
+					this.description = description;
+					this.venue = venue;
+					this.address = address;
+					this.capacity = capacity;
+					this.attendance = attendance;
+					this.payment = payment;
+					this.budget = budget;
+					this.tickets = tickets;
+				}
+
+
 				public int getRequestId() {
 					return requestId;
 				}
 				public void setRequestId(int requestId) {
-					requestId = requestId;
+					this.requestId = requestId;
 				}
 				public String getName() {
 					return name;
