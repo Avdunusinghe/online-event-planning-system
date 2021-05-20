@@ -5,10 +5,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
-
 import com.DBConnection.DBConnectionUtil;
-import com.contact.model.Contact;
+
 import com.request.model.Request;
 
 public class RequestDbUtil {
@@ -126,20 +124,20 @@ public static boolean Requestdelete(String RequestId) {
 
 
 //retrieve request  data
-	public static ArrayList<Request> getRequestList(String requestId){
+	public static ArrayList<Request> getRequestList(){
 		
-		int conId = Integer.parseInt(requestId);
+	
 		
 		ArrayList<Request> requests = new ArrayList<>();
 		
 		try {
 			conn = DBConnectionUtil.getConnection();
 			statement = conn.createStatement();
-			String sql = "SELECT * FROM request WHERE requestId = '"+conId+"'";
+			String sql = "SELECT * FROM request WHERE requestId = ?";
 			ResultSet result = statement.executeQuery(sql);
 			
 			while(result.next()) {
-				int requestId = result.getInt("requestId");
+				int requestId1 = result.getInt("requestId");
 				String name = result.getString("name");
 				String email = result.getString("email");
 				String phone = result.getString("phone");
@@ -155,7 +153,7 @@ public static boolean Requestdelete(String RequestId) {
 				String budget =  result.getString("budget");
 				String tickets =  result.getString("tickets");
 				
-				Request req = new Request (requestId, name,  email, phone, event, date, time, description, venue, address, capacity, attendance, pay , budget ,tickets, false);
+				Request req = new Request (requestId1, name,  email, phone, event, date, time, description, venue, address, capacity, attendance, pay , budget ,tickets, false);
 				requests.add(req);
 			}
 			
@@ -171,14 +169,14 @@ public static boolean Requestdelete(String RequestId) {
 
 public static boolean updateAcceptedRequest(String requestId) {
 	 
-	 int conId = Integer.parseInt(requestId);
+	
 	 boolean isSuccess = false;
      // Open a connection
      try{
    	  conn = DBConnectionUtil.getConnection();
 			statement = conn.createStatement();
 		      
-        String sql = "UPDATE request SET status =  1  WHERE requestId  = '"+conId+"'";
+        String sql = "UPDATE request SET status =  1  WHERE requestId  = ?";
         
        int result = statement.executeUpdate(sql);
        
@@ -200,5 +198,35 @@ public static boolean updateAcceptedRequest(String requestId) {
 		}
 		return isSuccess;
 	}
-}
 
+//retrieve accepted request  data
+	public static ArrayList<Request> getAcceptedRequestList(){
+		
+		
+		
+		ArrayList<Request> requests = new ArrayList<>();
+		
+		try {
+			conn = DBConnectionUtil.getConnection();
+			statement = conn.createStatement();
+			String sql = "SELECT requestId, name, email,phone .event FROM request WHERE requestId = ?";
+			ResultSet result = statement.executeQuery(sql);
+			
+			while(result.next()) {
+				int requestId = result.getInt("requestId");
+				String name = result.getString("name");
+				String email = result.getString("email");
+				String phone = result.getString("phone");
+				String event = result.getString("event");
+				
+				Request re = new Request (requestId, name,  email, phone, event, event, event, event, event, event, event, event, event, event, event, false);
+				requests.add(re);
+			}
+			
+		}
+		catch(Exception ex){
+			ex.printStackTrace();
+		}
+		return requests;
+	}
+}
