@@ -30,7 +30,7 @@
    
   <section class="form my-4 mx-5">
 <div class="testbox">
-      <form  name = "form1" action="RequestInsertServlet" method = "POST"  onsubmit="notNull()">
+      <form  name = "form1" action="RequestInsertServlet" method = "GET"  onsubmit="notNull()">
         <div class="banner">
 		<img  src="assets/img/wallevent.jpg"   width="100%" height = "200px">
           <h1>Event Request Form</h1>
@@ -84,12 +84,6 @@
           <input type="time" name="time"  required>
           <i class="fas fa-clock"></i>
         </div>
-       
-        <div class="item">
-          <p>Description of Event</p>
-          <textarea rows="3"  name="description"  placeholder="Enter your description here" required></textarea>
-        </div>
-		
         <div class="item">
           <p>Venue Name</p>
           <input type="text" name="venue"  placeholder="Venue" required>
@@ -100,10 +94,7 @@
           <textarea rows="3"  name="address"  placeholder="Street address" required></textarea>
         
         </div>
-        <div class="item">
-          <p>Venue Capacity </p>
-          <input type="text" name="capacity"  placeholder="Enter number of places(halls)" required>
-        </div>
+        
         <div class="item">
           <p>Expected Attendance</p>
           <input type="text" name="attendance" placeholder="Enter number of attendees" required>
@@ -139,7 +130,7 @@
           </div>
         </div>
         <div class="btn-block">
-          <button type="submit" href="">Submit</button>
+          <button type="submit" >Submit</button>
         </div>
       </form>
     </div>

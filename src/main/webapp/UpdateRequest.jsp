@@ -25,12 +25,9 @@
 		String event = request.getParameter("event");
 		String date = request.getParameter("date");
 		String time = request.getParameter("time");
-		String description = request.getParameter("description");
 		String venue = request.getParameter("venue");
 		String address = request.getParameter("address");
-		String capacity = request.getParameter("capacity");
 		String attendance = request.getParameter("attendance");
-		String facilities = request.getParameter("facilities");
 		String pay = request.getParameter("pay");
 		String budget = request.getParameter("budget");
 		String tickets = request.getParameter("tickets");
@@ -47,21 +44,21 @@
 		 <div class="item">
           <p>Customer Name</p>
           <div class="name-item">
-            <input type="text" name="name1"  value ="<%= name %>" />
+            <input type="text" name="name1"  value ="<%=name%>" />
           </div>
         </div>
 		<div class="item">
           <p>Contact Email</p>
-          <input type="text" name="email" size="30"  value ="<%= email %>">
+          <input type="text" name="email" size="30"  value ="<%=email%>">
           
         </div>
 		  <div class="item">
           <p>Contact Number</p>
-          <input type="text" name="number" value ="<%= phone %>">
+          <input type="text" name="number" value ="<%=phone%>">
         </div>
 		 <div class="item">
           <p>Select the Event</p>
-          <select name = "event"  value ="<%= event %>">
+          <select name = "event"  value ="<%=event%>">
             <option value=""></option>
             <option value="1">*Please select*</option>
             <option value="2">Wedding</option>
@@ -90,11 +87,6 @@
           <input type="time" name="time" value ="<%= time %>">
           <i class="fas fa-clock"></i>
         </div>
-       
-        <div class="item">
-          <p>Description of Event</p>
-          <textarea rows="3"  name="description" value ="<%= description %>"></textarea>
-        </div>
 		
         <div class="item">
           <p>Venue Name</p>
@@ -106,47 +98,12 @@
           <textarea rows="3"  name="street"   value ="<%= address %>"></textarea>
         
         </div>
-        <div class="item">
-          <p>Venue Capacity </p>
-          <input type="text" name="capacity"  value ="<%= capacity %>">
-        </div>
+       
         <div class="item">
           <p>Expected Attendance</p>
           <input type="text" name="attendance"  value ="<%= attendance %>">
         </div>
-		  <div class="question">
-          <p>Facilities you expect</p>
-          <div class="question-answer" value ="<%= facilities %>">
-            <div>
-              <input type="checkbox" value="none" id="checkbox_1" name="contact"/>
-              <label for="checkbox_1" class="checkbox"><span>Transporting</span></label>
-            </div>
-            <div>
-              <input type="checkbox" value="none" id="checkbox_2" name="contact"/>
-              <label for="checkbox_2" class="checkbox"><span>Catering</span></label>
-            </div>
-            <div>
-              <input type="checkbox" value="none" id="checkbox_3" name="contact"/>
-              <label for="checkbox_3" class="checkbox"><span>Decoration</span></label>
-            </div>
-			<div>
-              <input type="checkbox" value="none" id="checkbox_4" name="contact"/>
-              <label for="checkbox_4" class="checkbox"><span>Staff requirement</span></label>
-            </div>
-            <div>
-              <input type="checkbox" value="none" id="checkbox_5" name="contact"/>
-              <label for="checkbox_5" class="checkbox"><span>Music Bands/ DJs</span></label>
-            </div>
-            <div>
-              <input type="checkbox" value="none" id="checkbox_6" name="contact"/>
-              <label for="checkbox_6" class="checkbox"><span>Promotional banners </span></label>
-            </div>
-            <div>
-              <input type="checkbox" value="none" id="checkbox_7" name="contact"/>
-              <label for="checkbox_7" class="checkbox"><span>Photography</span></label>
-            </div>
-            </div>
-        </div>
+		  
         <div class="item">
           <p>Select Payment method</p>
           <select name = "pay"  value ="<%= pay %>">

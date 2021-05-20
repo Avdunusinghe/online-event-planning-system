@@ -8,18 +8,16 @@ public class Request {
 				private String event;
 				private String date;
 				private String time;
-				private String description;
 				private String venue;
 				private String address;
-				private String capacity;
 				private String attendance;
-				private String payment;
+				private String pay;
 				private String budget;
 				private String tickets;
 				private boolean status;
 				public Request(int requestId, String name,  String email, String phone, String event,
-						String date, String time, String description, String venue, String address, String capacity,
-						String attendance,  String payment, String budget, String tickets,
+						String date, String time, String venue, String address, 
+						String attendance,  String pay, String budget, String tickets,
 						boolean status) {
 					super();
 					this.requestId = requestId;
@@ -29,12 +27,10 @@ public class Request {
 					this.event = event;
 					this.date = date;
 					this.time = time;
-					this.description = description;
 					this.venue = venue;
 					this.address = address;
-					this.capacity = capacity;
 					this.attendance = attendance;
-					this.payment = payment;
+					this.pay = pay;
 					this.budget = budget;
 					this.tickets = tickets;
 					this.status = status;
@@ -42,8 +38,8 @@ public class Request {
 				
 				
 				public Request(int requestId, String name, String email, String phone, String event, String date,
-						String time, String description, String venue, String address, String capacity,
-						String attendance, String payment, String budget, String tickets) {
+						String time, String venue, String address, 
+						String attendance, String pay, String budget, String tickets) {
 					super();
 					this.requestId = requestId;
 					this.name = name;
@@ -52,14 +48,24 @@ public class Request {
 					this.event = event;
 					this.date = date;
 					this.time = time;
-					this.description = description;
 					this.venue = venue;
 					this.address = address;
-					this.capacity = capacity;
 					this.attendance = attendance;
-					this.payment = payment;
+					this.pay = pay;
 					this.budget = budget;
 					this.tickets = tickets;
+				}
+
+
+
+
+				public Request(int requestId, String name, String email, String phone, String event) {
+					super();
+					this.requestId = requestId;
+					this.name = name;
+					this.email = email;
+					this.phone = phone;
+					this.event = event;
 				}
 
 
@@ -105,12 +111,7 @@ public class Request {
 				public void setTime(String time) {
 					this.time = time;
 				}
-				public String getDescription() {
-					return description;
-				}
-				public void setDescription(String description) {
-					this.description = description;
-				}
+				
 				public String getVenue() {
 					return venue;
 				}
@@ -123,12 +124,6 @@ public class Request {
 				public void setAddress(String address) {
 					this.address = address;
 				}
-				public String getCapacity() {
-					return capacity;
-				}
-				public void setCapacity(String capacity) {
-					this.capacity = capacity;
-				}
 				public String getAttendance() {
 					return attendance;
 				}
@@ -136,11 +131,11 @@ public class Request {
 					this.attendance = attendance;
 				}
 				
-				public String getPayment() {
-					return payment;
+				public String getPay() {
+					return pay;
 				}
-				public void setPayment(String payment) {
-					this.payment = payment;
+				public void setPay(String pay) {
+					this.pay = pay;
 				}
 				public String getBudget() {
 					return budget;

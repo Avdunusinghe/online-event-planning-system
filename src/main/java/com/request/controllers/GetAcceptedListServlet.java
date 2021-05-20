@@ -57,15 +57,7 @@ public class GetAcceptedListServlet extends HttpServlet {
 				RequestDispatcher dis = request.getRequestDispatcher("AcceptedList.jsp");
 				 dis.forward(request, response);
 			}
-			else 
-			{
-				
-				EW.println("<script type = 'text/javascript'>");
-				EW.println("alert('Could not Accepted Request details');");
-				EW.println("location = 'RequestList.jsp'");
-				EW.println("</script>");
-			}
-			
+		 
 			
 		}
 		catch(Exception Ex) {

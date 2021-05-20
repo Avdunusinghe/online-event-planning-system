@@ -50,10 +50,8 @@ public class RequestUpdateServlet extends HttpServlet {
 		String event = request.getParameter("event");
 		String date = request.getParameter("date");
 		String time = request.getParameter("time");
-		String description = request.getParameter("description");
 		String venue = request.getParameter("venue");
 		String address = request.getParameter("address");
-		String capacity = request.getParameter("capacity");
 		String attendance = request.getParameter("attendance");
 		String pay = request.getParameter("pay");
 		String budget = request.getParameter("budget");
@@ -63,7 +61,7 @@ public class RequestUpdateServlet extends HttpServlet {
 		
 		boolean isTrue;
 		try {
-		isTrue = RequestDbUtil.updateRequest(requestId, name,  email, phone, event, date, time, description, venue, address, capacity, attendance, pay, budget, tickets);
+		isTrue = RequestDbUtil.updateRequest(requestId, name,  email, phone, event, date, time,  venue, address, attendance, pay, budget, tickets);
 		
 		if (isTrue == true)
 		{
