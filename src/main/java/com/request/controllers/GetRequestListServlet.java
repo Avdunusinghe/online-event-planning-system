@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.request.model.Request;
 import com.request.util.RequestDbUtil;
 
-
 /**
  * Servlet implementation class GetRequestListServlet
  */
@@ -35,9 +34,9 @@ public class GetRequestListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		
-		
+
+		//String requestId = request.getParameter("requestId");
+
 		PrintWriter EW = response.getWriter();
 		response.setContentType("text/html");
 		
@@ -51,30 +50,24 @@ public class GetRequestListServlet extends HttpServlet {
 				RequestDispatcher dis = request.getRequestDispatcher("RequestList.jsp");
 				 dis.forward(request, response);
 			}
-			else {
-				
-				EW.println("<script type = 'text/javascript'>");
-				EW.println("alert('No Request details');");
-				EW.println("location = 'UpdateRequest.jsp'");
-				EW.println("</script>");
-			}
+
+
+		
+		}catch(Exception e){
+
 			
+			e.printStackTrace();
+		}
 			
-		}
-		catch(Exception Ex) {
-			Ex.printStackTrace();
-		}
+		
 	}
+		
+		
+				
+		}		
+	
+	
+
 
 	
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	//protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
-		//doGet(request, response);
-		
-		
-}

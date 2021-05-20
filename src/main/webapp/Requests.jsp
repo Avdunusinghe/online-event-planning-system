@@ -30,7 +30,7 @@
    
   <section class="form my-4 mx-5">
 <div class="testbox">
-      <form  name = "form1" action="RequestInsertServlet" method = "GET"  onsubmit="notNull()">
+      <form  name = "form1" action="RequestInsertServlet" method = "POST"  onsubmit="notNull()">
         <div class="banner">
 		<img  src="assets/img/wallevent.jpg"   width="100%" height = "200px">
           <h1>Event Request Form</h1>

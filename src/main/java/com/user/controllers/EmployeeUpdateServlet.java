@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.user.model.User;
 import com.user.util.EmployeeDbUtil;
+import java.util.List;
 
 /**
  * Servlet implementation class EmployeeUpdateServlet
@@ -24,31 +25,30 @@ public class EmployeeUpdateServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
+		
+		
+		
+		String userId = request.getParameter("userId");
 		String name  = request.getParameter("name");
 		String email = request.getParameter("email");
-		String contactNumber = request.getParameter("contactno");
-		String type = (String)request.getParameter("person");
+		String phone = request.getParameter("phone");
+		//String type = (String)request.getParameter("person");
 		String password = request.getParameter("password");
-		//String  type = request.getParameter("<%= i%>");
 		
-		String dispatchPage;
 		boolean updateTrue;
 		
+		
 		try {
-			updateTrue = EmployeeDbUtil.updateEmployee(name, email, contactNumber, type, password);
+			//List<User> empDetail = EmployeeDbUtil.getEmployeeDetails();
+			//request.setAttribute(userId, empDetail);
+			//updateTrue = EmployeeDbUtil.updateEmployee(name, email, phone, password);
+			updateTrue = EmployeeDbUtil.updateEmployee(userId,name, email, phone, password);
 			
 			if (updateTrue == true) {
 				
-				dispatchPage = "EmployeeList.jsp";
-				RequestDispatcher dispatcher =  request.getRequestDispatcher(dispatchPage);
+				RequestDispatcher dispatcher =  request.getRequestDispatcher("EmployeeListServlet");
 				dispatcher.forward(request, response);
 			}
 			
@@ -61,3 +61,8 @@ public class EmployeeUpdateServlet extends HttpServlet {
 	}
 
 }
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	//protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {}

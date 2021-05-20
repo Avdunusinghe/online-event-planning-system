@@ -61,7 +61,7 @@ public class EmployeeIsnertServlet extends HttpServlet {
 			if(isdone == true) {
 				
 				
-				RequestDispatcher dispatcher = request.getRequestDispatcher("EmployeeListServlet");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("Employee.jsp");
 				dispatcher.forward(request, response);	
 			}
 		

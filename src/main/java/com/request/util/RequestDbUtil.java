@@ -27,7 +27,7 @@ public class RequestDbUtil {
 				conn = DBConnectionUtil.getConnection();
 				statement = conn.createStatement();
 				
-				String sql = "INSERT INTO request VALUES(0, '"+name+"',  '"+email+"', '"+phone+"', '"+event+"','"+date+"', '"+time+"', '"+description+"', '"+venue+"', '"+address+"', '"+capacity+"','"+attendance+"',  '"+pay+"', '"+budget+"', '"+tickets+"')";
+				String sql = "INSERT INTO request VALUES(0, '"+name+"',  '"+email+"', '"+phone+"', '"+event+"','"+date+"', '"+time+"', '"+description+"', '"+venue+"', '"+address+"', '"+capacity+"','"+attendance+"',  '"+pay+"', '"+budget+"', '"+tickets+"',0)";
 				
 				int result = statement.executeUpdate(sql);
 				
@@ -126,25 +126,28 @@ public static boolean Requestdelete(String RequestId) {
 //retrieve request  data
 	public static ArrayList<Request> getRequestList(){
 		
-	
+		
+		
+		
 		
 		ArrayList<Request> requests = new ArrayList<>();
 		
 		try {
 			conn = DBConnectionUtil.getConnection();
 			statement = conn.createStatement();
-			String sql = "SELECT * FROM request WHERE requestId = ?";
+            String sql = "SELECT * FROM request WHERE status = 0";
 			ResultSet result = statement.executeQuery(sql);
 			
 			while(result.next()) {
-				int requestId1 = result.getInt("requestId");
+				
+				int reqId = result.getInt("requestId");
 				String name = result.getString("name");
 				String email = result.getString("email");
 				String phone = result.getString("phone");
 				String event = result.getString("event");
 				String date =  result.getString("date");
 				String time =  result.getString("time");
-				String description =  result.getString(" description");
+				String description =  result.getString("description");
 				String venue =  result.getString("venue");
 				String address =  result.getString("address");
 				String capacity =  result.getString("capacity");
@@ -152,8 +155,9 @@ public static boolean Requestdelete(String RequestId) {
 				String pay =  result.getString("pay");
 				String budget =  result.getString("budget");
 				String tickets =  result.getString("tickets");
-				
-				Request req = new Request (requestId1, name,  email, phone, event, date, time, description, venue, address, capacity, attendance, pay , budget ,tickets, false);
+
+				Request req = new Request (reqId, name,  email, phone, event, date, time, description, venue, address, capacity, attendance, pay , budget ,tickets);
+
 				requests.add(req);
 			}
 			

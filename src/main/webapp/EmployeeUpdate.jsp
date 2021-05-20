@@ -97,19 +97,14 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Employee
                             </a>
-                            <a class="nav-link" href="EmployeeListServlet">
+                              <a class="nav-link" href="EmployeeListServlet">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Employee List
                             </a>
-                            <!--  class="nav-link" href="EmployeeUpdate.jsp">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Employee Update Form
-                            </a> -->
                             <a class="nav-link" href="tables.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Leave mm
+                                Leave mmm
                             </a>
-                           
                         </div>
 
                         
@@ -126,81 +121,10 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">EMPLOYEE</h1>
+                        <h1 class="mt-4">EMPLOYEE UPDATE FORM</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Employee</li>
+                            <li class="breadcrumb-item active">Employee Update Form</li>
                         </ol>
-                        
-                        
-                        
-    					<center>
-                        <div  id = "divid">
-                            <form action="EmployeeIsnertServlet" id ="formid" method ="POST" style="align:center">
-
-							
-
-                                <table class="style">
-                                    <tr>
-                                        <th align = "left">
-                                            <label> <b>NAME</b></label><br>
-                                            <input type = "text" id = "" name = "name" class = "inputclass" placeholder = "Enter the Name" required> <br><br>
-                                        </th>
-                                    </tr>
-                                    <tr align = "left">
-                                        <th>
-                                            <label> <b>EMAIL</b> </label><br>
-                                            <input type = "text" id = "email" name = "email" class = "inputclass" pattern = "[a-z0-9._]+@[a-z0-9]+\.[a-z]{2,3}"placeholder = "you@domain.com" required> <br><br>
-                                        </th>
-                                    </tr>
-                                    <tr align = "left">
-                                        <th>
-                                            <label><b>CONTACT NUMBER</b></label><br>
-                                            <input id = "" type = "text" name = "contactno" class = "inputclass" pattern = "[0-9]{5,10}" placeholder = "Eg:(0094) XXX XXXX "> <br><br>
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label> <b>WHO ARE YOU</b></label><br>
-                                  			<input type = "radio" id = "person" name = "person" value = "2" checked required> Admin 
-                                           <input type = "radio" id = "person" name = "person" value = "3"> Event Planner 
-                                            <input type = "radio" id = "person" name = "person" value = "4"> Manager <br><br>
-                                            
-                                            
-                                            
-                                            
-                                            
-                                                <!--    <%
-    												for(int i=0; i<1; i++){
-      					  					%>
-            								<input type="radio" name="<%= i%>" value="<%=i %>"> Event Planner 
-            								<input type="radio" name="<%= i%>" value="<%=i %>"> Admin
-            								<input type="radio" name="<%= i%>" value="<%=i %>">  Manager <br><br>
-        									<%
-    										}
-											%>-->
-                                        </th>
-                                        
-                                        
-                                        
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label> <b>PASSWORD</b></label><br>
-                                            <input type="password" placeholder="******" class="inputclass" id="password" name="password" required> <br><br>
-                                        </th>
-                                    </tr>
-                                    <tr align="right">
-                                        <th >
-                                            <button type="submit" id = "button" class = "btn btn-warning" form="formid" value="Submit"><b>SUBMIT</b></button>
-                                        </th>
-                                    </tr>
-                                   
-                                   
-                                      
-                                    </table>
-                               </form>
-                        </div>
-                   </center>
 
 
 
@@ -210,8 +134,81 @@
 
 
 
+
+
+
+
+
+					<!-- Define jstl  core -->
+               		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+                  <!-- Import user java class and util -->
+    				<%@ page import="java.util.*, com.user.model.User" %>  
+    			
+    				
+				
+
+
+
+
+					<%
+						String userId = request.getParameter("userId");
+						String name = request.getParameter("name");
+						String email = request.getParameter("email");
+						String phone = request.getParameter("phone");
+						String password = request.getParameter("password");
+					
+					%>
+					
+					<center>
+					<div>
+					<form action = "EmployeeUpdateServlet" method = "GET"  style="width:50%" >
+					<table  class="table table-success table-striped" id = "boarder">
+						<tr>
+							<th>
+								<td ><b>USER ID</b></td> 
+								<td><input type = "text" name = "userId" value = "<%= userId %>" style = "width:100%" readonly > <br></td>
+							</th>
+						</tr>
+						<tr>
+							<th>
+								<td><b>NAME</b></td>
+								<td><input type = "text" name = "name" value = "<%= name %>" style = "width:100%"> <br></td>
+							</th>
+						</tr>
+						<tr>
+							<th>
+								<td><b>EMAIL</b> </td>
+								<td><input type = "text" name = "email" value = "<%= email %>" style = "width:100%">  <br></td>
+							</th>
+						</tr>
+						<tr>
+							<th>
+								<td><b>PHONE NUMBER</b></td>
+								<td><input type = "text" name = "phone" value = "<%= phone %>" style = "width:100%"> <br></td>
+							</th>
+						</tr>
+						<tr>
+							<th>
+								<td><b>PASSWORD</b> </td>
+								<td><input type = "text" name = "password" value = "<%= password %>" style = "width:100%" paasword> <br> </td>
+							</th>
+						</tr>
+						<tr>
+							<th>
+								<td></td>
+								<td><input type = "submit" name = "submit" value = "UPDATE DONE" class="btn btn-info"  > <br> </td>
+							</th>
+						</tr>
+						
+						
+					</table>
+					</form>
+					</div>
+					</center>
+					
                     </div>
-                    <br>
+                <br>
+                
                                 
                 </main>
                 <footer class="py-4 bg-light mt-auto">

@@ -59,12 +59,13 @@ public class EmployeeDbUtil {
 	
 	
 	/*update query*/
-	public static boolean updateEmployee(String name, String email, String contactNumber, String password, String type) {
+	public static boolean updateEmployee(String userId, String name, String email, String contactNumber, String password) {
+		
 		try {
-			
+				int empId = Integer.parseInt(userId);
 				con = DBConnectionUtil.getConnection();
 				stmt = con.createStatement();
-				String sql = "update Employee set (1, name ='"+name+"', email ='"+email+"',contactno = '"+contactNumber+"',password = '"+password+"', 1, whoyouare = '"+type+"')";
+				String sql = "update user set  name ='"+name+"', email ='"+email+"', phone = '"+contactNumber+"',password = '"+password+"' where userId = '"+empId+"' ";
 				int rs = stmt.executeUpdate(sql);
 				
 				if(rs > 0) {
