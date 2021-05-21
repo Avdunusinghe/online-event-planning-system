@@ -45,8 +45,9 @@
 			     	<td> ${tempCustomer.name} </td>
 			     	<td> ${tempCustomer.email} </td>
 			     	<td> ${tempCustomer.phone} </td>
-			     	<td> <a href="${deleteCustomerLink}" class="btn btn-danger">Delete</a>
-			     	 <a href="${deactiveCustomerLink}" class="btn btn-warning">Deactive</a></td>
+			     	<td> <a href="${deleteCustomerLink}" class="btn btn-danger" >Delete</a></td> 
+			     	<td><a href="${deactiveCustomerLink}" class="btn btn-warning">Deactive</a></td> 
+			     	
 
 			     </tr>
 			    </c:forEach>
