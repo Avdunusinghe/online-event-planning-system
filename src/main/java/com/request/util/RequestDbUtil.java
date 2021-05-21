@@ -17,8 +17,8 @@ public class RequestDbUtil {
 	
 	//insert query
 		public static boolean addRequest(String name, String email,
-				String phone, String event, String date,  String time, String description, 
-				String  venue, String address, String capacity, String attendance,
+				String phone, String event, String date,  String time, 
+				String  venue, String address, String attendance,
 				String pay , String budget, String tickets ) {
 			
 			boolean isSuccess = false;
@@ -27,7 +27,7 @@ public class RequestDbUtil {
 				conn = DBConnectionUtil.getConnection();
 				statement = conn.createStatement();
 				
-				String sql = "INSERT INTO request VALUES(0, '"+name+"',  '"+email+"', '"+phone+"', '"+event+"','"+date+"', '"+time+"', '"+description+"', '"+venue+"', '"+address+"', '"+capacity+"','"+attendance+"',  '"+pay+"', '"+budget+"', '"+tickets+"',0)";
+				String sql = "INSERT INTO request VALUES(1, '"+name+"',  '"+email+"', '"+phone+"', '"+event+"','"+date+"', '"+time+"',  '"+venue+"', '"+address+"', '"+attendance+"',  '"+pay+"', '"+budget+"', '"+tickets+"',0)";
 				
 				int result = statement.executeUpdate(sql);
 				
@@ -53,8 +53,8 @@ public class RequestDbUtil {
 	//Update query
 		
 		
-		 public static boolean updateRequest(String requestId, String name ,  String email,String phone ,  String event, String date,  String time, String description, 
-					String  venue, String address, String capacity, String attendance,
+		 public static boolean updateRequest(String requestId, String name ,  String email,String phone ,  String event, String date,  String time, 
+					String  venue, String address, String attendance,
 					String pay , String budget, String tickets ) {
 			 
 			 boolean isSuccess = false;
@@ -63,7 +63,7 @@ public class RequestDbUtil {
 		    	  conn = DBConnectionUtil.getConnection();
 					statement = conn.createStatement();
 		 		      
-		         String sql = "UPDATE request SET Name = '"+name+"', event= '"+event+"',date = '"+date+"', time = '"+time+"', description = '"+description+"', venue = '"+venue+"', address = '"+address+"', capacity= '"+capacity+"',attendance= '"+attendance+"', pay = '"+pay+"', budget = '"+budget+"',ticket =  '"+tickets+"'";
+		         String sql = "UPDATE request SET Name = '"+name+"', event= '"+event+"',date = '"+date+"', time = '"+time+"',  venue = '"+venue+"', address = '"+address+"', attendance= '"+attendance+"', pay = '"+pay+"', budget = '"+budget+"',ticket =  '"+tickets+"'";
 		         
 		        int result = statement.executeUpdate(sql);
 		        
@@ -90,8 +90,8 @@ public class RequestDbUtil {
 		//delete 
 
 
-public static boolean Requestdelete(String RequestId) {
-	int covId = Integer.parseInt(RequestId);
+public static boolean Requestdelete(String requestId) {
+	int covId = Integer.parseInt(requestId);
 	 
 	 boolean isSuccess = false;
      // Open a connection
@@ -147,16 +147,14 @@ public static boolean Requestdelete(String RequestId) {
 				String event = result.getString("event");
 				String date =  result.getString("date");
 				String time =  result.getString("time");
-				String description =  result.getString("description");
 				String venue =  result.getString("venue");
 				String address =  result.getString("address");
-				String capacity =  result.getString("capacity");
 				String attendance = result.getString("attendance");
 				String pay =  result.getString("pay");
 				String budget =  result.getString("budget");
 				String tickets =  result.getString("tickets");
 
-				Request req = new Request (reqId, name,  email, phone, event, date, time, description, venue, address, capacity, attendance, pay , budget ,tickets);
+				Request req = new Request (reqId, name,  email, phone, event, date, time, venue, address, attendance, pay , budget ,tickets);
 
 				requests.add(req);
 			}
@@ -173,14 +171,14 @@ public static boolean Requestdelete(String RequestId) {
 
 public static boolean updateAcceptedRequest(String requestId) {
 	 
-	
+	int covId = Integer.parseInt(requestId);
 	 boolean isSuccess = false;
      // Open a connection
      try{
    	  conn = DBConnectionUtil.getConnection();
 			statement = conn.createStatement();
 		      
-        String sql = "UPDATE request SET status =  1  WHERE requestId  = ?";
+        String sql = "UPDATE request SET status =  1  WHERE requestId  = '"+covId+"'";
         
        int result = statement.executeUpdate(sql);
        
@@ -213,7 +211,7 @@ public static boolean updateAcceptedRequest(String requestId) {
 		try {
 			conn = DBConnectionUtil.getConnection();
 			statement = conn.createStatement();
-			String sql = "SELECT requestId, name, email,phone .event FROM request WHERE requestId = ?";
+			String sql = "SELECT requestId, name, email,phone,event FROM request WHERE status = 1";
 			ResultSet result = statement.executeQuery(sql);
 			
 			while(result.next()) {
@@ -223,7 +221,7 @@ public static boolean updateAcceptedRequest(String requestId) {
 				String phone = result.getString("phone");
 				String event = result.getString("event");
 				
-				Request re = new Request (requestId, name,  email, phone, event, event, event, event, event, event, event, event, event, event, event, false);
+				Request re = new Request (requestId, name,  email, phone, event);
 				requests.add(re);
 			}
 			

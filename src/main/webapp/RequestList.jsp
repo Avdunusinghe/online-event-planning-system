@@ -27,7 +27,7 @@
                 
                 
                 
-         <table class="table-hover"  style="width:30%" >
+         <table class="table-hover"  style="width:90%" >
 
 		<tr>
 	      				<th scope="col">Request Id</th>
@@ -37,10 +37,8 @@
 	      				<th scope="col">Event</th>
 	      				<th scope="col">Date</th>
 	      				<th scope="col"> Time</th>
-	      				<th scope="col">Description</th>
 	      				<th scope="col">Venue</th>
 	      				<th scope="col"> Address</th>
-	      				<th scope="col">Halls</th>
 	      				<th scope="col">Attendees</th>
 	      				<th scope="col">Payment</th>
 	      				<th scope="col">Budget</th>
@@ -68,12 +66,10 @@
 	<c:set var="event" value="${ress.event}"/>
 	<c:set var="date" value="${ress.date}"/>
 	<c:set var="time" value="${ress.time}"/>
-	<c:set var="description" value="${ress.description}"/>
 	<c:set var="venue" value="${ress.venue}"/>
 	<c:set var="address" value="${ress.address}"/>
-	<c:set var="capacity" value="${ress.capacity}"/>
 	<c:set var="attendance" value="${ress.attendance}"/>
-	<c:set var="pay" value="${ress.payment}"/>
+	<c:set var="pay" value="${ress.pay}"/>
 	<c:set var="budget" value="${ress.budget}"/>
 	<c:set var="tickets" value="${ress.tickets}"/>
 	
@@ -88,12 +84,10 @@
 		<td>${ress.event}</td>
 		<td>${ress.date}</td>
 		<td>${ress.time}</td>
-		<td>${ress.description}</td>
 		<td>${ress.venue}</td>
 		<td>${ress.address}</td>
-		<td>${ress.capacity}</td>
 		<td>${ress.attendance}</td>
-		<td>${ress.payment}</td>
+		<td>${ress.pay}</td>
 		<td>${ress.budget}</td>
 		<td>${ress.tickets}</td>
 		

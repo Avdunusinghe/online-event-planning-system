@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.contact.util.ContactDbUtil;
 import com.request.util.RequestDbUtil;
 
 /**
@@ -33,16 +32,7 @@ public class RequestInsertServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());     
-	
-	}
-	
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		//response.getWriter().append("Served at: ").append(request.getContextPath()); 
 		 PrintWriter display = response.getWriter();
 			
 			// TODO Auto-generated method stub
@@ -54,10 +44,8 @@ public class RequestInsertServlet extends HttpServlet {
 			String event = request.getParameter("event");
 			String date = request.getParameter("date");
 			String time = request.getParameter("time");
-			String description = request.getParameter("description");
 			String venue = request.getParameter("venue");
 			String address = request.getParameter("address");
-			String capacity = request.getParameter("capacity");
 			String attendance = request.getParameter("attendance");
 			String pay = request.getParameter("pay");
 			String budget = request.getParameter("budget");
@@ -67,10 +55,8 @@ public class RequestInsertServlet extends HttpServlet {
 			//check whether inserted
 					boolean isInsert;
 					
-					
-					isInsert = RequestDbUtil.addRequest(name, email, phone, 
-														event, date, time, description, 
-														venue, address, capacity, attendance, 
+				try {	
+					isInsert = RequestDbUtil.addRequest(name, email, phone, event, date, time,  venue, address,  attendance, 
 														pay , budget, tickets );
 					
 					
@@ -92,11 +78,24 @@ public class RequestInsertServlet extends HttpServlet {
 						res.forward(request, response);
 						
 					}
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+		
 		
 	}
+	
+	
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	
 		
 		
-}	
+}	}
 		
 		
 	
