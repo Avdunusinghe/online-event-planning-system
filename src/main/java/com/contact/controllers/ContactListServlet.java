@@ -38,19 +38,16 @@ public class ContactListServlet extends HttpServlet {
 		
 		PrintWriter pw = response.getWriter();
 		response.setContentType("text/html");
-		String dispatchPage = null;
 		
 		try {
 			
-			List<Contact> contact = ContactDbUtil.getContactDetails(dispatchPage);
+			List<Contact> contact = ContactDbUtil.getContactDetails();
 			
 			request.setAttribute("contact_list", contact);
 			
 			if(contact != null) {
 				
-				dispatchPage = "contactlist.jsp";
-				
-				RequestDispatcher dispatcher = request.getRequestDispatcher(dispatchPage);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("contactList.jsp");
 				dispatcher.forward(request, response);
 			}
 			else {
@@ -63,7 +60,6 @@ public class ContactListServlet extends HttpServlet {
 			
 		}
 		catch(Exception ex) {
-			
 			ex.printStackTrace();
 		}
 		

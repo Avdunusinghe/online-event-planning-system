@@ -132,20 +132,41 @@
 </head>
 <body>
 <br><br>
-<p>Contact Us<p>
+<p>Contact Us Update Form<p>
+
+<!-- Define jstl  core -->
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!-- Import contact java class and util -->
+<%@ page import="java.util.*, com.contact.model.Contact" %> 
+
+<%
+	String messageId = request.getParameter("messageId");
+	String name = request.getParameter("name");
+	String email = request.getParameter("email");
+	String subject = request.getParameter("subject");
+	String message = request.getParameter("message");				
+%>
 
 <div class="form" class="needs-validation" nonvalidate>
-    <form action="contactUpdate" method="post" role="form" class="contactform">
+    <form action="ContactUpdateServlet" method="get" role="form" class="contactform">
             <div class="form-group">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" required/>
+              <input type="text" class="form-control" name="messageid" value = "<%= messageId %>" id="messageid" data-rule="minlen:4" data-msg="Please enter at least 1 integer" required/>
+              <div class="validate"></div>
+        	</div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="name" id="name" value = "<%= name %>" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required/>
+              <div class="validate"></div>
+        	</div>
+            <div class="form-group">
+                <input type="email" class="form-control" name="email" id="email" value = "<%= email %>" data-rule="email" data-msg="Please enter a valid email" required/>
                 <div class="validate"></div>
             </div>
         <div class="form-group">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" required/>
+              <input type="text" class="form-control" name="subject" id="subject" value = "<%= subject %>" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" required/>
               <div class="validate"></div>
         </div>
         <div class="form-group">
-              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" value = "<%= message %>"></textarea>
               <div class="validate"></div>
         </div>
         <div class="mb-3">
@@ -154,7 +175,7 @@
               <div class="sent-message">Your message has been sent. Thank you!</div>
               </div><br>
         <div class="text-center">
-        	<button type="submit" value="update">Update Message</button>
+        	<button type="submit" value="updated">Update Message</button>
         	<button type="reset">Delete Message</button>
         </div>
     </form>
