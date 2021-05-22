@@ -46,6 +46,7 @@ public class ContactUpdateServlet extends HttpServlet {
 				dis.forward(request, response);
 			}
 		}
+		
 		catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -54,4 +55,5 @@ public class ContactUpdateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}
+	
 }
