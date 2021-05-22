@@ -138,11 +138,11 @@
 	      				<th scope="col">Message</th>
     				</tr>
     			<c:forEach var="Contactlist" items="${contact_list}">
-    				<c:set var = "ID" value = "${ContactList.messageId }" ></c:set>
-    				<c:set var = "Name" value = "${ContactList.name }" ></c:set>
-					<c:set var = "Name" value = "${ContactList.email }" ></c:set>
-					<c:set var = "Email" value = "${ContactList.subject }" ></c:set>
-					<c:set var = "Phone" value = "${ContactList.message }" ></c:set>
+    				<c:set var = "messageId" value = "${ContactList.messageId }" ></c:set>
+    				<c:set var = "name" value = "${ContactList.name }" ></c:set>
+					<c:set var = "email" value = "${ContactList.email }" ></c:set>
+					<c:set var = "subjectl" value = "${ContactList.subject }" ></c:set>
+					<c:set var = "message" value = "${ContactList.message }" ></c:set>
 			    <tr>
 			    	<c:url var="deleteContactLink" value = "ContactDeleteServlet">
 			    		<c:param name="messageId" value="${ContactList.messageId}"></c:param>

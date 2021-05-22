@@ -93,7 +93,7 @@ public class ContactDbUtil {
 		try {
 			com = DBConnectionUtil.getConnection();
 			state = com.createStatement();
-			String sql = "SELECT * FROM Contactus WHERE messageId = ?";
+			String sql = "SELECT * FROM Contactus";
 			rs = state.executeQuery(sql);
 			
 			while(rs.next()) {

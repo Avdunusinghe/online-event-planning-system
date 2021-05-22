@@ -47,7 +47,7 @@ public class ContactListServlet extends HttpServlet {
 			
 			if(contact != null) {
 				
-				RequestDispatcher dispatcher = request.getRequestDispatcher("contactList.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("contactlist.jsp");
 				dispatcher.forward(request, response);
 			}
 			else {
