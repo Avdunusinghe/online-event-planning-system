@@ -59,6 +59,7 @@ public class ContactListServlet extends HttpServlet {
 			}
 			
 		}
+		
 		catch(Exception ex) {
 			ex.printStackTrace();
 		}
@@ -72,4 +73,5 @@ public class ContactListServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+	
 }
