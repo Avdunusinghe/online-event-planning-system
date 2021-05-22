@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.contact.util.ContactDbUtil;
 
-
 @WebServlet("/ContactDeleteServlet")
 public class ContactDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -50,5 +49,4 @@ public class ContactDeleteServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 	}
-
 }

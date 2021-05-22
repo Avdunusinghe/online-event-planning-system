@@ -146,6 +146,5 @@ public class ContactDbUtil {
 		finally{
 			com.close();
 		}
-	}
-	
+	}	
 }
