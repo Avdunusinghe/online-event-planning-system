@@ -40,6 +40,7 @@ public class ContactDeleteServlet extends HttpServlet {
 				Ex.println("</script>");
 			}
 		}
+		
 		catch(Exception e){
 			e.printStackTrace();
 		}
@@ -49,4 +50,5 @@ public class ContactDeleteServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 	}
+	
 }
