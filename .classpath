@@ -13,11 +13,8 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="D:/SLIIT OOP Project/JAR Files-oop/JAR Files/javax.servlet-3.1.jar"/>
-	<classpathentry kind="lib" path="D:/SLIIT OOP Project/JAR Files-oop/JAR Files/mysql-connector-java-5.1.48-bin.jar"/>
-	<classpathentry kind="lib" path="D:/SLIIT OOP Project/JAR Files-oop/JAR Files/servlet-api.jar"/>
-	<classpathentry kind="lib" path="D:/SLIIT/4. 2nd Year/1st Semester/OOP - Object Oriented Programming/JAR Files/javax.servlet-3.1.jar"/>
-	<classpathentry kind="lib" path="D:/SLIIT/4. 2nd Year/1st Semester/OOP - Object Oriented Programming/JAR Files/mysql-connector-java-5.1.48-bin.jar"/>
-	<classpathentry kind="lib" path="D:/SLIIT/4. 2nd Year/1st Semester/OOP - Object Oriented Programming/JAR Files/servlet-api.jar"/>
+	<classpathentry kind="lib" path="F:/jars/javax.servlet-3.1.jar"/>
+	<classpathentry kind="lib" path="F:/jars/mysql-connector-java-5.1.48-bin.jar"/>
+	<classpathentry kind="lib" path="F:/jars/servlet-api.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

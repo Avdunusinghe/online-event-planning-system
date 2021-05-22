@@ -1,7 +1,9 @@
 package com.contact.util;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,13 +15,14 @@ public class ContactDbUtil {
 	private static Connection com = null;
 	private static Statement state = null;
 	private static ResultSet rs = null;
+	private static PreparedStatement PraparedStmt = null;
 	private static boolean isSuccess;
 	
 	
 	//insert query
 	public static boolean insertContact(String name, String email, String subject, String message) {
 		
-		boolean isSuccess = false;
+		isSuccess = false;
 		
 		try {
 			Connection com = DBConnectionUtil.getConnection();
@@ -50,15 +53,14 @@ public class ContactDbUtil {
 	
 	
 	//update query
-	public static boolean updateContact(String subject, String message, String email) {
-		
-		boolean isSuccess = false;
+	public static boolean updateContact(String messageId, String name, String subject, String message, String email) {
 		
 		try {
+			int conId = Integer.parseInt(messageId);
 			com = DBConnectionUtil.getConnection();
 			state = com.createStatement();
 			
-			String sql = "UPDATE Contactus SET subject='"+subject+"', message='"+message+"', WHEARE email = '"+email+"'";
+			String sql = "UPDATE Contactus SET subject='"+subject+"', message='"+message+"', WHEARE messageId = '"+conId+"'";
 			
 			int result = state.executeUpdate(sql);
 			
@@ -83,26 +85,25 @@ public class ContactDbUtil {
 	
 	
 	//retrieve data
-	public static List<Contact> getContactDetails(String messageId){
+	public static List<Contact> getContactDetails(){
 		
-		int conId = Integer.parseInt(messageId);
 		
 		ArrayList<Contact> contact = new ArrayList<>();
 		
 		try {
 			com = DBConnectionUtil.getConnection();
 			state = com.createStatement();
-			String sql = "SELECT * FROM Contactus WHERE messageId = '"+conId+"'";
+			String sql = "SELECT * FROM Contactus";
 			rs = state.executeQuery(sql);
 			
 			while(rs.next()) {
-				int messageId1 = rs.getInt(1);
-				String name = rs.getString(2);
-				String email = rs.getString(3);
-				String subject = rs.getString(4);
-				String message = rs.getString(5);
+				int messageId = rs.getInt("messageId");
+				String name = rs.getString("name");
+				String email = rs.getString("email");
+				String subject = rs.getString("subject");
+				String message = rs.getString("message");
 				
-				Contact c = new Contact(messageId1, name, email, subject, message);
+				Contact c = new Contact(messageId, name, email, subject, message);
 				contact.add(c);
 			}
 			
@@ -115,19 +116,20 @@ public class ContactDbUtil {
 	
 	
 	//delete query
-	public static boolean deleteContact(String messageId) {
-			
-		int conId = Integer.parseInt(messageId);
+	public static boolean deleteContact(String messageId) throws SQLException {
 			
 		try {
+			int conId = Integer.parseInt(messageId);
 			com = DBConnectionUtil.getConnection();
-			state = com.createStatement();
 				
-			String sql = "DELETE FROM Contactus WHERE messageId='"+conId+"'";
+			String sql = "DELETE FROM Contactus WHERE messageId= ? ";
+			
+			PraparedStmt = com.prepareStatement(sql);
+			PraparedStmt.setInt(1, conId);
+			
+			int resultSet = PraparedStmt.executeUpdate();
 				
-			int result = state.executeUpdate(sql);
-				
-			if(result > 0) {
+			if(resultSet > 0) {
 					
 				isSuccess = true;
 			}
@@ -137,13 +139,12 @@ public class ContactDbUtil {
 			}
 
 			com.close();
-		}
-			
-		catch(Exception ex) {
-			
-			ex.printStackTrace();
-		}
+		
 		return isSuccess;
-	}
-	
+		}
+			
+		finally{
+			com.close();
+		}
+	}	
 }
