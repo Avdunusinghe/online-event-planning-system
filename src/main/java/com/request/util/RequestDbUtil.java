@@ -27,7 +27,7 @@ public class RequestDbUtil {
 				conn = DBConnectionUtil.getConnection();
 				statement = conn.createStatement();
 				
-				String sql = "INSERT INTO request VALUES(1, '"+name+"',  '"+email+"', '"+phone+"', '"+event+"','"+date+"', '"+time+"',  '"+venue+"', '"+address+"', '"+attendance+"',  '"+pay+"', '"+budget+"', '"+tickets+"',0)";
+				String sql = "INSERT INTO request VALUES(0,'"+name+"',  '"+email+"', '"+phone+"', '"+event+"','"+date+"', '"+time+"',  '"+venue+"', '"+address+"', '"+attendance+"',  '"+pay+"', '"+budget+"', '"+tickets+"',0)";
 				
 				int result = statement.executeUpdate(sql);
 				
@@ -55,7 +55,7 @@ public class RequestDbUtil {
 		
 		 public static boolean updateRequest(String requestId, String name ,  String email,String phone ,  String event, String date,  String time, 
 					String  venue, String address, String attendance,
-					String pay , String budget, String tickets ) {
+					String pay , String budget ) {
 			 
 			 boolean isSuccess = false;
 		      // Open a connection
@@ -63,7 +63,7 @@ public class RequestDbUtil {
 		    	  conn = DBConnectionUtil.getConnection();
 					statement = conn.createStatement();
 		 		      
-		         String sql = "UPDATE request SET Name = '"+name+"', event= '"+event+"',date = '"+date+"', time = '"+time+"',  venue = '"+venue+"', address = '"+address+"', attendance= '"+attendance+"', pay = '"+pay+"', budget = '"+budget+"',ticket =  '"+tickets+"'";
+		         String sql = "UPDATE request SET Name = '"+name+"', event= '"+event+"',date = '"+date+"', time = '"+time+"',  venue = '"+venue+"', address = '"+address+"', attendance= '"+attendance+"', pay = '"+pay+"', budget = '"+budget+"'";
 		         
 		        int result = statement.executeUpdate(sql);
 		        
@@ -91,11 +91,12 @@ public class RequestDbUtil {
 
 
 public static boolean Requestdelete(String requestId) {
-	int covId = Integer.parseInt(requestId);
+	
 	 
 	 boolean isSuccess = false;
      // Open a connection
      try{
+    	 int covId = Integer.parseInt(requestId);
    	  conn = DBConnectionUtil.getConnection();
 			statement = conn.createStatement();
 		      

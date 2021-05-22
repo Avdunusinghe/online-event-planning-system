@@ -33,9 +33,17 @@ public class RequestInsertServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath()); 
+		
+	}
+	
+	
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		 PrintWriter display = response.getWriter();
-			
-			// TODO Auto-generated method stub
 			response.getWriter();
 			
 			String name = request.getParameter("name");
@@ -83,16 +91,6 @@ public class RequestInsertServlet extends HttpServlet {
 				}
 		
 		
-	}
-	
-	
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	
 		
 		
 }	}

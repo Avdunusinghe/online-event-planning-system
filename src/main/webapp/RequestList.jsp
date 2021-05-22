@@ -48,16 +48,7 @@
     	</tr>
     		
     		 	  	
-	<c:forEach var="ress" items="${Request}">
-	
-	<c:url var = "AcceptRequestLink" value = "UpdateAcceptedListServlet">
-	
-			<c:param name =  "requestId" value = "${ress.requestId}"></c:param>
-	</c:url>
-	
-	<c:url var = "deleteRequestLink" value = "RequestDeleteServlet">
-			<c:param name =  "requestId" value = "${ress.requestId}"></c:param>
-	</c:url>
+	<c:forEach var="ress" items="${request_list}">
 	
 	<c:set var="requestId" value="${ress.requestId}"/>
 	<c:set var="name" value="${ress.name}"/>
@@ -73,11 +64,19 @@
 	<c:set var="budget" value="${ress.budget}"/>
 	<c:set var="tickets" value="${ress.tickets}"/>
 	
+	
 	<tr>
-		<c:url var="deleteRequest" value = "RequestDeleteServlet"></c:url>
+	<c:url var = "AcceptRequestLink" value = "UpdateAcceptedListServlet">
+	
+	<c:param name =  "requestId" value = "${ress.requestId}"></c:param>
+	</c:url>
+	
 		
-			    		
-		<td>${ress.requestId}</td>
+	<c:url var="deleteRequestLink" value = "RequestDeleteServlet">
+		<c:param name =  "requestId" value = "${ress.requestId}"></c:param>
+	</c:url>
+	
+	    <td>${ress.requestId}</td>
 		<td>${ress.name}</td>
 		<td>${ress.email}</td>
 		<td>${ress.phone}</td>
@@ -90,8 +89,9 @@
 		<td>${ress.pay}</td>
 		<td>${ress.budget}</td>
 		<td>${ress.tickets}</td>
-		
-		<td><a href="${AcceptRequestLink}" class="btn btn-success">Accept</a>
+	
+	
+		<td><a href="${AcceptRequestLink}" class="btn btn-success">Accept</a></td>
 			<a href="${deleteRequestLink}" class="btn btn-danger">Delete</a></td>
 			
 	</tr>

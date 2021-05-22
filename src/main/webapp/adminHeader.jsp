@@ -97,7 +97,7 @@
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="RequestList.jsp">
+                            <a class="nav-link" href="GetRequestListServlet">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                  New Event Requests
                             </a>
