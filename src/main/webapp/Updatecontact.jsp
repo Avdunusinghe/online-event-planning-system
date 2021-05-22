@@ -134,10 +134,12 @@
 <br><br>
 <p>Contact Us Update Form<p>
 
+
 <!-- Define jstl  core -->
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- Import contact java class and util -->
 <%@ page import="java.util.*, com.contact.model.Contact" %> 
+
 
 <%
 	String messageId = request.getParameter("messageId");
@@ -146,6 +148,7 @@
 	String subject = request.getParameter("subject");
 	String message = request.getParameter("message");				
 %>
+
 
 <div class="form" class="needs-validation" nonvalidate>
     <form action="ContactUpdateServlet" method="get" role="form" class="contactform">
