@@ -36,7 +36,7 @@
           <h1>Event Request Form</h1>
         </div>
 		 <div class="item">
-          <p>Customer Name</p>
+          <p>Customer-Name</p>
           <div class="name-item">
             <input type="text" name="name" placeholder="Name" required/>
          
