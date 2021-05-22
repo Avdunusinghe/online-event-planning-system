@@ -112,6 +112,8 @@
                     </div>
                 </nav>
             </div>
+            
+            
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
@@ -165,6 +167,8 @@
 			  </c:forEach>
 			</table>
                 </main>
+                
+                
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
