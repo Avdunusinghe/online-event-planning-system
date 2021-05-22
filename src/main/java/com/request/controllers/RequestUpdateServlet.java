@@ -32,7 +32,10 @@ public class RequestUpdateServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+	
+		
 	}
 
 	/**
@@ -40,7 +43,7 @@ public class RequestUpdateServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		 PrintWriter pw = response.getWriter();
+		PrintWriter pw = response.getWriter();
 		 response.setContentType("text/html");
 		// TODO Auto-generated method stub
 		String requestId = request.getParameter("requestId");
@@ -55,20 +58,17 @@ public class RequestUpdateServlet extends HttpServlet {
 		String attendance = request.getParameter("attendance");
 		String pay = request.getParameter("pay");
 		String budget = request.getParameter("budget");
-		String tickets = request.getParameter("tickets");
-  
-		doGet(request, response);
+		
+
+		doGet(request,response);
 		
 		boolean isTrue;
 		try {
-		isTrue = RequestDbUtil.updateRequest(requestId, name,  email, phone, event, date, time,  venue, address, attendance, pay, budget, tickets);
+		isTrue = RequestDbUtil.updateRequest(requestId, name,  email, phone, event, date, time,  venue, address, attendance, pay, budget);
 		
 		if (isTrue == true)
 		{
-			RequestDispatcher dis = request.getRequestDispatcher("RequestList.jsp");
-		   pw.println("<script type = 'text/javascript'>");
-			pw.println("alert('Successfully Updated');");
-			pw.println("</script>");
+			RequestDispatcher dis = request.getRequestDispatcher("successRequest.jsp");
 			 dis.forward(request, response);
 		 }
 		 else {
@@ -82,8 +82,7 @@ public class RequestUpdateServlet extends HttpServlet {
 		}
 		catch(Exception e) {
 			e.printStackTrace();
-		}
-		
+		}	 
 	}
 
 }

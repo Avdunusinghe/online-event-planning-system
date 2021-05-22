@@ -30,7 +30,7 @@
    
   <section class="form my-4 mx-5">
 <div class="testbox">
-      <form  name = "form1" action="RequestInsertServlet" method = "GET"  onsubmit="notNull()">
+      <form  name = "form1" action="RequestInsertServlet" method = "POST"  onsubmit="notNull()">
         <div class="banner">
 		<img  src="assets/img/wallevent.jpg"   width="100%" height = "200px">
           <h1>Event Request Form</h1>
@@ -120,17 +120,12 @@
           <p>Will tickets issued?</p>
           <div class="question-answer">
             <div>
-              <input type="radio" value="none" id="radio_1" name="tickets" />
-              <label for="radio_1" class="radio"><span>Yes</span></label>
+              <input type="radio" value="1"  id = "tickets"  name="tickets" checked required/>Yes
+              <input type="radio" value="2"  id = "tickets"  name="tickets" />No
             </div>
-            <div>
-              <input type="radio" value="none" id="radio_2" name="tickets" />
-              <label for="radio_2" class="radio"><span>No</span></label>
-            </div>
-          </div>
         </div>
         <div class="btn-block">
-          <button type="submit" >Submit</button>
+          <button type="submit" href = "UserAppHome.jsp">Submit</button>
         </div>
       </form>
     </div>

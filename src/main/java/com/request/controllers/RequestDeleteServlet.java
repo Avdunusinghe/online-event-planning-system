@@ -9,8 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.contact.util.ContactDbUtil;
 import com.request.util.RequestDbUtil;
 
 /**
@@ -41,10 +39,14 @@ public class RequestDeleteServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		 PrintWriter pw = response.getWriter();
+
 		String requestId = request.getParameter("requestId");
 		
 		doGet(request, response);
+		try {
+			PrintWriter pw = response.getWriter();
+			response.setContentType("text/html");
+		
         boolean isTrue;
 		
 		isTrue = RequestDbUtil.Requestdelete(requestId);
@@ -52,15 +54,18 @@ public class RequestDeleteServlet extends HttpServlet {
 		if(isTrue == true) {
 			
 			
-			RequestDispatcher disp = request.getRequestDispatcher("Success.jsp");
+			RequestDispatcher disp = request.getRequestDispatcher("GetRequestListServlet");
 			disp.forward(request, response);
 		}
 		else {
 			
-			RequestDispatcher disp2 = request.getRequestDispatcher("DisplayRequest.jsp");
-			pw.println("alert('The delete is unsucessfull');");
-			
-			disp2.forward(request, response);
+			pw.println("<script type = 'text/javascript'>");
+			pw.println("alert('Could not deleted');");
+			pw.println("location = 'UserAppHome.jsp'");
+			pw.println("</script>");
+		}
+		}catch(Exception e){
+			e.printStackTrace();
 		}
 	}
 	}
