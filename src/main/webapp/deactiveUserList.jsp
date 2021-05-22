@@ -35,7 +35,7 @@
 			    <c:forEach var="tempCustomer" items="${deactive_list}">
 			    	<tr>
 			    	
-			    	<c:url var="reactiveCustomerLink" value = "">
+			    	<c:url var="reactiveCustomerLink" value = "ReActiveCustomerServlet">
 			    		<c:param name="userId" value="${tempCustomer.userId}"></c:param>
 			    	</c:url>
 			    	
