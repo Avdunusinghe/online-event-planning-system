@@ -22,7 +22,7 @@ public class ContactDbUtil {
 	//insert query
 	public static boolean insertContact(String name, String email, String subject, String message) {
 		
-		boolean isSuccess = false;
+		isSuccess = false;
 		
 		try {
 			Connection com = DBConnectionUtil.getConnection();
