@@ -88,7 +88,7 @@ public class ContactDbUtil {
 	public static List<Contact> getContactDetails(){
 		
 		
-		ArrayList<Contact> contact = new ArrayList<>();
+		List<Contact> contact = new ArrayList<>();
 		
 		try {
 			com = DBConnectionUtil.getConnection();

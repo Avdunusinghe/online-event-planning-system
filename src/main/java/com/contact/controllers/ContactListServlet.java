@@ -43,7 +43,7 @@ public class ContactListServlet extends HttpServlet {
 			
 			List<Contact> contact = ContactDbUtil.getContactDetails();
 			
-			request.setAttribute("contact_list", contact);
+			request.setAttribute("contact", contact);
 			
 			if(contact != null) {
 				
