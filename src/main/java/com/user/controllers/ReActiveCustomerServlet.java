@@ -37,9 +37,9 @@ public class ReActiveCustomerServlet extends HttpServlet {
 			ICustomerService activeAccount = new UserDbUtil();
 			isAcctive = activeAccount.reActiveCustomer(customerid);
 			
-			if(isDeactive == true) {
+			if(isAcctive == true) {
 				
-				RequestDispatcher dispatcher = request.getRequestDispatcher("UserListServlet");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("GetDeactiveUserDetailsServlet");
 				dispatcher.forward(request, response);
 			}
 			else {

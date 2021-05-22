@@ -21,28 +21,39 @@ public class ContactUpdateServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		String messageId = request.getParameter("messageId");
+		String name = request.getParameter("name");
+		String email  = request.getParameter("email");
+		String subject = request.getParameter("subject");
+		String message = request.getParameter("message");
+		
+		boolean isupdate;
+		
+		try {
+			isupdate = ContactDbUtil.updateContact(messageId, name, email, subject, message);
+		
+			if (isupdate == true)
+			{
+				RequestDispatcher dis = request.getRequestDispatcher("ContactListServlet");
+				dis.forward(request, response);
+			}
+			else {
+			 
+				RequestDispatcher dis = request.getRequestDispatcher("UserAppHome.jsp");  
+				dis.forward(request, response);
+			}
+		}
+		
+		catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String subject = request.getParameter("message");
-		String message = request.getParameter("subject");
-
-		boolean isupdate;
-		
-		isupdate = ContactDbUtil.updateContact(subject, message, null);
-		
-		if (isupdate == true)
-		{
-			RequestDispatcher dis = request.getRequestDispatcher("Success.jsp");
-			 dis.forward(request, response);
-		 }
-		 else {
-			 
-			 RequestDispatcher dis = request.getRequestDispatcher("UserAppHome.jsp");  
-			 dis.forward(request, response);
-		 }
 	}
+	
 }

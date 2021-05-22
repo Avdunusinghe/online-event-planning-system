@@ -112,6 +112,8 @@
                     </div>
                 </nav>
             </div>
+            
+            
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
@@ -119,31 +121,53 @@
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Contact Clients</li>
                         </ol>                
-                </main>
-                
-                <table class="table table-striped" style="width:60%;">
+               
+                <!-- Define jstl  core -->
+               		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+                 	
+                 	<!-- Import contact java class and util -->
+    				<%@ page import="java.util.*, com.contact.model.Contact" %>
+    			
+    			<!-- contact list table -->
+                <table border = "2" class="table table-striped" style="width:60%;">
     				<tr>
-	      				<th scope="col">Contact Id</th>
+	      			<th scope="col">Contact Id</th>
 	      				<th scope="col">Name</th>
 	      				<th scope="col">Email</th>
 	      				<th scope="col">Subject</th>
 	      				<th scope="col">Message</th>
     				</tr>
-    			<c:forEach var="tempContact" items="${contact_list}">
+    			<c:forEach var="Contactlist" items="${contact_list}">
+    				<c:set var = "messageId" value = "${ContactList.messageId }" ></c:set>
+    				<c:set var = "name" value = "${ContactList.name }" ></c:set>
+					<c:set var = "email" value = "${ContactList.email }" ></c:set>
+					<c:set var = "subjectl" value = "${ContactList.subject }" ></c:set>
+					<c:set var = "message" value = "${ContactList.message }" ></c:set>
 			    <tr>
-			    	<c:url var="deleteContactLink" value = "ContactDelete">\
-			    		<c:param name="messageId" value="${tempContact.messageId}"></c:param>
+			    	<c:url var="deleteContactLink" value = "ContactDeleteServlet">
+			    		<c:param name="messageId" value="${ContactList.messageId}"></c:param>
 			    	</c:url>
 			      <th scope="row">1</th>
-			      <td>${tempContact.messageId}</td>
-			      <td>${tempContact.name}</td>
-			      <td>${tempContact.email}</td>
-			      <td>${tempContact.subject}</td>
-			      <td>${tempContact.message}</td>
+			      <td>${ContactList.messageId}</td>
+			      <td>${ContactList.name}</td>
+			      <td>${ContactList.email}</td>
+			      <td>${ContactList.subject}</td>
+			      <td>${ContactList.message}</td>
+			      
+			      <c:url value = "Updatecontact.jsp" var="updateContactLink" >
+			    		<c:param name = "userId" value = "${ContactList.messageId}"/>
+			    		<c:param name = "name" value = "${ContactList.name}"/>
+						<c:param name = "email" value = "${ContactList.email}"/>
+						<c:param name = "phone" value = "${ContactList.subject}"/>
+						<c:param name = "password" value = "${ContactList.message}"/>
+			      </c:url>
+			      <td> <a href="${updateContactLink}" class ="btn btn-success">Update</a></td>		
 			      <td> <a href="${deleteContactLink}" class="btn btn-danger">Delete</a></td>
 			    </tr>
 			  </c:forEach>
 			</table>
+                </main>
+                
                 
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">

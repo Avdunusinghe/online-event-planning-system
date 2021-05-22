@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mailservice.SendMail;
 import com.user.userservice.ICustomerService;
 import com.user.util.UserDbUtil;
 
@@ -36,8 +37,33 @@ public class UserInsetServlet extends HttpServlet {
 		String phone = request.getParameter("phone");
 		String password = request.getParameter("password");
 		
+
+		/*
+		 * Sending Message
+		 */
+		//String mailTo = email;
+		String subject = "Registration Confirmation";
+		String message = "<i>Thank you!!</i> ";
+		message +="<br>";
 		
-		
+		message += "<font color=orange>Thank you join With us </font>";
+		message +="<br>";
+		message += "<font color=orange>The eventer </font>";
+		message +="<br>";
+		message += "<font color=red>*Please Don't Reply this email*</font>";
+		message +="<br>";
+		message+= "<font color=red>This is Auto Genarated Email</b>";
+		/*message +="<br>";
+		message += "<font color=orange>Sri Lanka Institute of Information Technology(SLIIT)</font>";
+		message +="<br>";
+		message += "<font color=purple>Department of Computer Science & Software Engineering</font>";
+		message +="<br>";
+		message += "<font color=red>GROUP:- MLB_SE_OOP_G259</font>";
+		message +="<br>";
+		message +="<br>";
+		message += "<font color=red>*Please Don't Reply this email*</font>";
+		message +="<br>";
+		message+= "<font color=red>This is Auto Genarated Email</b>";	*/	
 		boolean isInsertTrue;
 		try {
 			
@@ -49,6 +75,11 @@ public class UserInsetServlet extends HttpServlet {
 			 */
 			
 			if(isInsertTrue == true) {
+				
+				/*
+				 * fire email
+				 */
+				SendMail.sendMailRegisteredCustomer(email, subject, message);
 				
 				/*
 				 * if query execute success dispatch to home page
