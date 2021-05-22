@@ -141,7 +141,7 @@
     				<c:set var = "messageId" value = "${ContactList.messageId }" ></c:set>
     				<c:set var = "name" value = "${ContactList.name }" ></c:set>
 					<c:set var = "email" value = "${ContactList.email }" ></c:set>
-					<c:set var = "subjectl" value = "${ContactList.subject }" ></c:set>
+					<c:set var = "subject" value = "${ContactList.subject }" ></c:set>
 					<c:set var = "message" value = "${ContactList.message }" ></c:set>
 			    <tr>
 			    	<c:url var="deleteContactLink" value = "ContactDeleteServlet">
@@ -155,11 +155,11 @@
 			      <td>${ContactList.message}</td>
 			      
 			      <c:url value = "Updatecontact.jsp" var="updateContactLink" >
-			    		<c:param name = "userId" value = "${ContactList.messageId}"/>
+			    		<c:param name = "messageId" value = "${ContactList.messageId}"/>
 			    		<c:param name = "name" value = "${ContactList.name}"/>
 						<c:param name = "email" value = "${ContactList.email}"/>
-						<c:param name = "phone" value = "${ContactList.subject}"/>
-						<c:param name = "password" value = "${ContactList.message}"/>
+						<c:param name = "subject" value = "${ContactList.subject}"/>
+						<c:param name = "message" value = "${ContactList.message}"/>
 			      </c:url>
 			      <td> <a href="${updateContactLink}" class ="btn btn-success">Update</a></td>		
 			      <td> <a href="${deleteContactLink}" class="btn btn-danger">Delete</a></td>
