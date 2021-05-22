@@ -48,7 +48,7 @@
     	</tr>
     		
     		 	  	
-	<c:forEach var="ress" items="${request_list}">
+	<c:forEach var="ress" items="${Request}">
 	
 	<c:set var="requestId" value="${ress.requestId}"/>
 	<c:set var="name" value="${ress.name}"/>
@@ -109,7 +109,9 @@
 		
 		
 		<td><a href="${AcceptRequestLink}" class="btn btn-success">Accept</a></td>
-			<td><a href="${deleteRequestLink}" class="btn btn-danger">Delete</a></td>
+        <td><a href="${deleteRequestLink}" class="btn btn-danger">Delete</a></td>
+		
+
 			
 	</tr>
 	</c:forEach>

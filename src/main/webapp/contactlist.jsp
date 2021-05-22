@@ -129,7 +129,7 @@
     				<%@ page import="java.util.*, com.contact.model.Contact" %>
     			
     			<!-- contact list table -->
-                <table border = "2" class="table table-striped" style="width:60%;">
+                <table  class="table table-hover" style="width:60%;">
     				<tr>
 	      			<th scope="col">Contact Id</th>
 	      				<th scope="col">Name</th>
@@ -137,29 +137,28 @@
 	      				<th scope="col">Subject</th>
 	      				<th scope="col">Message</th>
     				</tr>
-    			<c:forEach var="Contactlist" items="${contact_list}">
-    				<c:set var = "messageId" value = "${ContactList.messageId }" ></c:set>
-    				<c:set var = "name" value = "${ContactList.name }" ></c:set>
-					<c:set var = "email" value = "${ContactList.email }" ></c:set>
-					<c:set var = "subjectl" value = "${ContactList.subject }" ></c:set>
-					<c:set var = "message" value = "${ContactList.message }" ></c:set>
+    			<c:forEach var="contactlist" items="${contact}">
+    				<c:set var = "messageId" value = "${contactlist.messageId }" ></c:set>
+    				<c:set var = "name" value = "${contactlist.name }" ></c:set>
+					<c:set var = "email" value = "${contactlist.email }" ></c:set>
+					<c:set var = "subject" value = "${contactlist.subject }" ></c:set>
+					<c:set var = "message" value = "${contactlist.message }" ></c:set>
 			    <tr>
 			    	<c:url var="deleteContactLink" value = "ContactDeleteServlet">
-			    		<c:param name="messageId" value="${ContactList.messageId}"></c:param>
+			    		<c:param name="messageId" value="${contactlist.messageId}"></c:param>
 			    	</c:url>
-			      <th scope="row">1</th>
-			      <td>${ContactList.messageId}</td>
-			      <td>${ContactList.name}</td>
-			      <td>${ContactList.email}</td>
-			      <td>${ContactList.subject}</td>
-			      <td>${ContactList.message}</td>
+			      <td>${contactlist.messageId}</td>
+			      <td>${contactlist.name}</td>
+			      <td>${contactlist.email}</td>
+			      <td>${contactlist.subject}</td>
+			      <td>${contactlist.message}</td>
 			      
 			      <c:url value = "Updatecontact.jsp" var="updateContactLink" >
-			    		<c:param name = "userId" value = "${ContactList.messageId}"/>
-			    		<c:param name = "name" value = "${ContactList.name}"/>
-						<c:param name = "email" value = "${ContactList.email}"/>
-						<c:param name = "phone" value = "${ContactList.subject}"/>
-						<c:param name = "password" value = "${ContactList.message}"/>
+			    		<c:param name = "messageId" value = "${contactlist.messageId}"/>
+			    		<c:param name = "name" value = "${contactlist.name}"/>
+						<c:param name = "email" value = "${contactlist.email}"/>
+						<c:param name = "subject" value = "${contactlist.subject}"/>
+						<c:param name = "message" value = "${contactlist.message}"/>
 			      </c:url>
 			      <td> <a href="${updateContactLink}" class ="btn btn-success">Update</a></td>		
 			      <td> <a href="${deleteContactLink}" class="btn btn-danger">Delete</a></td>

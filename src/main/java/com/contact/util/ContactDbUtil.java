@@ -88,12 +88,12 @@ public class ContactDbUtil {
 	public static List<Contact> getContactDetails(){
 		
 		
-		ArrayList<Contact> contact = new ArrayList<>();
+		List<Contact> contact = new ArrayList<>();
 		
 		try {
 			com = DBConnectionUtil.getConnection();
 			state = com.createStatement();
-			String sql = "SELECT * FROM Contactus";
+			String sql = "SELECT * FROM contactus";
 			rs = state.executeQuery(sql);
 			
 			while(rs.next()) {
@@ -122,7 +122,7 @@ public class ContactDbUtil {
 			int conId = Integer.parseInt(messageId);
 			com = DBConnectionUtil.getConnection();
 				
-			String sql = "DELETE FROM Contactus WHERE messageId= ? ";
+			String sql = "DELETE FROM contactus WHERE messageId= ? ";
 			
 			PraparedStmt = com.prepareStatement(sql);
 			PraparedStmt.setInt(1, conId);
