@@ -3,6 +3,7 @@ package com.request.util;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import com.DBConnection.DBConnectionUtil;
@@ -90,14 +91,14 @@ public class RequestDbUtil {
 		//delete 
 
 
-public static boolean Requestdelete(String requestId) {
+public static boolean Requestdelete(String requestId) throws SQLException{
 	
 	 
 	 boolean isSuccess = false;
      // Open a connection
      try{
     	 int covId = Integer.parseInt(requestId);
-   	  conn = DBConnectionUtil.getConnection();
+   	         conn = DBConnectionUtil.getConnection();
 			statement = conn.createStatement();
 		      
         String sql = "DELETE from request  WHERE RequestId  = '"+covId+"'";
@@ -113,16 +114,15 @@ public static boolean Requestdelete(String requestId) {
 				
 				isSuccess = false;
 			}
-			
+			return isSuccess;
+     }
+		finally{
 			conn.close();
 		}
-		catch(Exception ex) {
-			
-			ex.printStackTrace();
-		}
-		return isSuccess;
-	}
-
+     
+	     
+     
+}
 
 //retrieve request  data
 	public static ArrayList<Request> getRequestList(){
