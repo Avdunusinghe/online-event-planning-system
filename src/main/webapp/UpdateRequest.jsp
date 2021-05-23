@@ -55,25 +55,25 @@
        <tr>
 			<th>
 				<td ><b>RequestID</b></td> 
-				<td><input type = "text" name = "requestId" value = "<%= requestId %>" style = "width:100%" readonly > <br></td>
+				<td><input type = "text" name = "requestId" value = "<%= requestId %>" style = "width:60%" readonly > <br></td>
 					</th>
 					</tr>
 			<tr>
 			<th>
 					<td><b>Customer Name</b></td>
-								<td><input type = "text" name = "name" value = "<%= name %>" style = "width:100%"> <br></td>
+								<td><input type = "text" name = "name" value = "<%= name %>" style = "width:60%""> <br></td>
 							</th>
 						</tr>
 						<tr>
 							<th>
 								<td><b>Contact email</b> </td>
-								<td><input type = "text" name = "email" value = "<%= email %>" style = "width:100%">  <br></td>
+								<td><input type = "text" name = "email" value = "<%= email %>" style = "width:60%">  <br></td>
 							</th>
 						</tr>
 						<tr>
 							<th>
 								<td><b>Contact number</b></td>
-								<td><input type = "text" name = "phone" value = "<%= phone %>" style = "width:100%"> <br></td>
+								<td><input type = "text" name = "phone" value = "<%= phone %>" style = "width:60%"> <br></td>
 							</th>
 						</tr>
 						<tr>
@@ -103,32 +103,32 @@
 							<th>
 							 <div class="item">
 								<td><b>Event date</b></td>
-								<td><input type = "date" name = "date" value = "<%= date %>" style = "width:100%"> <i class="fas fa-calendar-alt"></i><br></td>
+								<td><input type = "date" name = "date" value = "<%= date %>" style = "width:60%"> <i class="fas fa-calendar-alt"></i><br></td>
 							</div>
 							</th>
 						</tr>
 						<tr>
 							<th>
 								<td><b>Event time</b></td>
-								<td><input type = "time" name = "time" value = "<%= time %>" style = "width:100%"><i class="fas fa-clock"></i> <br></td>
+								<td><input type = "time" name = "time" value = "<%= time %>" style = "width:60%"><i class="fas fa-clock"></i> <br></td>
 							</th>
 						</tr>
 						<tr>
 							<th>
 								<td><b>Venue</b></td>
-								<td><input type = "text" name = "venue" value = "<%= venue %>" style = "width:100%"> <br></td>
+								<td><input type = "text" name = "venue" value = "<%= venue %>" style = "width:60%"> <br></td>
 							</th>
 						</tr>
 						<tr>
 							<th>
 								<td><b>Venue address</b></td>
-								<td><input type = "text" name = "address" value = "<%= address %>" style = "width:100%"> <br></td>
+								<td><input type = "text" name = "address" value = "<%= address %>" style ="width:60%"> <br></td>
 							</th>
 						</tr>
 						<tr>
 							<th>
 								<td><b>Attendance</b></td>
-								<td><input type = "text" name = "attendance" value = "<%= attendance %>" style = "width:100%"> <br></td>
+								<td><input type = "text" name = "attendance" value = "<%= attendance %>" style = "width:60%"> <br></td>
 							</th>
 						</tr>
 						<tr>
@@ -147,7 +147,7 @@
 						<tr>
 							<th>
 								<td><b>Budget Limit</b></td>
-								<td><input type = "text" name = "budget" value = "<%= budget %>" style = "width:100%"> <br></td>
+								<td><input type = "text" name = "budget" value = "<%= budget %>" style = "width:60%"> <br></td>
 							</th>
 						</tr>
 						<tr>
