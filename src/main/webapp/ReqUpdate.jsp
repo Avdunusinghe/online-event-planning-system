@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>SuccessRequest</title>
+<title>updateRequest</title>
 <meta charset="ISO-8859-1">
 <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -65,55 +65,87 @@
 }
 </style>
 <body>
-
+<br><br><br><br><br><br>
 	<!-- Define jstl  core -->
                		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
                  	
                  	<!-- Import Request java class and util -->
     				<%@ page import="java.util.*, com.request.model.Request" %>
+                 <table class="table table-bordered table-dark"  style="width:90%" >
+                 
+                 
+            
+         <table class="table table-bordered table-dark"  style="width:90%" >
 
-<br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-
-<p><b>Event Request  submitted successfully!!!!!</b><p>
-
-
-  <c:forEach var="ress" items="${Request}" >
-              
-              <c:set var="requestId" value="${ress.requestId}"/>
-				<c:set var="name" value="${ress.name}"/>
-				<c:set var="email" value="${ress.email}"/>
-				<c:set var="phone" value="${ress.phone}"/>
-				<c:set var="event" value="${ress.event}"/>
-				<c:set var="date" value="${ress.date}"/>
-				<c:set var="time" value="${ress.time}"/>
-				<c:set var="venue" value="${ress.venue}"/>
-				<c:set var="address" value="${ress.address}"/>
-				<c:set var="attendance" value="${ress.attendance}"/>
-				<c:set var="pay" value="${ress.pay}"/>
-				<c:set var="budget" value="${ress.budget}"/>
+		<tr>
+	      				<th scope="col">Request Id</th>
+	      				<th scope="col"> Name</th>
+	      				<th scope="col">Email</th>
+	      				<th scope="col">Phone</th>
+	      				<th scope="col">Event</th>
+	      				<th scope="col">Date</th>
+	      				<th scope="col"> Time</th>
+	      				<th scope="col">Venue</th>
+	      				<th scope="col"> Address</th>
+	      				<th scope="col">Attendees</th>
+	      				<th scope="col">Payment</th>
+	      				<th scope="col">Budget</th>
+	      				<th scope="col">Option</th>
+	      				
+    	</tr>
+    		
+    		 	  	
+	<c:forEach var="ress" items="${Request}">
 	
+	<c:set var="requestId" value="${ress.requestId}"/>
+	<c:set var="name" value="${ress.name}"/>
+	<c:set var="email" value="${ress.email}"/>
+	<c:set var="phone" value="${ress.phone}"/>
+	<c:set var="event" value="${ress.event}"/>
+	<c:set var="date" value="${ress.date}"/>
+	<c:set var="time" value="${ress.time}"/>
+	<c:set var="venue" value="${ress.venue}"/>
+	<c:set var="address" value="${ress.address}"/>
+	<c:set var="attendance" value="${ress.attendance}"/>
+	<c:set var="pay" value="${ress.pay}"/>
+	<c:set var="budget" value="${ress.budget}"/>
+
+	
+	
+	<tr>
 	<c:url var = "UpdateRequestLink" value = "UpdateRequest.jsp">
 	
 	<c:param name =  "requestId" value = "${ress.requestId}"></c:param>
-	<c:param name =  "name" value = "${ress.name}"></c:param>
-	<c:param name =  "email" value = "${ress.email}"></c:param>
-	<c:param name =  "phone" value = "${ress.phone}"></c:param>
-	<c:param name =  "event" value = "${ress.event}"></c:param>
-	<c:param name =  "date" value = "${ress.date}"></c:param>
-	<c:param name =  "time" value = "${ress.time}"></c:param>
-	<c:param name =  "venue" value = "${ress.venue}"></c:param>
-		<c:param name =  "address" value = "${ress.address}"></c:param>
-			<c:param name =  "attendance" value = "${ress.attendance}"></c:param>
-				<c:param name =  "pay" value = "${ress.pay}"></c:param>
-				<c:param name =  "budget" value = "${ress.budget}"></c:param>
 </c:url>
-</c:forEach>
-<br> 
-       <label> Do you want to Update?</label>
-     <a href = UpdateRequest.jsp  class = "btn btn-warning"  value="Submit" ><b>Update</b></a><br>
-      <label> Submitted succesfully</label>
-       <a href = "UserAppHome.jsp"   class = "btn btn-warning"  value="Submit"><b>Done</b></a><br>
-                                      
+
+
+	    <td>${ress.requestId}</td>
+		<td>${ress.name}</td>
+		<td>${ress.email}</td>
+		<td>${ress.phone}</td>
+		<td>${ress.event}</td>
+		<td>${ress.date}</td>
+		<td>${ress.time}</td>
+		<td>${ress.venue}</td>
+		<td>${ress.address}</td>
+		<td>${ress.attendance}</td>
+		<td>${ress.pay}</td>
+		<td>${ress.budget}</td>
+	
+	
+
+		
+		
+		<td><a href="${UpdateRequestLink}" class="btn btn-success">Update</a></td>
+        
+		
+
+			
+	</tr>
+	</c:forEach>
+	</table>
+	
+               
 <br> <br> <br> <br>  
 
    <footer id="footer" style="bottom: 0; position: fixed; width: 100%;" >

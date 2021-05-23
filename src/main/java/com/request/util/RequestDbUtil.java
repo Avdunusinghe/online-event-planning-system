@@ -54,17 +54,19 @@ public class RequestDbUtil {
 	//Update query
 		
 		
-		 public static boolean updateRequest(String requestId, String name ,  String email,String phone ,  String event, String date,  String time, 
+		 public static boolean updateRequest(String requestId, String name ,  String email,String phone , 
+				 String event, String date,  String time, 
 					String  venue, String address, String attendance,
 					String pay , String budget ) {
 			 
 			 boolean isSuccess = false;
 		      // Open a connection
 		      try{
+		    	  
+		    	  int ReqId = Integer.parseInt(requestId);
 		    	  conn = DBConnectionUtil.getConnection();
 					statement = conn.createStatement();
-		 		      
-		         String sql = "UPDATE request SET Name = '"+name+"', event= '"+event+"',date = '"+date+"', time = '"+time+"',  venue = '"+venue+"', address = '"+address+"', attendance= '"+attendance+"', pay = '"+pay+"', budget = '"+budget+"'";
+		 		   String sql = "UPDATE request SET name = '"+name+"', event= '"+event+"',date = '"+date+"', time = '"+time+"',  venue = '"+venue+"', address = '"+address+"', attendance= '"+attendance+"', pay = '"+pay+"', budget = '"+budget+"' where requestId = '"+ReqId+"'";
 		         
 		        int result = statement.executeUpdate(sql);
 		        
@@ -77,8 +79,7 @@ public class RequestDbUtil {
 						
 						isSuccess = false;
 					}
-					
-					conn.close();
+			
 				}
 				catch(Exception ex) {
 					
@@ -172,14 +173,15 @@ public static boolean Requestdelete(String requestId) throws SQLException{
 
 public static boolean updateAcceptedRequest(String requestId) {
 	 
-	int covId = Integer.parseInt(requestId);
+
 	 boolean isSuccess = false;
      // Open a connection
      try{
-   	  conn = DBConnectionUtil.getConnection();
+    		int covId = Integer.parseInt(requestId);
+   	        conn = DBConnectionUtil.getConnection();
 			statement = conn.createStatement();
 		      
-        String sql = "UPDATE request SET status =  1  WHERE requestId  = '"+covId+"'";
+        String sql = "update request set status = '1'  WHERE requestId = '"+covId+"'";
         
        int result = statement.executeUpdate(sql);
        
@@ -192,8 +194,6 @@ public static boolean updateAcceptedRequest(String requestId) {
 				
 				isSuccess = false;
 			}
-			
-			conn.close();
 		}
 		catch(Exception ex) {
 			

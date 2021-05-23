@@ -27,7 +27,7 @@
                 
                 
                 
-         <table class="table-hover"  style="width:90%" >
+         <table class="table table-bordered table-dark"  style="width:90%" >
 
 		<tr>
 	      				<th scope="col">Request Id</th>
@@ -71,6 +71,10 @@
 	<c:param name =  "requestId" value = "${ress.requestId}"></c:param>
 </c:url>
 
+<c:url var="deleteRequestLink" value = "RequestDeleteServlet">
+ <c:param name="requestId" value="${ress.requestId}"/>
+	 	</c:url>
+
 	    <td>${ress.requestId}</td>
 		<td>${ress.name}</td>
 		<td>${ress.email}</td>
@@ -85,27 +89,7 @@
 		<td>${ress.budget}</td>
 		<td>${ress.tickets}</td>
 	
-	
-	
-	<c:url var="deleteRequestLink" value = "RequestDeleteServlet">
-	 	
-	 <c:param name="requestId" value="${ress.requestId}"/>
-	<c:param name="name"   value="${ress.name}"/>
-	<c:param name="email" value="${ress.email}"/>
-	<c:param name="phone" value="${ress.phone}"/>
-	<c:param name="event" value="${ress.event}"/>
-	<c:param name="date" value="${ress.date}"/>
-	<c:param name="time" value="${ress.time}"/>
-	<c:param name="venue" value="${ress.venue}"/>
-	<c:param name="address" value="${ress.address}"/>
-	<c:param name="attendance" value="${ress.attendance}"/>
-	<c:param name="pay" value="${ress.pay}"/>
-	<c:param name="budget" value="${ress.budget}"/>
-	<c:param name="tickets" value="${ress.tickets}"/>
-			      
-			      
-			      </c:url>
-	
+
 		
 		
 		<td><a href="${AcceptRequestLink}" class="btn btn-success">Accept</a></td>

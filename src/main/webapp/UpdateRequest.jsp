@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    		
+    				
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +20,12 @@
 </head>
 <body>
 
+<!-- Define jstl  core -->
+               		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+                  <!-- Import user java class and util -->
+    				<%@ page import="java.util.*, com.request.model.Request" %>  
+    			
+
 <% 
         String requestId = request.getParameter("requestId"); 
         String name = request.getParameter("name");
@@ -31,13 +39,13 @@
 		String attendance = request.getParameter("attendance");
 		String pay = request.getParameter("pay");
 		String budget = request.getParameter("budget");
-		String tickets = request.getParameter("tickets");
+		
 		%>
   
   <section class="form my-4 mx-5">
 
  
-      <form  name = "form2" action="RequestUpdateServlet" method = "POST"  >
+      <form   action="RequestUpdateServlet" method = "GET"  >
       <table  class="table table-striped table-dark" id = "boarder">
       <div class="banner">
 		<img  src="assets/img/events2.jpg"  width="100%" height = "200px">
@@ -71,7 +79,7 @@
 						<tr>
 							<th>
 								<td><b>Select the event</b> </td>
-								<td><select name = "event"  value ="<%=event%>">
+								<td><select name = "event"  value ="<%= event %>">
 						            <option value=""></option>
 						            <option value="1">*Please select*</option>
 						            <option value="2">Wedding</option>
@@ -93,15 +101,16 @@
 						</tr>
 						<tr>
 							<th>
+							 <div class="item">
 								<td><b>Event date</b></td>
-								<td><input type = "text" name = "date" value = "<%= date %>" style = "width:100%"> <i class="fas fa-calendar-alt"></i><br></td>
-							
+								<td><input type = "date" name = "date" value = "<%= date %>" style = "width:100%"> <i class="fas fa-calendar-alt"></i><br></td>
+							</div>
 							</th>
 						</tr>
 						<tr>
 							<th>
 								<td><b>Event time</b></td>
-								<td><input type = "text" name = "time" value = "<%= time %>" style = "width:100%"><i class="fas fa-clock"></i> <br></td>
+								<td><input type = "time" name = "time" value = "<%= time %>" style = "width:100%"><i class="fas fa-clock"></i> <br></td>
 							</th>
 						</tr>
 						<tr>

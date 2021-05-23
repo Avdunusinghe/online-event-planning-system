@@ -11,18 +11,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.request.util.RequestDbUtil;
 
-
 /**
- * Servlet implementation class UpdateAcceptedListServelet
+ * Servlet implementation class UpdateAcceptedListServlet
  */
-@WebServlet("/UpdateAcceptedListServelet")
-public class UpdateAcceptedListServelet extends HttpServlet {
+@WebServlet("/UpdateAcceptedListServlet")
+public class UpdateAcceptedListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateAcceptedListServelet() {
+    public UpdateAcceptedListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,7 +31,21 @@ public class UpdateAcceptedListServelet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		String requestId = request.getParameter("requestId");
+		boolean isTrue;
+		try {
+		isTrue = RequestDbUtil.updateAcceptedRequest(requestId);
+		
+		if (isTrue == true)
+		{
+			RequestDispatcher dis = request.getRequestDispatcher("GetAcceptedListServlet");
+			 dis.forward(request, response);
+		 }
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}	 
 	}
 
 	/**
@@ -41,26 +54,6 @@ public class UpdateAcceptedListServelet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-		
-		String requestId  = request.getParameter("requestId");
-		
-		String dispatchPage;
-		boolean acceptTrue;
-		
-		try {
-			acceptTrue = RequestDbUtil.updateAcceptedRequest(requestId);
-			
-			if (acceptTrue == true) {
-				
-				dispatchPage = "AcceptedRequest.jsp";
-				RequestDispatcher dispatcher =  request.getRequestDispatcher(dispatchPage);
-				dispatcher.forward(request, response);
-			}
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
 	}
 
-
+}

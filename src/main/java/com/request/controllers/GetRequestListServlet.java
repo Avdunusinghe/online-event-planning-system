@@ -1,7 +1,7 @@
  package com.request.controllers;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -37,8 +37,7 @@ public class GetRequestListServlet extends HttpServlet {
 
 		//String requestId = request.getParameter("requestId");
 
-		PrintWriter EW = response.getWriter();
-		response.setContentType("text/html");
+		
 		
 		try {
 			List<Request> requests = RequestDbUtil.getRequestList();
@@ -48,7 +47,9 @@ public class GetRequestListServlet extends HttpServlet {
 				
 				
 				RequestDispatcher dis = request.getRequestDispatcher("RequestList.jsp");
+				
 				 dis.forward(request, response);
+			
 			}
 
 

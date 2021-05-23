@@ -1,7 +1,6 @@
 package com.request.controllers;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -34,18 +33,7 @@ public class RequestUpdateServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-	
 		
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		PrintWriter pw = response.getWriter();
-		 response.setContentType("text/html");
-		// TODO Auto-generated method stub
 		String requestId = request.getParameter("requestId");
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
@@ -60,7 +48,7 @@ public class RequestUpdateServlet extends HttpServlet {
 		String budget = request.getParameter("budget");
 		
 
-		doGet(request,response);
+	
 		
 		boolean isTrue;
 		try {
@@ -71,18 +59,20 @@ public class RequestUpdateServlet extends HttpServlet {
 			RequestDispatcher dis = request.getRequestDispatcher("successRequest.jsp");
 			 dis.forward(request, response);
 		 }
-		 else {
-			 
-			 
-			 pw.println("<script type = 'text/javascript'>");
-				pw.println("alert('No Request details');");
-				pw.println("location = 'UpdateRequest.jsp'");
-				pw.println("</script>");
-		 }
 		}
 		catch(Exception e) {
 			e.printStackTrace();
 		}	 
+	
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
 	}
 
 }

@@ -37,10 +37,7 @@
         </div>
 		 <div class="item">
           <p>Customer-Name</p>
-          <div class="name-item">
             <input type="text" name="name" placeholder="Name" required/>
-         
-          </div>
         </div>
 		<div class="item">
           <p>Contact Email</p>
@@ -117,15 +114,20 @@
         </div>
         
         <div class="question">
-          <p>Will tickets issued?</p>
-          <div class="question-answer">
-            <div>
-              <input type="radio" value="1"  id = "tickets"  name="tickets" checked required/>Yes
-              <input type="radio" value="2"  id = "tickets"  name="tickets" />No
-            </div>
+        <p>Will tickets issued?</p>
+        <div class="question-answer">
+          <div>
+            <input type="radio" value="1" id="radio_1" name="tickets"/ checked required>
+            <label for="radio_1" class="radio"><span>Yes</span></label>
+          </div>
+          <div>
+            <input type="radio" value="2" id="radio_2" name="tickets"/>
+            <label for="radio_2" class="radio"><span>No</span></label>
+          </div>
         </div>
+      </div>
         <div class="btn-block">
-          <button type="submit" href = "UserAppHome.jsp">Submit</button>
+          <button type="submit" >Submit</button>
         </div>
       </form>
     </div>

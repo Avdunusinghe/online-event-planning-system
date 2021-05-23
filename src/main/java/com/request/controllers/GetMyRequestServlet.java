@@ -1,7 +1,6 @@
 package com.request.controllers;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -15,16 +14,16 @@ import com.request.model.Request;
 import com.request.util.RequestDbUtil;
 
 /**
- * Servlet implementation class GetAcceptedListServlet
+ * Servlet implementation class GetMyRequestServlet
  */
-@WebServlet("/GetAcceptedListServlet")
-public class GetAcceptedListServlet extends HttpServlet {
+@WebServlet("/GetMyRequestServlet")
+public class GetMyRequestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetAcceptedListServlet() {
+    public GetMyRequestServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,18 +35,17 @@ public class GetAcceptedListServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		//PrintWriter EW = response.getWriter();
-		//response.setContentType("text/html");
-		
 		try {
-			List<Request> requests = RequestDbUtil.getAcceptedRequestList();
+			List<Request> requests = RequestDbUtil.getRequestList();
 			request.setAttribute("Request", requests);
 			
 			if(request != null) {
 				
 				
-				RequestDispatcher dis = request.getRequestDispatcher("AcceptedList.jsp");
+				RequestDispatcher dis = request.getRequestDispatcher("ReqUpdate.jsp");
+				
 				 dis.forward(request, response);
+				
 			}
 
 
@@ -65,8 +63,6 @@ public class GetAcceptedListServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-
-		
 	}
 
 }

@@ -101,7 +101,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                  New Event Requests
                             </a>
-                             <a class="nav-link" href="AcceptedList.jsp">
+                             <a class="nav-link" href="GetAcceptedListServlet">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Accepted Event Requests
                             </a>
