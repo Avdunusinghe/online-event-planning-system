@@ -77,7 +77,7 @@
 <p><b>Event Request  submitted successfully!!!!!</b><p>
 
 
-  <c:forEach var="ress" items="${Request}" >
+  <c:forEach var="ress" items="${RequestDetail}" >
               
               <c:set var="requestId" value="${ress.requestId}"/>
 				<c:set var="name" value="${ress.name}"/>
@@ -91,8 +91,10 @@
 				<c:set var="attendance" value="${ress.attendance}"/>
 				<c:set var="pay" value="${ress.pay}"/>
 				<c:set var="budget" value="${ress.budget}"/>
-	
-	<c:url var = "UpdateRequestLink" value = "UpdateRequest.jsp">
+				<c:set var="tickets" value="${ress.tickets}"/>
+
+</c:forEach>
+<c:url  value = "UpdateRequest.jsp"  var = "UpdateRequestLink" >
 	
 	<c:param name =  "requestId" value = "${ress.requestId}"></c:param>
 	<c:param name =  "name" value = "${ress.name}"></c:param>
@@ -102,15 +104,16 @@
 	<c:param name =  "date" value = "${ress.date}"></c:param>
 	<c:param name =  "time" value = "${ress.time}"></c:param>
 	<c:param name =  "venue" value = "${ress.venue}"></c:param>
-		<c:param name =  "address" value = "${ress.address}"></c:param>
-			<c:param name =  "attendance" value = "${ress.attendance}"></c:param>
-				<c:param name =  "pay" value = "${ress.pay}"></c:param>
-				<c:param name =  "budget" value = "${ress.budget}"></c:param>
+    <c:param name =  "address" value = "${ress.address}"></c:param>
+	<c:param name =  "attendance" value = "${ress.attendance}"></c:param>
+	<c:param name =  "pay" value = "${ress.pay}"></c:param>
+	<c:param name =  "budget" value = "${ress.budget}"></c:param>
+	<c:param name =  "tickets" value = "${ress.tickets}"></c:param>
+				
 </c:url>
-</c:forEach>
 <br> 
        <label> Do you want to Update?</label>
-     <a href = UpdateRequest.jsp  class = "btn btn-warning"  value="Submit" ><b>Update</b></a><br>
+     <a href = "${UpdateRequestLink} "  class = "btn btn-warning"  value="Submit" ><b>Update</b></a><br>
       <label> Submitted succesfully</label>
        <a href = "UserAppHome.jsp"   class = "btn btn-warning"  value="Submit"><b>Done</b></a><br>
                                       
