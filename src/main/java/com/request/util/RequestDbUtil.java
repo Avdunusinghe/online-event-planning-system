@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
+
 import com.DBConnection.DBConnectionUtil;
 
 import com.request.model.Request;
@@ -231,5 +233,44 @@ public static boolean updateAcceptedRequest(String requestId) {
 			ex.printStackTrace();
 		}
 		return requests;
+	}
+
+	public static List<Request> getRequestDetails(String requestId) {
+		// TODO Auto-generated method stub
+          ArrayList<Request> requests = new ArrayList<>();
+		
+		try {
+			int reqID  = Integer.parseInt(requestId);
+			conn = DBConnectionUtil.getConnection();
+			statement = conn.createStatement();
+			String sql = "SELECT * FROM request WHERE requestId= '"+reqID+"'";
+			ResultSet result = statement.executeQuery(sql);
+			
+			while(result.next()) {
+				int reqID1 = result.getInt("requestId");
+				String name = result.getString("name");
+				String email = result.getString("email");
+				String phone = result.getString("phone");
+				String event = result.getString("event");
+				String date =  result.getString("date");
+				String time =  result.getString("time");
+				String venue =  result.getString("venue");
+				String address =  result.getString("address");
+				String attendance = result.getString("attendance");
+				String pay =  result.getString("pay");
+				String budget =  result.getString("budget");
+				String tickets =  result.getString("tickets");
+				
+				Request re = new Request (reqID1, name,  email, phone, event, date, time, venue, address, attendance, pay , budget ,tickets);
+				requests.add(re);
+			}
+			
+		}
+		catch(Exception ex){
+			ex.printStackTrace();
+		}
+		return requests;
+	
+	
 	}
 }

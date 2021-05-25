@@ -39,6 +39,8 @@
 		String attendance = request.getParameter("attendance");
 		String pay = request.getParameter("pay");
 		String budget = request.getParameter("budget");
+		String tickets = request.getParameter("tickets");
+		
 		
 		%>
   
@@ -150,6 +152,19 @@
 								<td><input type = "text" name = "budget" value = "<%= budget %>" style = "width:60%"> <br></td>
 							</th>
 						</tr>
+						<tr>
+					        <td><b>Will tickets issued?</b></td>
+					        <td>
+					        <div>
+					            <input type="radio" value="<%=tickets %>" id="radio_1" name="tickets"/ checked required>
+					            <label for="radio_1" class="radio"><span>Yes</span></label>
+					          </div>
+					          <div>
+					            <input type="radio" value="<%=tickets %>" id="radio_2" name="tickets"/>
+					            <label for="radio_2" class="radio"><span>No</span></label>
+					          </div>
+					        </td>
+                           </tr>
 						<tr>
 							<th><th>
 								<td><input type = "submit" name = "submit" value = "UPDATE EVENT REQUEST" class="btn btn-warning" > <br> </td>

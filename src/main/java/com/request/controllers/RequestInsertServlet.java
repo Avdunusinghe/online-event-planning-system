@@ -72,7 +72,7 @@ public class RequestInsertServlet extends HttpServlet {
 						
 						//if query execute success dispatch to EventRequest page
 						
-						RequestDispatcher res = request.getRequestDispatcher("successRequest.jsp");
+						RequestDispatcher res = request.getRequestDispatcher("GetRequestDetailsServlet");
 						res.forward(request, response);
 					}
 					else {
