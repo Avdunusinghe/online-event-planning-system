@@ -23,33 +23,38 @@
 	 								</div>
 						</c:if>               
                 </main>	
+               <div class="card" style="width: 100%;">
+						<div class="card-body">
+								<table class = "table table-hover" style="width:100%;" > 
+									<tr>
+										<th scope="col" style="width:10%;">User Id</th>
+										<th scope="col" style="width:25%;">Name</th>
+										<th scope="col" style="width:25%;">Email</th>
+										<th scope="col" style="width:1250%;">Phone</th>
+										<th scope="col" style="width:5%;"></th>
+										
+									</tr>
+								<c:forEach var="tempCustomer" items="${deactive_list}">
+									<tr>
+									
+									<c:url var="reactiveCustomerLink" value = "ReActiveCustomerServlet">
+										<c:param name="userId" value="${tempCustomer.userId}"></c:param>
+									</c:url>
+									
+									<td> ${tempCustomer.userId}</td>
+									<td> ${tempCustomer.name} </td>
+									<td> ${tempCustomer.email} </td>
+									<td> ${tempCustomer.phone} </td>
+									<td> <a href="${reactiveCustomerLink}" class="btn btn-success">ReActive</a></td>
+				
+								</tr>
+								</c:forEach>
+								
+								
+							</table>
+						</div>
+			   </div>
                
-                <table class = "table table-hover" style="width:60%;" > 
-    				<tr>
-	      				<th scope="col">User Id</th>
-	      				<th scope="col">Name</th>
-	      				<th scope="col">Email</th>
-	      				<th scope="col">Phone</th>
-	      				<th scope="col">Option</th>
-    				</tr>
-			    <c:forEach var="tempCustomer" items="${deactive_list}">
-			    	<tr>
-			    	
-			    	<c:url var="reactiveCustomerLink" value = "ReActiveCustomerServlet">
-			    		<c:param name="userId" value="${tempCustomer.userId}"></c:param>
-			    	</c:url>
-			    	
-			     	<td> ${tempCustomer.userId}</td>
-			     	<td> ${tempCustomer.name} </td>
-			     	<td> ${tempCustomer.email} </td>
-			     	<td> ${tempCustomer.phone} </td>
-			     	<td> <a href="${reactiveCustomerLink}" class="btn btn-success">ReActive</a></td>
-
-			     </tr>
-			    </c:forEach>
-			    
-			    
-			</table>
                 
 
  <jsp:include page="adminFooter.jsp"/>   
