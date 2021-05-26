@@ -15,13 +15,15 @@
     				<%@ page import="java.util.*, com.contact.model.Contact" %>
     			
     			<!-- contact list table -->
-                <table  class="table table-hover" style="width:60%;">
+                <table  class="table table-hover" style="width:100%;">
     				<tr>
 	      			<th scope="col">Contact Id</th>
 	      				<th scope="col">Name</th>
 	      				<th scope="col">Email</th>
 	      				<th scope="col">Subject</th>
 	      				<th scope="col">Message</th>
+	      				<th scope="col">Update</th>
+	      				<th scope="col">Delete</th>
     				</tr>
     			<c:forEach var="contactlist" items="${contact}">
     				<c:set var = "messageId" value = "${contactlist.messageId }" ></c:set>

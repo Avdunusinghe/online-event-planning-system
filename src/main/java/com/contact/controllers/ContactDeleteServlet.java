@@ -19,7 +19,7 @@ public class ContactDeleteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String messageId = request.getParameter("conId");
+		String messageId = request.getParameter("messageId");
 		
 		try {
 			PrintWriter Ex = response.getWriter();

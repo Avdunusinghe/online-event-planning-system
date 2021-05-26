@@ -60,11 +60,11 @@ public class ContactDbUtil {
 			com = DBConnectionUtil.getConnection();
 			state = com.createStatement();
 			
-			String sql = "UPDATE Contactus SET subject='"+subject+"', message='"+message+"', WHEARE messageId = '"+conId+"'";
+			String sql = "UPDATE contactus SET subject='"+subject+"', message='"+message+"', WHEARE messageId = '"+conId+"'";
 			
-			int result = state.executeUpdate(sql);
+			int rs = state.executeUpdate(sql);
 			
-			if(result > 0) {
+			if(rs > 0) {
 				
 				isSuccess = true;
 			}
