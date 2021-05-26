@@ -53,14 +53,14 @@ public class ContactDbUtil {
 	
 	
 	//update query
-	public static boolean updateContact(String messageId, String name, String subject, String message, String email) {
+	public static boolean updateContact(String messageId, String name, String email, String subject, String message) {
 		
 		try {
 			int conId = Integer.parseInt(messageId);
 			com = DBConnectionUtil.getConnection();
 			state = com.createStatement();
 			
-			String sql = "UPDATE contactus SET subject='"+subject+"', message='"+message+"', WHEARE messageId = '"+conId+"'";
+			String sql = "UPDATE contactus SET name = '"+name+"', email = '"+email+"', subject='"+subject+"', message='"+message+"' WHERE messageId = '"+conId+"'";
 			
 			int rs = state.executeUpdate(sql);
 			

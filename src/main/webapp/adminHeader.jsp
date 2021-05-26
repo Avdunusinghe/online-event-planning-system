@@ -98,8 +98,16 @@
                             </div>
                             <div class="sb-sidenav-menu-heading">Customer messages</div>
                             <a class="nav-link" href="ContactListServlet">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                               
                                  Message List
+                           </a>
+                            <a class="nav-link" href="sponsorAdd.jsp">
+                                
+                                 Sponsors Register
+                           </a>
+                           <a class="nav-link" href="sponsorAdd.jsp">
+                               
+                                 Sponsors List
                            </a>
                             
                         </div>

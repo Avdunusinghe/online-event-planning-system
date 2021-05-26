@@ -24,7 +24,12 @@ public class ContactUpdateServlet extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		// TODO Auto-generated method stub
 		
-		String messageId = request.getParameter("messageId");
+		
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String messageId = request.getParameter("messageid");
 		String name = request.getParameter("name");
 		String email  = request.getParameter("email");
 		String subject = request.getParameter("subject");
@@ -42,7 +47,7 @@ public class ContactUpdateServlet extends HttpServlet {
 			}
 			else {
 			 
-				RequestDispatcher dis = request.getRequestDispatcher("UserAppHome.jsp");  
+				RequestDispatcher dis = request.getRequestDispatcher("adminHome.jsp");  
 				dis.forward(request, response);
 			}
 		}
@@ -50,10 +55,6 @@ public class ContactUpdateServlet extends HttpServlet {
 		catch(Exception e) {
 			e.printStackTrace();
 		}
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 	}
 	
 }
