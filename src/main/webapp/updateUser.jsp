@@ -153,11 +153,10 @@
                     </div>
                                
                     <div class="form-row" >
-                      <div><input type="submit" value="Update Profile" class="btn btn-success"  /></div>
-                        <div><a href="https://www.w3schools.com"  class="btn btn-danger">Delete Account</a></div>  
+                      <div><input type="submit" value="Update Profile" class="btn btn-success"  /></div> 
                     </div>
 
-                <br>
+           
                     
                         
                 </form>

@@ -240,7 +240,7 @@ public  class UserDbUtil implements ICustomerService {
 				String userMobileNumber = myRs.getString("phone");
 				String userPassword = myRs.getString("password");
 				
-				User tempCustomer = new User(userId, userName,userEmail,userMobileNumber,userPassword);
+				User tempCustomer = new User(userId, userName, userEmail, userMobileNumber, userPassword);
 				
 				customers.add(tempCustomer);
 				//myCon.close();
