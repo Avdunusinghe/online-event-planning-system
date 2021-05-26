@@ -123,7 +123,8 @@
     				<%@ page import="java.util.*, com.user.model.User" %>
     			
     				<!-- employee list table -->
-    				<table border = "2" class="table table-dark">
+    				<table border = "" class="table table-hover">
+    				<!-- <thead class="thead-dark">-->
 						<tr>
 							<th scope = "col">User ID</th>
 							<th scope = "col">Name</th>

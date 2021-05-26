@@ -151,7 +151,7 @@
 
 
 <div class="form" class="needs-validation" nonvalidate>
-    <form action="ContactUpdateServlet" method="get" role="form" class="contactform">
+    <form action="ContactUpdateServlet" method="POST" role="form" class="contactform">
             <div class="form-group">
               <input type="text" class="form-control" name="messageid" value = "<%= messageId %>" id="messageid" data-rule="minlen:4" data-msg="Please enter at least 1 integer" required/>
               <div class="validate"></div>
