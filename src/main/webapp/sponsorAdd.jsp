@@ -40,7 +40,7 @@
 									    <input type="text" class="form-control" name="phone" id="phone"  placeholder="Phone Number">
 									  </div>
 
-									  <button type="button" class="btn btn-warning btn-lg btn-block">Register</button>
+									  <button type="submit" class="btn btn-warning btn-lg btn-block">Register</button>
 							</form>
 			             </div>
                
