@@ -105,7 +105,7 @@
                                 
                                  Sponsors Register
                            </a>
-                           <a class="nav-link" href="sponsorAdd.jsp">
+                           <a class="nav-link" href="GetSponssorDetailsServelet">
                                
                                  Sponsors List
                            </a>

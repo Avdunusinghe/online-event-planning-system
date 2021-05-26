@@ -16,7 +16,7 @@
                                      
                 </main>
               
-               <div class="card" style="width:60%;">
+               <div class="card" style="width:50%;">
 			               	<div class="card-body">
 			               	
 			         			<form  action="SponsorInserServlet" method="POST">
@@ -40,7 +40,7 @@
 									    <input type="text" class="form-control" name="phone" id="phone"  placeholder="Phone Number">
 									  </div>
 
-									  <button type="submit" class="btn btn-primary">Submit</button>
+									  <button type="button" class="btn btn-warning btn-lg btn-block">Register</button>
 							</form>
 			             </div>
                

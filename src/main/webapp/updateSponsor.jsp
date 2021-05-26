@@ -24,7 +24,7 @@
  		
  %>
               
-               <div class="card" style="width:60%;">
+               <div class="card" style="width:50%;">
 			               	<div class="card-body">
 			               	
 			         			<form  action="UpdateSponsorServlet" method="GET">
