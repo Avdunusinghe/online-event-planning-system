@@ -206,12 +206,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header #logo img {
-<<<<<<< HEAD
+
   padding: 0;
   margin: 0;
   max-height: 150px;
   size: 1500px;
-=======
+
   padding: 0px;
   margin: 0px;
   max-height: 75px;
@@ -219,7 +219,7 @@ h1, h2, h3, h4, h5, h6 {
  
  
  
->>>>>>> branch 'master' of https://github.com/Avdunusinghe/online-event-planning-system.git
+
 }
 
 /*--------------------------------------------------------------
@@ -1553,11 +1553,11 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #footer .footer-top .footer-info img {
-<<<<<<< HEAD
+
   height: 120px;
-=======
+
   height: 100px;
->>>>>>> branch 'master' of https://github.com/Avdunusinghe/online-event-planning-system.git
+
   margin-bottom: 10px;
 }
 
