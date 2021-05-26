@@ -150,33 +150,30 @@
 %>
 
 
-<div class="form" class="needs-validation" nonvalidate>
+<div class="form">
     <form action="ContactUpdateServlet" method="POST" role="form" class="contactform">
             <div class="form-group">
-              <input type="text" class="form-control" name="messageid" value = "<%= messageId %>" id="messageid" data-rule="minlen:4" data-msg="Please enter at least 1 integer" required/>
-              <div class="validate"></div>
+              <input type="text" class="form-control" name="messageid" id="messageid"  value = "<%= messageId %>" />
+             
         	</div>
             <div class="form-group">
-              <input type="text" class="form-control" name="name" id="name" value = "<%= name %>" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required/>
-              <div class="validate"></div>
+              <input type="text" class="form-control" name="name" id="name" value = "<%= name %>"  />
+            
         	</div>
             <div class="form-group">
-                <input type="email" class="form-control" name="email" id="email" value = "<%= email %>" data-rule="email" data-msg="Please enter a valid email" required/>
-                <div class="validate"></div>
+                <input type="email" class="form-control" name="email" id="email" value = "<%= email %>" />
+              
             </div>
         <div class="form-group">
-              <input type="text" class="form-control" name="subject" id="subject" value = "<%= subject %>" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" required/>
-              <div class="validate"></div>
+              <input type="text" class="form-control" name="subject" id="subject" value = "<%= subject %>" />
+              
         </div>
         <div class="form-group">
-              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" value = "<%= message %>"></textarea>
-              <div class="validate"></div>
+             <!-- <textarea class="form-control" name="message" value = "" rows="5" data-rule="required" data-msg="Please write something for us" ></textarea> --> 
+             <input type="text" class="form-control" name="message" id="message" value = "<%= message %>" />
+             
         </div>
-        <div class="mb-3">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div><br>
+              
         <div class="text-center">
         	<button type="submit" value="updated">Update Message</button>
         	<button type="reset">Delete Message</button>
