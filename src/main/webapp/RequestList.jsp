@@ -27,7 +27,7 @@
                 
                 
                 
-         <table class="table table-bordered table-dark"  style="width:90%" >
+         <table class="table table-striped"  style="width:90%" >
 
 		<tr>
 	      				<th scope="col">Request Id</th>
