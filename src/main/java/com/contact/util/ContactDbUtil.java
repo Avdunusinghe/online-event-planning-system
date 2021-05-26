@@ -108,6 +108,7 @@ public class ContactDbUtil {
 			}
 			
 		}
+		
 		catch(Exception ex){
 			ex.printStackTrace();
 		}
