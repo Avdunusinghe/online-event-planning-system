@@ -65,36 +65,56 @@ public class UserInsetServlet extends HttpServlet {
 		message +="<br>";
 		message+= "<font color=red>This is Auto Genarated Email</b>";	*/	
 		boolean isInsertTrue;
+		int isEmailAlreadyExists;
 		try {
 			
-			ICustomerService customerService = new UserDbUtil();
-			isInsertTrue = customerService.addUser(name, email, phone, password);
+			ICustomerService checkEmailService = new UserDbUtil();
+			isEmailAlreadyExists = checkEmailService.validateEmail(email);
 			
-			/*
-			 *  check query execute Success
-			 */
-			
-			if(isInsertTrue == true) {
+			if(isEmailAlreadyExists == 1) {
 				
-				/*
-				 * fire email
-				 */
-				SendMail.sendMailRegisteredCustomer(email, subject, message);
-				
-				/*
-				 * if query execute success dispatch to home page
-				 */
-				RequestDispatcher dispatcher = request.getRequestDispatcher("UserAppHome.jsp");
+				String emailExistsMsg = "This email address is already being exsits!";
+                request.setAttribute("emailMsg", emailExistsMsg); 
+                
+                RequestDispatcher dispatcher = request.getRequestDispatcher("clientRegister.jsp");
 				dispatcher.forward(request, response);
 			}
 			else {
+				
+				ICustomerService customerService = new UserDbUtil();
+				isInsertTrue = customerService.addUser(name, email, phone, password);
+				
 				/*
-				 * if query execute not success dispatch to registerpage
+				 *  check query execute Success
 				 */
 				
-				RequestDispatcher dispatcher2 = request.getRequestDispatcher("clientRegister.jsp");
-				dispatcher2.forward(request, response);
+				if(isInsertTrue == true) {
+					
+					/*
+					 * fire email
+					 */
+					SendMail.sendMailRegisteredCustomer(email, subject, message);
+					
+					/*
+					 * if query execute success dispatch to home page
+					 */
+					String resgisterSuccess = "Registration Success!";
+	                request.setAttribute("regSuccess", resgisterSuccess); 
+					RequestDispatcher dispatcher = request.getRequestDispatcher("UserAppHome.jsp");
+					dispatcher.forward(request, response);
+				}
+				else {
+					/*
+					 * if query execute not success dispatch to registerpage
+					 */
+					
+					RequestDispatcher dispatcher = request.getRequestDispatcher("clientRegister.jsp");
+					dispatcher.forward(request, response);
+				}
 			}
+				
+			
+			
 		}catch(Exception ex) {
 			
 			ex.printStackTrace();

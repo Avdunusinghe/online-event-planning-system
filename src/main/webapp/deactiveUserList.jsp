@@ -14,14 +14,7 @@
                             <li class="breadcrumb-item active">Clients</li>
                         </ol> 
                         
-                        <c:if test="${message != null}">
-	 							<div id="message">
-	 								<div class="alert alert-success" role="alert">
-    								<a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
-    								<strong>successful!</strong>${message}
- 									</div>
-	 								</div>
-						</c:if>               
+                                     
                 </main>	
                <div class="card" style="width: 100%;">
 						<div class="card-body">
@@ -56,5 +49,10 @@
 			   </div>
                
                 
-
+ <c:if test="${activeMsg != null}">
+	 							
+ 			<script>
+     	 		toastr.success('${activeMsg}')
+   		 	</script>	 							
+</c:if> 
  <jsp:include page="adminFooter.jsp"/>   

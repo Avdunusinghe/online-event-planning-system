@@ -16,6 +16,11 @@
 <link rel="stylesheet" href="./Plugins/node_modules/toastr/build/toastr.css">
 <link href="assets/css/style.css" rel="stylesheet">
 
+<script src="./Plugins/node_modules/jquery/dist/jquery.js"></script>
+<script src="./Plugins/node_modules/@popperjs/core/dist/umd/popper.js"></script>
+<script src="./Plugins/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="./Plugins/node_modules/toastr/build/toastr.min.js"></script>
+
 <style>
     *{
         padding: 0px;
@@ -65,13 +70,10 @@ window.setTimeout(function() {
 <body>
 <br>
 <c:if test="${message != null}">
-	 <div id="message">
-	 	<div class="alert alert-danger alert-dismissible" role="alert">
-    	<a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
-    	<strong>Danger!</strong>${message}
- 		</div>
-	 </div>
-	  
+	 
+	  <script>
+     	 	toastr.warning('${message}')
+   		 </script>
 
 </c:if>
 <br><br>
@@ -168,10 +170,7 @@ window.setTimeout(function() {
 
 
 
-<script src="./Plugins/node_modules/jquery/dist/jquery.js"></script>
-<script src="./Plugins/node_modules/@popperjs/core/dist/umd/popper.js"></script>
-<script src="./Plugins/node_modules/bootstrap/dist/js/bootstrap.js"></script>
-<script src="./Plugins/node_modules/toastr/build/toastr.min.js"></script>
+
 
 
 

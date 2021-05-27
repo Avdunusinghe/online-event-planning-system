@@ -26,22 +26,47 @@
   <link href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="./Plugins/node_modules/toastr/build/toastr.css">
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-  <!-- =======================================================
-  * Template Name: TheEvent - v2.3.1
-  * Template URL: https://bootstrapmade.com/theevent-conference-event-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <script src="./Plugins/node_modules/toastr/build/toastr.min.js"></script>
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+ 
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="assets/vendor/superfish/superfish.min.js"></script>
+  <script src="assets/vendor/hoverIntent/hoverIntent.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="./Plugins/node_modules/@popperjs/core/dist/umd/popper.js"></script>
+  <script src="./Plugins/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="./Plugins/node_modules/toastr/build/toastr.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  
+  
+
   <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+ 
 
  
 </head>
 
 <body>
+ 	<c:if test = "${regSuccess != null}">
+     	<script>
+     	 	toastr.warning('${regSuccess}')
+   		 </script>
+     </c:if> 
+     
+     <c:if test = "${loginMsg != null}">
+     	<script>
+     	 	toastr.success('${loginMsg}')
+   		 </script>
+     </c:if> 
   <!-- ======= Header ======= -->
   <header id="header">
     <div class="container">
@@ -960,20 +985,7 @@
   <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  
  
-  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="assets/vendor/venobox/venobox.min.js"></script>
-  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-  <script src="assets/vendor/superfish/superfish.min.js"></script>
-  <script src="assets/vendor/hoverIntent/hoverIntent.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="./Plugins/node_modules/@popperjs/core/dist/umd/popper.js"></script>
-  <script src="./Plugins/node_modules/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="./Plugins/node_modules/toastr/build/toastr.min.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
 </body>
 </html>

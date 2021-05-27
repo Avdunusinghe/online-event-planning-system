@@ -25,6 +25,8 @@ public interface ICustomerService {
       public List<User> getDeactiveCustomers(); 
       
       public boolean reActiveCustomer(String userId);
+      
+      public int validateEmail(String email);
 		
 	
 

@@ -44,6 +44,8 @@ public class CustomerDeactiveServlet extends HttpServlet {
 			
 			if(isDeactive == true) {
 				
+				String deActivatedMsg = "Customer Deactivated!";
+				request.setAttribute("deActivatedMsg", deActivatedMsg);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("UserListServlet");
 				dispatcher.forward(request, response);
 			}

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -88,7 +89,7 @@
                             	    aria-label="email" 
                             	    aria-describedby="basic-addon1" 
                             	    id="email" 
-                            	    name="email">                        
+                            	    name="email">                       
                     </div>
                     <div class="form-group">
                             <label>Mobile Number</label>
@@ -132,8 +133,15 @@
         </div>
     </div>
 </section>
-        
- 
+	
+	<c:if test = "${emailMsg != null}">
+     	<script>
+     	 	toastr.warning('${emailMsg}')
+   		 </script>
+     </c:if> 
+
+    
+    
     <br> <br> <br> <br> <br>
 
    <footer id="footer" style="bottom: 0; position: fixed; width: 100%;" >
@@ -143,12 +151,7 @@
         &copy; Copyright <strong>TheEventer</strong>. All Rights Reserved
       </div>
       <div class="credits">
-        <!--
-        All the links in the footer should remain intact.
-        You can delete the links only if you purchased the pro version.
-        Licensing information: https://bootstrapmade.com/license/
-        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=TheEvent
-      -->
+        
         Designed by <a href=""> MLB_OOP_G259</a>
       </div>
     </div>

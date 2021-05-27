@@ -139,7 +139,7 @@
                             id="phone" 
                             name="phone"
                             value = "<%= phone %>">                        
-              </div>http://localhost:8060/online-event-planning-system/##
+       
               <P>Change Password</P>
                     <div class="form-group">
                             <label>Password</label>

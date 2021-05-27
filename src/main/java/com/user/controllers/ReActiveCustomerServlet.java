@@ -39,7 +39,8 @@ public class ReActiveCustomerServlet extends HttpServlet {
 			
 			if(isAcctive == true) {
 				
-				
+				String reactiveMsg = "Customer Activated";
+				request.setAttribute("activeMsg", reactiveMsg);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("GetDeactiveUserDetailsServlet");
 				dispatcher.forward(request, response);
 			}

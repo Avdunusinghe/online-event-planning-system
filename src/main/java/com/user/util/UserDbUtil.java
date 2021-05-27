@@ -359,7 +359,33 @@ public  class UserDbUtil implements ICustomerService {
 		}
 		return isSuccess;
 	}
+
+	@Override
+	public int validateEmail(String email) {
+		
+		int isValid = 0;
+		try {
+			
+			myCon = DBConnectionUtil.getConnection();
+			String sql = "SELECT email FROM user WHERE email = ?";
+			myPreparedStmt = myCon.prepareStatement(sql);
+			myPreparedStmt.setString(1, email);
+			myRs = myPreparedStmt.executeQuery();
+			
+			
+			while(myRs.next()) {
+				
+				String existsEmail = myRs.getString("email");
+				existsEmail.equals(email);
+				isValid = 1;
+			}
+			
+		}catch(Exception ex) {
+			
+			ex.printStackTrace();
+		}
+		return isValid;
+	}
 	
-	
-	//test
+
 }

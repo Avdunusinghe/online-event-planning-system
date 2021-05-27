@@ -54,6 +54,9 @@ public class LoginControllerServlet extends HttpServlet {
 					
 					dispatchPage = "adminHome.jsp";
 					
+					String logingSuccess = "Logging Success!";
+	                request.setAttribute("loginMsg", logingSuccess); 
+					
 					HttpSession session = request.getSession();
 					session.setAttribute("user", user);
 					
@@ -64,6 +67,9 @@ public class LoginControllerServlet extends HttpServlet {
 				else {
 					
 					dispatchPage ="UserAppHome.jsp";
+					
+					String logingSuccess = "Logging Success!";
+	                request.setAttribute("loginMsg", logingSuccess); 
 					
 					HttpSession session = request.getSession();
 					session.setAttribute("user", user);
@@ -77,7 +83,7 @@ public class LoginControllerServlet extends HttpServlet {
 			else {
 				
 			
-				String message = "Invalid email/password";
+				String message = "Invalid email or password";
                 request.setAttribute("message", message);
 				
                 RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
