@@ -54,13 +54,17 @@ public class UserUpdateServlet extends HttpServlet {
 			 if(updateTrue == true) {
 				 
 				 dispatchPage = "UserProfileDetailsServlet";
+				 
+				 String updateProfile = "Profile Updated";
+				 request.setAttribute("updateDetails", updateProfile);
+				 
 				 RequestDispatcher dispatcher = request.getRequestDispatcher(dispatchPage);
 				 dispatcher.forward(request, response);
 			 }
 			 else {
 				 
 				    pw.println("<script type = 'text/javascript'>");
-					pw.println("alert('Your username or password is Incorfdf');");
+					pw.println("alert('operation failed');");
 					//pw.println("toastr.warning('Email or Password Incoreect');");
 					pw.println("location = 'updateUser.jsp'");
 					pw.println("</script>");

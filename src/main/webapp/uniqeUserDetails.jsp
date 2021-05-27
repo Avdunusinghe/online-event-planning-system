@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +14,11 @@
 <link href="./Plugins/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 <link rel="stylesheet" href="./Plugins/node_modules/toastr/build/toastr.css">
 <link href="assets/css/style.css" rel="stylesheet">
+
+<script src="./Plugins/node_modules/jquery/dist/jquery.js"></script>
+<script src="./Plugins/node_modules/@popperjs/core/dist/umd/popper.js"></script>
+<script src="./Plugins/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="./Plugins/node_modules/toastr/build/toastr.min.js"></script>
 
 <style>
   
@@ -37,7 +43,12 @@
 </head>
 <body>
 
-
+<c:if test="${updateDetails != null}">
+	 							
+ 			<script>
+     	 		toastr.success('${updateDetails}')
+   		 	</script>	 							
+</c:if> 
   <footer id="footer" position: fixed; width: 100%;" >
     
     <div class="container">
@@ -121,10 +132,7 @@
 
 
 
-<script src="./Plugins/node_modules/jquery/dist/jquery.js"></script>
-<script src="./Plugins/node_modules/@popperjs/core/dist/umd/popper.js"></script>
-<script src="./Plugins/node_modules/bootstrap/dist/js/bootstrap.js"></script>
-<script src="./Plugins/node_modules/toastr/build/toastr.min.js"></script>
+
 
 
 

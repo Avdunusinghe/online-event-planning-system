@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Register</title>
+<title>Update Profile</title>
 <meta content="" name="description">
   <meta content="" name="keywords">
   
@@ -82,6 +83,8 @@
 </head>
 <body>
 
+ 
+
  <%
  		String userId = request.getParameter("userId");
  		String name = request.getParameter("name");
@@ -94,7 +97,7 @@
     <div class="container">
         <div class="row no-gutters">
             <div class="col-lg-5">
-                <img src="./assets/img/gallery/5.jpg" class="img-fluid">
+                <img src="./assets/img/concert-tips.png" class="img-fluid">
             </div>
             <div class="col-lg-7 px-5 pt-5">
                 <form id="registerForm" action="UserUpdateServlet"  method="POST" >
@@ -139,7 +142,7 @@
                             id="phone" 
                             name="phone"
                             value = "<%= phone %>">                        
-       
+                  </div>
               <P>Change Password</P>
                     <div class="form-group">
                             <label>Password</label>
