@@ -27,23 +27,25 @@
                 
                 
                 
-         <table class="table table-striped"  style="width:90%" >
+         <table class="table table-striped"  style="width:100%" >
 
 		<tr>
-	      				<th scope="col">Request Id</th>
-	      				<th scope="col"> Name</th>
-	      				<th scope="col">Email</th>
-	      				<th scope="col">Phone</th>
-	      				<th scope="col">Event</th>
-	      				<th scope="col">Date</th>
-	      				<th scope="col"> Time</th>
-	      				<th scope="col">Venue</th>
-	      				<th scope="col"> Address</th>
-	      				<th scope="col">Attendees</th>
-	      				<th scope="col">Payment</th>
-	      				<th scope="col">Budget</th>
-	      				<th scope="col">Tickets?</th>
-	      				<th scope="col">Option</th>
+	      				<th scope="col" style="width:3%">Request Id</th>
+	      				<th scope="col" style="width:6%;"> Name</th>
+	      				<th scope="col" style="width:12%;">Email</th>
+	      				<th scope="col" style="width:6%;">Phone</th>
+	      				<th scope="col" style="width:6%;">Event</th>
+	      				<th scope="col" style="width:6%;">Date</th>
+	      				<th scope="col" style="width:3%;"> Time</th>
+	      				<th scope="col" style="width:3%;">Venue</th>
+	      				<th scope="col" style="width:9%;"> Address</th>
+	      				<th scope="col" style="width:6%;">Attendees</th>
+	      				<th scope="col" style="width:6%;">Payment</th>
+	      				<th scope="col" style="width:6%;">Budget</th>
+	      				<th scope="col" style="width:6%;">Tickets?</th>
+	      				<th scope="col" style="width:6%;"></th>
+	      		
+	     
 	      				
     	</tr>
     		
@@ -92,8 +94,8 @@
 
 		
 		
-		<td><a href="${AcceptRequestLink}" class="btn btn-success">Accept</a></td>
-        <td><a href="${deleteRequestLink}" class="btn btn-danger">Delete</a></td>
+		<td><a href="${AcceptRequestLink}" class="btn btn-success">Accept</a><br><br>
+       <a href="${deleteRequestLink}" class="btn btn-danger">Delete</a></td>
 		
 
 			
