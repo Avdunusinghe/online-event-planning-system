@@ -22,8 +22,8 @@
 	      				<th scope="col">Email</th>
 	      				<th scope="col">Subject</th>
 	      				<th scope="col">Message</th>
-	      				<th scope="col">Update</th>
-	      				<th scope="col">Delete</th>
+	      				<th scope="col"></th>
+	      				
     				</tr>
     			<c:forEach var="contactlist" items="${contact}">
     				<c:set var = "messageId" value = "${contactlist.messageId }" ></c:set>
@@ -48,7 +48,6 @@
 						<c:param name = "subject" value = "${contactlist.subject}"/>
 						<c:param name = "message" value = "${contactlist.message}"/>
 			      </c:url>
-			      <td> <a href="${updateContactLink}" class ="btn btn-success">Update</a></td>		
 			      <td> <a href="${deleteContactLink}" class="btn btn-danger">Delete</a></td>
 			    </tr>
 			  </c:forEach>
