@@ -7,7 +7,7 @@
                 <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Deactive Clients</h1>
+                        <h1 class="mt-4">Deactivated Clients</h1>
                         
                         
                         <ol class="breadcrumb mb-4">
@@ -38,7 +38,7 @@
 									<td> ${tempCustomer.name} </td>
 									<td> ${tempCustomer.email} </td>
 									<td> ${tempCustomer.phone} </td>
-									<td> <a href="${reactiveCustomerLink}" class="btn btn-success">ReActive</a></td>
+									<td> <a href="${reactiveCustomerLink}" class="btn btn-success">Active</a></td>
 				
 								</tr>
 								</c:forEach>

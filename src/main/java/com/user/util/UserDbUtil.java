@@ -22,7 +22,7 @@ public  class UserDbUtil implements ICustomerService {
 	private static PreparedStatement myPreparedStmt = null;
 	
 	private static boolean isSuccess;
-
+	
 	@Override
 	public User validateLogin(String email, String password) {
 		

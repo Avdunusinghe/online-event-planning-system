@@ -58,7 +58,7 @@
 <body>
  	<c:if test = "${regSuccess != null}">
      	<script>
-     	 	toastr.warning('${regSuccess}')
+     	 	toastr.success('${regSuccess}')
    		 </script>
      </c:if> 
      
