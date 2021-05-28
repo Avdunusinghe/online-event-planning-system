@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.user.userservice.EmployeeService;
 import com.user.util.EmployeeDbUtil;
 
 
@@ -51,7 +52,8 @@ public class EmployeeDeleteServlet extends HttpServlet {
 			response.setContentType("text/html");
 			//String dispatcherPage;
 		
-			boolean isDeleted = EmployeeDbUtil.deleteEmployee(userId);
+			EmployeeService employeeservice = new EmployeeDbUtil();
+			boolean isDeleted = employeeservice.deleteEmployee(userId);
 			if(isDeleted = true) {
 				
 				//dispatcher = "EmployeeListServlet";

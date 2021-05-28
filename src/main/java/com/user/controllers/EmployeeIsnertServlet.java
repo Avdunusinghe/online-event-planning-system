@@ -10,7 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.user.model.User;
+import com.user.userservice.EmployeeService;
+import com.user.userservice.ICustomerService;
 import com.user.util.EmployeeDbUtil;
+import com.user.util.UserDbUtil;
 
 
 /**
@@ -54,9 +58,9 @@ public class EmployeeIsnertServlet extends HttpServlet {
 		response.getWriter();
 		
 		boolean isdone ;
-		isdone =  EmployeeDbUtil.insertEmployeeDetails(name, email, contactNumber, password, isActive,type);
 		
-		
+		EmployeeService employeeservice = new EmployeeDbUtil();
+		isdone= employeeservice.insertEmployeeDetails(name, email, contactNumber, password, isActive, type);
 			
 			if(isdone == true) {
 				

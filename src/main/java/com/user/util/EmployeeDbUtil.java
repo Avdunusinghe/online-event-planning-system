@@ -16,8 +16,10 @@ import java.util.List;
 
 import com.DBConnection.*;
 import com.user.model.User;
+import com.user.userservice.EmployeeService;
+import com.user.userservice.ICustomerService;
 
-public class EmployeeDbUtil {
+public class EmployeeDbUtil implements EmployeeService {
 	private static Connection con = null;
 	private static Statement stmt = null;
 	private static ResultSet rs = null;
@@ -25,8 +27,9 @@ public class EmployeeDbUtil {
 	private static boolean isSuccess;
 	
 	
-	/*insert query*/ 
-	public static boolean insertEmployeeDetails(String name, String email, String contactNumber, String password, String isActive,String type) {
+	/*insert query*/
+	@Override
+	public  boolean insertEmployeeDetails(String name, String email, String contactNumber, String password, String isActive,String type) {
 		
 		isSuccess = false;
 
@@ -59,7 +62,8 @@ public class EmployeeDbUtil {
 	
 	
 	/*update query*/
-	public static boolean updateEmployee(String userId, String name, String email, String contactNumber, String password) {
+	@Override
+	public  boolean updateEmployee(String userId, String name, String email, String contactNumber, String password) {
 		
 		try {
 				int empId = Integer.parseInt(userId);
@@ -89,7 +93,8 @@ public class EmployeeDbUtil {
 	
 	
 	/* retrieve query */
-	public static List<User> getEmployeeDetails(){
+	@Override
+	public  List<User> getEmployeeDetails(){
 		
 		
 		ArrayList<User> user = new ArrayList<>();
@@ -120,8 +125,9 @@ public class EmployeeDbUtil {
 	
 	
 	
-	
-	public static boolean deleteEmployee(String userID) throws SQLException{
+	//delete query
+	@Override
+	public  boolean deleteEmployee(String userID) throws SQLException{
 		
 		try {
 			

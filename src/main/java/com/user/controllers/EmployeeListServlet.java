@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.user.model.User;
+import com.user.userservice.EmployeeService;
 import com.user.util.EmployeeDbUtil;
 
 /**
@@ -46,7 +47,8 @@ public class EmployeeListServlet extends HttpServlet {
 		response.setContentType("text/html");
 		
 		try {
-			List<User> employee = EmployeeDbUtil.getEmployeeDetails();
+			EmployeeService employeeservice = new EmployeeDbUtil();
+			List<User> employee = employeeservice.getEmployeeDetails();
 			request.setAttribute("employee_list", employee);
 			
 			if(employee != null) {
