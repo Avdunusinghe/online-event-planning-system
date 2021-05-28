@@ -22,12 +22,14 @@ public class ContactDeleteServlet extends HttpServlet {
 		String messageId = request.getParameter("messageId");
 		
 		try {
+			ContactDbUtil contactservice = new ContactDbUtil();
+			
 			PrintWriter Ex = response.getWriter();
 			response.setContentType("text/html");
 		
 			boolean isdelete;
 		
-			isdelete = ContactDbUtil.deleteContact(messageId);
+			isdelete = contactservice.deleteContact(messageId);
 		
 			if(isdelete == true) {
 				RequestDispatcher disp = request.getRequestDispatcher("ContactListServlet");

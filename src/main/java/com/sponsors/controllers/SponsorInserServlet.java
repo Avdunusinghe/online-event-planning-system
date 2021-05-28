@@ -57,19 +57,16 @@ public class SponsorInserServlet extends HttpServlet {
 		boolean isInsertTrue;
 		try {
 			
-				isInsertTrue = SponsorDbUtil.insertSponsor(name, email, address, phone);
+			SponsorDbUtil sponsorservice = new SponsorDbUtil();
 			
-			
+			isInsertTrue = sponsorservice.insertSponsor(name, email, address, phone);
 			
 			if(isInsertTrue == true) {
-				
-			
 				
 				RequestDispatcher dispatcher = request.getRequestDispatcher("sponsorAdd.jsp");
 				dispatcher.forward(request, response);
 			}
 			else {
-				
 				
 				print.println("<script type = 'text/javascript'>");
 				print.println("alert('cannot add ');");

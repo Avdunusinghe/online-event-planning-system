@@ -35,11 +35,13 @@ public class SponsorDeleteServlet extends HttpServlet {
 		String sponsorId = request.getParameter("sponsorId");
 		try {
 			
+			SponsorDbUtil sponsorservice = new SponsorDbUtil();
+			
 			PrintWriter pw = response.getWriter();
 			response.setContentType("text/html");
 			//String dispatchPage;
 			
-			boolean	isDeleted = SponsorDbUtil.deleteSponsor(sponsorId);
+			boolean	isDeleted = sponsorservice.deleteSponsor(sponsorId);
 			
 			if(isDeleted = true) {
 				

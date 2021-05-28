@@ -46,7 +46,9 @@ public class UpdateSponsorServlet extends HttpServlet {
 		
 		try {
 			
-			updateTrue = SponsorDbUtil.updateSponsor(sponsorId, name,email, address, phone);
+			SponsorDbUtil sponsorservice = new SponsorDbUtil();
+			
+			updateTrue = sponsorservice.updateSponsor(sponsorId, name,email, address, phone);
 			
 			if (updateTrue == true) {
 				

@@ -9,9 +9,10 @@ import java.util.List;
 
 import com.DBConnection.DBConnectionUtil;
 import com.sponsors.model.Sponsor;
+import com.sponsors.sponsorservice.SponsorService;
 
 
-public class SponsorDbUtil {
+public class SponsorDbUtil implements SponsorService{
 	
 	private static Connection con = null;
 	private static Statement stmt = null;
@@ -19,7 +20,10 @@ public class SponsorDbUtil {
 	private static PreparedStatement myPstmt = null;
 	
 	private static boolean isSuccess;
-	public static boolean insertSponsor(String name, String email, String address, String phone) {
+	
+	//insert query
+	@Override
+	public boolean insertSponsor(String name, String email, String address, String phone) {
 		
 	try {
 			
@@ -53,7 +57,10 @@ public class SponsorDbUtil {
 	}
 	return isSuccess;
 }
-	public static List<Sponsor> getSponsors() {
+	
+	//retrieve query
+	@Override
+	public List<Sponsor> getSponsors() {
 		
 		List<Sponsor> sponsors = new ArrayList<>();
 		
@@ -87,7 +94,9 @@ public class SponsorDbUtil {
 		return sponsors;
 	}
 	
-	public static boolean updateSponsor(String sponsorId, String name, String email, String address, String phone) {
+	//update query
+	@Override
+	public boolean updateSponsor(String sponsorId, String name, String email, String address, String phone) {
 		try {
 			int sponsId = Integer.parseInt(sponsorId);
 			
@@ -121,7 +130,10 @@ public class SponsorDbUtil {
 		}
 		return isSuccess;
 	}
-	public static boolean deleteSponsor(String sponsorId) {
+	
+	//delete query
+	@Override
+	public boolean deleteSponsor(String sponsorId) {
 		
 		try {
 			
@@ -155,16 +167,5 @@ public class SponsorDbUtil {
 		
 		
 		return isSuccess;	
-	}
-	
-	
-	
-	
+	}	
 }
-	
-	
-	
-	
-
-
-

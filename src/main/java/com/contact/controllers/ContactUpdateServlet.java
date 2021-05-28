@@ -38,7 +38,10 @@ public class ContactUpdateServlet extends HttpServlet {
 		boolean isupdate;
 		
 		try {
-			isupdate = ContactDbUtil.updateContact(messageId, name, email, subject, message);
+			
+			ContactDbUtil contactservice = new ContactDbUtil();
+			
+			isupdate = contactservice.updateContact(messageId, name, email, subject, message);
 		
 			if (isupdate == true)
 			{

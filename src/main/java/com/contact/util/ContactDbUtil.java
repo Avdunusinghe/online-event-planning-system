@@ -9,9 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.DBConnection.DBConnectionUtil;
+import com.contact.contactservice.ContactService;
 import com.contact.model.Contact;
 
-public class ContactDbUtil {
+public class ContactDbUtil implements ContactService{
 	private static Connection com = null;
 	private static Statement state = null;
 	private static ResultSet rs = null;
@@ -20,7 +21,8 @@ public class ContactDbUtil {
 	
 	
 	//insert query
-	public static boolean insertContact(String name, String email, String subject, String message) {
+	@Override
+	public boolean insertContact(String name, String email, String subject, String message) {
 		
 		isSuccess = false;
 		
@@ -53,7 +55,8 @@ public class ContactDbUtil {
 	
 	
 	//update query
-	public static boolean updateContact(String messageId, String name, String email, String subject, String message) {
+	@Override
+	public boolean updateContact(String messageId, String name, String email, String subject, String message) {
 		
 		try {
 			int conId = Integer.parseInt(messageId);
@@ -85,7 +88,8 @@ public class ContactDbUtil {
 	
 	
 	//retrieve data
-	public static List<Contact> getContactDetails(){
+	@Override
+	public List<Contact> getContactDetails(){
 		
 		
 		List<Contact> contact = new ArrayList<>();
@@ -117,7 +121,8 @@ public class ContactDbUtil {
 	
 	
 	//delete query
-	public static boolean deleteContact(String messageId) throws SQLException {
+	@Override
+	public boolean deleteContact(String messageId) throws SQLException {
 			
 		try {
 			int conId = Integer.parseInt(messageId);

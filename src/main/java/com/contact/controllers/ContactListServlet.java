@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.contact.contactservice.ContactService;
 import com.contact.model.Contact;
 import com.contact.util.ContactDbUtil;
 
@@ -41,7 +42,9 @@ public class ContactListServlet extends HttpServlet {
 		
 		try {
 			
-			List<Contact> contact = ContactDbUtil.getContactDetails();
+			ContactDbUtil contactservice = new ContactDbUtil();
+			
+			List<Contact> contact = contactservice.getContactDetails();
 			
 			request.setAttribute("contact", contact);
 			
